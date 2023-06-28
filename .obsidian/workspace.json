@@ -1,0 +1,174 @@
+{
+  "main": {
+    "id": "dfdadf86c59b6211",
+    "type": "split",
+    "children": [
+      {
+        "id": "bbb32e3bf4a621eb",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "42130ee292b06e90",
+            "type": "leaf",
+            "state": {
+              "type": "empty",
+              "state": {}
+            }
+          },
+          {
+            "id": "a6d4e1e970307d1d",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "index.md",
+                "mode": "source",
+                "source": false
+              }
+            }
+          }
+        ],
+        "currentTab": 1
+      }
+    ],
+    "direction": "vertical"
+  },
+  "left": {
+    "id": "8db7511d347d835d",
+    "type": "split",
+    "children": [
+      {
+        "id": "314753c701ead19d",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "3aa3f91892ad4fbd",
+            "type": "leaf",
+            "state": {
+              "type": "file-explorer",
+              "state": {
+                "sortOrder": "alphabetical"
+              }
+            }
+          },
+          {
+            "id": "6764dc0ba425a699",
+            "type": "leaf",
+            "state": {
+              "type": "search",
+              "state": {
+                "query": "",
+                "matchingCase": false,
+                "explainSearch": false,
+                "collapseAll": false,
+                "extraContext": false,
+                "sortOrder": "alphabetical"
+              }
+            }
+          },
+          {
+            "id": "4c2ed93934319e8f",
+            "type": "leaf",
+            "state": {
+              "type": "bookmarks",
+              "state": {}
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "horizontal",
+    "width": 300
+  },
+  "right": {
+    "id": "71a613776d912029",
+    "type": "split",
+    "children": [
+      {
+        "id": "7d56753b3adfb887",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "8a5da95b1613d65e",
+            "type": "leaf",
+            "state": {
+              "type": "backlink",
+              "state": {
+                "file": "index.md",
+                "collapseAll": false,
+                "extraContext": false,
+                "sortOrder": "alphabetical",
+                "showSearch": false,
+                "searchQuery": "",
+                "backlinkCollapsed": false,
+                "unlinkedCollapsed": true
+              }
+            }
+          },
+          {
+            "id": "1816bc3d1e7d55ca",
+            "type": "leaf",
+            "state": {
+              "type": "outgoing-link",
+              "state": {
+                "file": "index.md",
+                "linksCollapsed": false,
+                "unlinkedCollapsed": true
+              }
+            }
+          },
+          {
+            "id": "33af5256ae0bd16a",
+            "type": "leaf",
+            "state": {
+              "type": "tag",
+              "state": {
+                "sortOrder": "frequency",
+                "useHierarchy": true
+              }
+            }
+          },
+          {
+            "id": "680fbe2dd199f6eb",
+            "type": "leaf",
+            "state": {
+              "type": "outline",
+              "state": {
+                "file": "index.md"
+              }
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "horizontal",
+    "width": 300,
+    "collapsed": true
+  },
+  "left-ribbon": {
+    "hiddenItems": {
+      "switcher:Open quick switcher": false,
+      "graph:Open graph view": false,
+      "canvas:Create new canvas": false,
+      "daily-notes:Open today's daily note": false,
+      "templates:Insert template": false,
+      "command-palette:Open command palette": false,
+      "webpage-html-export:Export Vault to HTML": false
+    }
+  },
+  "active": "a6d4e1e970307d1d",
+  "lastOpenFiles": [
+    "docs/lib/scripts/tinycolor.js",
+    "docs/lib/scripts/graph_view.js",
+    "docs/lib/scripts/graph_wasm.js",
+    "docs/lib/scripts/graph_wasm.wasm",
+    "docs/lib/scripts/graph-render-worker.js",
+    "docs/lib/scripts/webpage.js",
+    "docs/lib/scripts",
+    "docs/lib/styles/snippets.css",
+    "docs/lib/styles/theme.css",
+    "docs/lib/styles/plugin-styles.css",
+    "docs/lib/styles/obsidian-styles.css",
+    "index.md"
+  ]
+}
