@@ -207,8 +207,13 @@
   },
   "active": "57a5c829440587b4",
   "lastOpenFiles": [
-    "index.md",
     "blogs/Markdown editor in react.md",
+    "docs/assets/images/me.jpg",
+    "docs/assets/images",
+    "docs/assets",
+    "blogs/The Hundred Things Principle.md",
+    "blogs/Tmux for productivity.md",
+    "index.md",
     "assets/images/me.jpg",
     "assets/images",
     "docs/CNAME",
@@ -216,11 +221,7 @@
     "docs/blogs/tmux-for-productivity.html",
     "docs/blogs/markdown-editor-in-react.html",
     "docs/blogs",
-    "blogs/The Hundred Things Principle.md",
-    "blogs/Tmux for productivity.md",
     "assets",
-    "blogs",
-    "docs/lib/scripts/tinycolor.js",
-    "docs/lib/scripts/graph_view.js"
+    "blogs"
   ]
 }
