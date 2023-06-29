@@ -1,9 +1,9 @@
+<span style="color:#ffbc05">Warning: This website is primarily made for PC view.</span>
+
 ![[me.jpg]]
 Fig 1 : **Himanshu Jangid** on a mountain
 
 # Introduction
-
-Hello Everyone, Welcome to my portfolio. I am Himanshu Jangid, currently a full stack software engineer at Wisflux Tech Labs. 
 
 Diligent web developer and software engineer with over 2 years of experience. Eager to get new opportunities and work on large scale projects. Skilled in developing plans, managing projects, and code documentation. currently working on NodeJS and React and leaning Rust for a good future.
 
