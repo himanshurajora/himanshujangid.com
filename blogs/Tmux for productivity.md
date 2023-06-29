@@ -14,7 +14,7 @@ How? It's simple we just have to install the cli tool. In my case as I am an Arc
 
 I just install it using the command `pacman -S tmux`
 
-Why? There's know question why I am going to use it in the future. It just saves a lot of my time. That's it. I have recently started using the lunar vim. Just another configuration for neovim that is of course configuration for vim using lua that is indeed a configuration of vi and using vimscript.
+Why? There's no question why I am going to use it in the future. It just saves a lot of my time. That's it. I have recently started using the lunar vim. Just another configuration for neovim that is of course configuration for vim using lua that is indeed a configuration of vi and using vimscript.
 
 Ok back to the point, I just like what tmux is doing. There are basically 5-10 simple commands to learn and that's it. You will save atleast half an hour per day and more than that you will save yourself and your mind being frustrated everyday going back and forth in terminal using the mouse. Because in my case even the `Ctrl + Tab` doesn't wok, so I had to figure out something.
 
