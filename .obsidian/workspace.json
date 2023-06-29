@@ -62,9 +62,21 @@
                 "source": false
               }
             }
+          },
+          {
+            "id": "57a5c829440587b4",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "index.md",
+                "mode": "source",
+                "source": false
+              }
+            }
           }
         ],
-        "currentTab": 4
+        "currentTab": 5
       }
     ],
     "direction": "vertical"
@@ -189,25 +201,26 @@
       "daily-notes:Open today's daily note": false,
       "templates:Insert template": false,
       "command-palette:Open command palette": false,
-      "webpage-html-export:Export Vault to HTML": false
+      "webpage-html-export:Export Vault to HTML": false,
+      "table-editor-obsidian:Advanced Tables Toolbar": false
     }
   },
-  "active": "45b1132023163244",
+  "active": "57a5c829440587b4",
   "lastOpenFiles": [
+    "index.md",
+    "blogs/Markdown editor in react.md",
+    "assets/images/me.jpg",
+    "assets/images",
+    "docs/CNAME",
     "docs/blogs/the-hundred-things-principle.html",
     "docs/blogs/tmux-for-productivity.html",
     "docs/blogs/markdown-editor-in-react.html",
     "docs/blogs",
     "blogs/The Hundred Things Principle.md",
     "blogs/Tmux for productivity.md",
-    "index.md",
-    "assests",
-    "blogs/Markdown editor in react.md",
+    "assets",
     "blogs",
     "docs/lib/scripts/tinycolor.js",
-    "docs/lib/scripts/graph_view.js",
-    "docs/lib/scripts/graph_wasm.js",
-    "docs/lib/scripts/graph_wasm.wasm",
-    "docs/lib/scripts/graph-render-worker.js"
+    "docs/lib/scripts/graph_view.js"
   ]
 }
