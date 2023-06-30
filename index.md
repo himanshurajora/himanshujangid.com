@@ -97,4 +97,6 @@ I also like to write small useful blogs and my recent blogs are
 - [[The Hundred Things Principle]]
 - [[Tmux for productivity]]
 
+I also write code snippets for contributing to the community. Read about it in here:
+- [[snippets/README]]
 
