@@ -38,9 +38,21 @@
                 "source": false
               }
             }
+          },
+          {
+            "id": "5acbfebca56aff7c",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "snippets/Gulp html partial and live server.md",
+                "mode": "source",
+                "source": false
+              }
+            }
           }
         ],
-        "currentTab": 2
+        "currentTab": 3
       }
     ],
     "direction": "vertical"
@@ -170,12 +182,13 @@
       "webpage-html-export:Export Vault to HTML": false
     }
   },
-  "active": "e865a5e96816d561",
+  "active": "5acbfebca56aff7c",
   "lastOpenFiles": [
-    "snippets/README.md",
-    "index.md",
-    "README.md",
+    "snippets/Preserve CWD in Gnome Terminal.md",
     "snippets/Gulp html partial and live server.md",
+    "README.md",
+    "index.md",
+    "snippets/README.md",
     "snippets",
     "blogs/The Hundred Things Principle.md",
     "blogs/Tmux for productivity.md",

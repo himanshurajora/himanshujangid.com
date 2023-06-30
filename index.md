@@ -100,3 +100,6 @@ I also like to write small useful blogs and my recent blogs are
 I also write code snippets for contributing to the community. Read about it in here:
 - [[snippets/README]]
 
+
+---
+Thanks for reading!

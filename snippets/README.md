@@ -12,3 +12,8 @@ Why? and How? are the two main questions to be asked for any topic and I have an
 ---
 Here are some of my recent code snippets:
 - [[Gulp html partial and live server]]
+
+
+
+---
+Thanks for reading!
