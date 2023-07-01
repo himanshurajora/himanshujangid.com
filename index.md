@@ -81,7 +81,10 @@ There are a few more portfolios that I have made previously
 | Blender         | I used to create 3d models, vfx and wallpaper            |
 | AfterEffects    | Only when needed                                                         |
 
-Here are some of my social and coder profiles
+### Know more about me statistically
+- Look at some [[Charts]] <- Click It
+
+### Here are some of my social and coder profiles
 - https://github.com/himanshurajora
 - https://www.linkedin.com/in/himanshurajora/
 - https://instagram.com/himy.in
@@ -92,13 +95,15 @@ Here are some of my social and coder profiles
 
 ---
 
-I also like to write small useful blogs and my recent blogs are
+### I also like to write small useful blogs and my recent blogs are
 - [[Markdown editor in react]]
 - [[The Hundred Things Principle]]
 - [[Tmux for productivity]]
 
-I also write code snippets for contributing to the community. Read about it in here:
+### I also write code snippets for contributing to the community. Read about it in here:
 - [[snippets/README]]
+
+
 
 
 ---

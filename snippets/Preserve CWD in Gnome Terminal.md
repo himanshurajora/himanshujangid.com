@@ -1,4 +1,3 @@
-
 ### Problem: 
 **Current Working directory is not preserved in gnome terminal (bash/zsh) fix.** I faced this issue when I recently switched to Manjaro linux. Everything was working fine until I noticed that the current working directory was not being preserved by the gnome-terminal when I created a new tab with `Ctrl + Shift + T`. It worked fine in Fedora and Ubuntu that I used earlier. 
 

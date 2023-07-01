@@ -57,14 +57,26 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "snippets/Multi Generic type in typescript.md",
+                "file": "index.md",
+                "mode": "source",
+                "source": false
+              }
+            }
+          },
+          {
+            "id": "25108e2db640a088",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "index.md",
                 "mode": "source",
                 "source": false
               }
             }
           }
         ],
-        "currentTab": 4
+        "currentTab": 5
       }
     ],
     "direction": "vertical"
@@ -130,7 +142,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "snippets/Multi Generic type in typescript.md",
+                "file": "index.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -147,7 +159,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "snippets/Multi Generic type in typescript.md",
+                "file": "index.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -170,7 +182,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "snippets/Multi Generic type in typescript.md"
+                "file": "index.md"
               }
             }
           }
@@ -194,10 +206,9 @@
       "webpage-html-export:Export Vault to HTML": false
     }
   },
-  "active": "87384cc5cb7d687b",
+  "active": "25108e2db640a088",
   "lastOpenFiles": [
     "README.md",
-    "docs/snippets/multi-generic-type-in-typescript.html",
     "blogs/Markdown editor in react.md",
     "blogs/The Hundred Things Principle.md",
     "blogs/Tmux for productivity.md",
@@ -206,6 +217,9 @@
     "snippets/Gulp html partial and live server.md",
     "snippets/Preserve CWD in Gnome Terminal.md",
     "snippets/Multi Generic type in typescript.md",
+    "Charts.md",
+    "docs/charts.html",
+    "docs/snippets/multi-generic-type-in-typescript.html",
     "docs/snippets/readme.html",
     "docs/snippets/gulp-html-partial-and-live-server.html",
     "docs/snippets/preserve-cwd-in-gnome-terminal.html",
@@ -214,7 +228,6 @@
     "progess/week-wise",
     "progess/month-wise",
     "progess",
-    "docs/readme.html",
     "docs/assets/images/me.jpg",
     "assets/images/me.jpg"
   ]

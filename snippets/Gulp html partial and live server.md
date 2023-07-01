@@ -1,4 +1,4 @@
-	### Problem:
+### Problem:
 Have you ever worked with plain html and css without any fancy framework such as React, Angular or Solid. Now let's imagine you have five pages and you want to add navbar and footer to all five of them. That's is simple isn't it? You just copy and paste navbar and footer. Now let's say you forgot something in navbar. Just copy paste again. Let's say you want to add a new link to footer. Copy paste again. It's so bad something right? You get frustrated and in the worst case stop working on it.
 
 ### Solution

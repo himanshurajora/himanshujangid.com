@@ -10,10 +10,10 @@ How would I do it. I think it's just a time consuming thing. Finding problems an
 Why? and How? are the two main questions to be asked for any topic and I have answered them. So now I think you would agree to read and use my snippets. Thanks for reading!
 
 ---
-Here are some of my recent code snippets:
+### Here are some of my recent code snippets:
 - [[Gulp html partial and live server]]
-
-
+- [[Multi Generic type in typescript]]
+- [[Preserve CWD in Gnome Terminal]]
 
 ---
 Thanks for reading!
