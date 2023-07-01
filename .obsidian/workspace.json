@@ -57,7 +57,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Conditional generic type in typescript.md",
+                "file": "snippets/Multi Generic type in typescript.md",
                 "mode": "source",
                 "source": false
               }
@@ -130,7 +130,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "Conditional generic type in typescript.md",
+                "file": "snippets/Multi Generic type in typescript.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -147,7 +147,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "Conditional generic type in typescript.md",
+                "file": "snippets/Multi Generic type in typescript.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -170,7 +170,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "Conditional generic type in typescript.md"
+                "file": "snippets/Multi Generic type in typescript.md"
               }
             }
           }
@@ -196,26 +196,26 @@
   },
   "active": "87384cc5cb7d687b",
   "lastOpenFiles": [
-    "snippets/Gulp html partial and live server.md",
-    "Conditional generic type in typescript.md",
     "README.md",
-    "docs/snippets/readme.html",
-    "docs/snippets/gulp-html-partial-and-live-server.html",
-    "docs/snippets/preserve-cwd-in-gnome-terminal.html",
-    "docs/snippets",
+    "docs/snippets/multi-generic-type-in-typescript.html",
     "blogs/Markdown editor in react.md",
     "blogs/The Hundred Things Principle.md",
     "blogs/Tmux for productivity.md",
     "index.md",
     "snippets/README.md",
+    "snippets/Gulp html partial and live server.md",
     "snippets/Preserve CWD in Gnome Terminal.md",
+    "snippets/Multi Generic type in typescript.md",
+    "docs/snippets/readme.html",
+    "docs/snippets/gulp-html-partial-and-live-server.html",
+    "docs/snippets/preserve-cwd-in-gnome-terminal.html",
+    "docs/snippets",
     "snippets",
     "progess/week-wise",
     "progess/month-wise",
     "progess",
     "docs/readme.html",
     "docs/assets/images/me.jpg",
-    "docs/assets/images",
     "assets/images/me.jpg"
   ]
 }
