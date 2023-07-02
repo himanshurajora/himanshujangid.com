@@ -125,3 +125,5 @@ For learning we need to have dedication, focus and mental strength. To get these
 ## Thanks
 
 Thanks for reading this document. I hope that you will benefit from “The Hundred Things Principle”. You can even go further than 100 things, it totally depends on you. I have thought about almost all the aspects of this method and it seems to be good. I am trying this on myself too. Once again, Thanks for reading! ![smiley](https://github.githubassets.com/images/icons/emoji/unicode/1f603.png)
+
+#life

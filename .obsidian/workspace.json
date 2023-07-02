@@ -69,14 +69,38 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "index.md",
+                "file": "snippets/Gulp html partial and live server.md",
+                "mode": "source",
+                "source": false
+              }
+            }
+          },
+          {
+            "id": "a6581bf8cf0a1d1f",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "blogs/Tmux for productivity.md",
+                "mode": "source",
+                "source": false
+              }
+            }
+          },
+          {
+            "id": "976d41b40aeda68f",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "snippets/Canvas following points.md",
                 "mode": "source",
                 "source": false
               }
             }
           }
         ],
-        "currentTab": 5
+        "currentTab": 7
       }
     ],
     "direction": "vertical"
@@ -105,7 +129,7 @@
             "state": {
               "type": "search",
               "state": {
-                "query": "",
+                "query": "tag:#gnome-teminal",
                 "matchingCase": false,
                 "explainSearch": false,
                 "collapseAll": false,
@@ -142,7 +166,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "index.md",
+                "file": "snippets/Canvas following points.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -159,7 +183,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "index.md",
+                "file": "snippets/Canvas following points.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -182,7 +206,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "index.md"
+                "file": "snippets/Canvas following points.md"
               }
             }
           }
@@ -206,18 +230,21 @@
       "webpage-html-export:Export Vault to HTML": false
     }
   },
-  "active": "25108e2db640a088",
+  "active": "976d41b40aeda68f",
   "lastOpenFiles": [
-    "README.md",
-    "blogs/Markdown editor in react.md",
-    "blogs/The Hundred Things Principle.md",
-    "blogs/Tmux for productivity.md",
-    "index.md",
-    "snippets/README.md",
-    "snippets/Gulp html partial and live server.md",
     "snippets/Preserve CWD in Gnome Terminal.md",
-    "snippets/Multi Generic type in typescript.md",
+    "blogs/README.md",
+    "README.md",
+    "blogs/Tmux for productivity.md",
+    "snippets/README.md",
+    "snippets/Canvas following points.md",
+    "Untitled 1.md",
     "Charts.md",
+    "snippets/Multi Generic type in typescript.md",
+    "snippets/Gulp html partial and live server.md",
+    "blogs/The Hundred Things Principle.md",
+    "blogs/Markdown editor in react.md",
+    "index.md",
     "docs/charts.html",
     "docs/snippets/multi-generic-type-in-typescript.html",
     "docs/snippets/readme.html",

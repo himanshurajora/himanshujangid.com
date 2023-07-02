@@ -11,6 +11,7 @@ Why? and How? are the two main questions to be asked for any topic and I have an
 
 ---
 ### Here are some of my recent code snippets:
+- [[Canvas following points]]
 - [[Gulp html partial and live server]]
 - [[Multi Generic type in typescript]]
 - [[Preserve CWD in Gnome Terminal]]

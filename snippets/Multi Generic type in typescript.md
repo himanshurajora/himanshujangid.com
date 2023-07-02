@@ -20,3 +20,4 @@ let b: TypeFactory<A, TYPES.STRING> = "hello"; // ✅ GOOD, type: string
 
 ```
 
+#typescript

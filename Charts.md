@@ -24,4 +24,4 @@ This page contains a few graphs that lets you know about me statistically 📋.
 
 ![Categories](https://wakatime.com/share/@himanshurajora/93eeb7db-1438-4375-bba2-be109b0c5034.svg)
 
-
+#charts

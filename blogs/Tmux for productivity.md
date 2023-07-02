@@ -33,3 +33,5 @@ Other commands
 + n to next windows + l to toggle window (Not sure about it)
 
 I think that's enough about T-mux from my side, you can google the rest.
+
+#linux #tmux

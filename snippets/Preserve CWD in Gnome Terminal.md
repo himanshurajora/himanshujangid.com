@@ -13,5 +13,7 @@ if [ -e /etc/profile.d/vte.sh ]; then
 fi
 ```
 
+#bash #linux #gnome-terminal
+
 ---
 Thanks for reading!

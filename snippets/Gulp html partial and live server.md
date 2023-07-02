@@ -48,5 +48,7 @@ gulp.task(
 
 I can go through it line by line and explain you everything. I this is just a snippet and not entire blog. And I kept it that way because I want you to surf it on your own, play with gulpJS and make some basic pipelines. You will learn more by doing than just reading.
 
+#html #gulp #automation 
+
 ---
 Thanks for reading!
