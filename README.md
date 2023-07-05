@@ -5,4 +5,4 @@ You are currently reading the root `README` file, there are bunch of other `READ
 
 - [[blogs/README]]
 - [[snippets/README]]
-
+- [[rust/README]]
