@@ -9,7 +9,7 @@
   },
   "weekly": {
     "format": "",
-    "template": "",
+    "template": "templates/week-report.md",
     "folder": "progess/week-wise",
     "enabled": true
   },

@@ -4,127 +4,22 @@
     "type": "split",
     "children": [
       {
-        "id": "8819f437c6089293",
+        "id": "068e034e1667ad79",
         "type": "tabs",
         "children": [
           {
-            "id": "39a6c9bda8177395",
-            "type": "leaf",
-            "state": {
-              "type": "empty",
-              "state": {}
-            }
-          },
-          {
-            "id": "05d33a3b10600996",
+            "id": "372232ee45d05671",
             "type": "leaf",
             "state": {
               "type": "markdown",
               "state": {
-                "file": "snippets/README.md",
-                "mode": "source",
-                "source": false
-              }
-            }
-          },
-          {
-            "id": "e865a5e96816d561",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "snippets/Gulp html partial and live server.md",
-                "mode": "source",
-                "source": false
-              }
-            }
-          },
-          {
-            "id": "5acbfebca56aff7c",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "snippets/Gulp html partial and live server.md",
-                "mode": "source",
-                "source": false
-              }
-            }
-          },
-          {
-            "id": "87384cc5cb7d687b",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "index.md",
-                "mode": "source",
-                "source": false
-              }
-            }
-          },
-          {
-            "id": "25108e2db640a088",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "snippets/Gulp html partial and live server.md",
-                "mode": "source",
-                "source": false
-              }
-            }
-          },
-          {
-            "id": "a6581bf8cf0a1d1f",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "blogs/Tmux for productivity.md",
-                "mode": "source",
-                "source": false
-              }
-            }
-          },
-          {
-            "id": "976d41b40aeda68f",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "README.md",
-                "mode": "source",
-                "source": false
-              }
-            }
-          },
-          {
-            "id": "14b7853a4477e126",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "rust/README.md",
-                "mode": "source",
-                "source": false
-              }
-            }
-          },
-          {
-            "id": "b32ac54a2865af90",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "rust/README.md",
+                "file": "templates/week-report.md",
                 "mode": "source",
                 "source": false
               }
             }
           }
-        ],
-        "currentTab": 9
+        ]
       }
     ],
     "direction": "vertical"
@@ -153,7 +48,7 @@
             "state": {
               "type": "search",
               "state": {
-                "query": "tag:#gnome-teminal",
+                "query": "tag:#rust",
                 "matchingCase": false,
                 "explainSearch": false,
                 "collapseAll": false,
@@ -190,7 +85,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "rust/README.md",
+                "file": "templates/week-report.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -207,7 +102,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "rust/README.md",
+                "file": "templates/week-report.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -230,11 +125,20 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "rust/README.md"
+                "file": "templates/week-report.md"
               }
             }
+          },
+          {
+            "id": "60d731acf2ba2c51",
+            "type": "leaf",
+            "state": {
+              "type": "advanced-tables-toolbar",
+              "state": {}
+            }
           }
-        ]
+        ],
+        "currentTab": 4
       }
     ],
     "direction": "horizontal",
@@ -250,39 +154,43 @@
       "templates:Insert template": false,
       "command-palette:Open command palette": false,
       "table-editor-obsidian:Advanced Tables Toolbar": false,
-      "webpage-html-export:Export Vault to HTML": false,
-      "periodic-notes:Open this week": false
+      "periodic-notes:Open this week": false,
+      "webpage-html-export:Export Vault to HTML": false
     }
   },
-  "active": "b32ac54a2865af90",
+  "active": "372232ee45d05671",
   "lastOpenFiles": [
     "Charts.md",
+    "docs/progess/week-wise/readme.html",
+    "docs/progess/week-wise/2023-w28.html",
+    "docs/progess/week-wise",
+    "docs/progess/readme.html",
+    "docs/progess",
+    "docs/templates/week-report.html",
+    "docs/templates",
     "README.md",
     "blogs/Markdown editor in react.md",
     "blogs/README.md",
     "blogs/The Hundred Things Principle.md",
     "blogs/Tmux for productivity.md",
     "index.md",
-    "snippets/Canvas following points.md",
+    "progess/week-wise/README.md",
+    "progess/week-wise/2023-W28.md",
+    "progess/README.md",
+    "rust/README.md",
+    "rust/Writing Test in Rust.md",
     "snippets/Gulp html partial and live server.md",
     "snippets/Multi Generic type in typescript.md",
     "snippets/Preserve CWD in Gnome Terminal.md",
+    "snippets/Canvas following points.md",
     "snippets/README.md",
-    "rust/README.md",
-    "rust/Writing Test in Rust.md",
-    "docs/rust/readme.html",
-    "docs/rust/writing-test-in-rust.html",
-    "docs/rust",
+    "templates/week-report.md",
+    "templates",
+    "assets/Untitled",
     "assets/images/me.jpg",
-    "rust",
+    "docs/rust/readme.html",
     "2023-07-03.md",
-    "docs/blogs/readme.html",
-    "docs/snippets/canvas-following-points.html",
     "Untitled 1.md",
-    "docs/charts.html",
-    "docs/snippets/multi-generic-type-in-typescript.html",
-    "docs/snippets/readme.html",
-    "docs/snippets/gulp-html-partial-and-live-server.html",
     "docs/assets/images/me.jpg"
   ]
 }
