@@ -13,13 +13,22 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "templates/week-report.md",
+                "file": "rust/README.md",
                 "mode": "source",
                 "source": false
               }
             }
+          },
+          {
+            "id": "df514843d297d093",
+            "type": "leaf",
+            "state": {
+              "type": "graph",
+              "state": {}
+            }
           }
-        ]
+        ],
+        "currentTab": 1
       }
     ],
     "direction": "vertical"
@@ -85,7 +94,6 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "templates/week-report.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -102,7 +110,6 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "templates/week-report.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -124,9 +131,7 @@
             "type": "leaf",
             "state": {
               "type": "outline",
-              "state": {
-                "file": "templates/week-report.md"
-              }
+              "state": {}
             }
           },
           {
@@ -158,9 +163,30 @@
       "webpage-html-export:Export Vault to HTML": false
     }
   },
-  "active": "372232ee45d05671",
+  "active": "df514843d297d093",
   "lastOpenFiles": [
+    "README.md",
+    "docs/blogs/continuous-aggregation-in-time-scale.html",
+    "docs/progess/week-wise/2023-w29.html",
+    "blogs/Markdown editor in react.md",
+    "blogs/The Hundred Things Principle.md",
+    "blogs/Tmux for productivity.md",
+    "blogs/README.md",
+    "blogs/Continuous Aggregation In Time Scale.md",
+    "index.md",
+    "progess/README.md",
+    "progess/week-wise/2023-W28.md",
+    "progess/week-wise/README.md",
+    "progess/week-wise/2023-W29.md",
+    "snippets/Multi Generic type in typescript.md",
+    "snippets/Canvas following points.md",
+    "snippets/Gulp html partial and live server.md",
+    "snippets/Preserve CWD in Gnome Terminal.md",
+    "snippets/README.md",
     "Charts.md",
+    "rust/README.md",
+    "rust/Writing Test in Rust.md",
+    "templates/week-report.md",
     "docs/progess/week-wise/readme.html",
     "docs/progess/week-wise/2023-w28.html",
     "docs/progess/week-wise",
@@ -168,27 +194,8 @@
     "docs/progess",
     "docs/templates/week-report.html",
     "docs/templates",
-    "README.md",
-    "blogs/Markdown editor in react.md",
-    "blogs/README.md",
-    "blogs/The Hundred Things Principle.md",
-    "blogs/Tmux for productivity.md",
-    "index.md",
-    "progess/week-wise/README.md",
-    "progess/week-wise/2023-W28.md",
-    "progess/README.md",
-    "rust/README.md",
-    "rust/Writing Test in Rust.md",
-    "snippets/Gulp html partial and live server.md",
-    "snippets/Multi Generic type in typescript.md",
-    "snippets/Preserve CWD in Gnome Terminal.md",
-    "snippets/Canvas following points.md",
-    "snippets/README.md",
-    "templates/week-report.md",
     "templates",
-    "assets/Untitled",
     "assets/images/me.jpg",
-    "docs/rust/readme.html",
     "2023-07-03.md",
     "Untitled 1.md",
     "docs/assets/images/me.jpg"

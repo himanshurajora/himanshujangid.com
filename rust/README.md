@@ -3,6 +3,9 @@ A programming language for me. I have been coding in JavaScript (TypeScript) for
 
 In this section I will share a lot of rust code, like seriously a lot of code.
 
+Links: 
+- [[Writing Test in Rust]]
+
 ---
 Here's the non paginated only titled index with direct reference to the text:
 
