@@ -2,7 +2,9 @@ There are various things and websites that I encounter randomly and want to know
 
 - [ ] https://hapify.io/
 - [ ] https://hapi.dev/
-
-
+- [ ] https://wappler.io/
+- [ ] https://framework7.io/
+- [ ] https://yep.com/
+- [ ] https://cpu.land
 ---
 Thanks for reading.
