@@ -18,8 +18,19 @@
                 "source": false
               }
             }
+          },
+          {
+            "id": "57759c4079ffc1fc",
+            "type": "leaf",
+            "state": {
+              "type": "release-notes",
+              "state": {
+                "currentVersion": "1.4.11"
+              }
+            }
           }
-        ]
+        ],
+        "currentTab": 1
       }
     ],
     "direction": "vertical"
@@ -85,7 +96,6 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "Charts.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -102,7 +112,6 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "Charts.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -124,9 +133,7 @@
             "type": "leaf",
             "state": {
               "type": "outline",
-              "state": {
-                "file": "Charts.md"
-              }
+              "state": {}
             }
           },
           {
@@ -135,6 +142,16 @@
             "state": {
               "type": "advanced-tables-toolbar",
               "state": {}
+            }
+          },
+          {
+            "id": "5e336c06f311e2b9",
+            "type": "leaf",
+            "state": {
+              "type": "all-properties",
+              "state": {
+                "sortOrder": "frequency"
+              }
             }
           }
         ],
@@ -153,64 +170,40 @@
       "daily-notes:Open today's daily note": false,
       "templates:Insert template": false,
       "command-palette:Open command palette": false,
-      "table-editor-obsidian:Advanced Tables Toolbar": false,
       "periodic-notes:Open this week": false,
+      "table-editor-obsidian:Advanced Tables Toolbar": false,
       "webpage-html-export:Export Vault to HTML": false
     }
   },
-  "floating": {
-    "id": "ac8f3b33fe8a2484",
-    "type": "floating",
-    "children": [
-      {
-        "id": "0d7145c146a6009c",
-        "type": "window",
-        "children": [
-          {
-            "id": "d9053ceacc5fe401",
-            "type": "tabs",
-            "children": [
-              {
-                "id": "6a587865018bdfd1",
-                "type": "leaf",
-                "state": {
-                  "type": "markdown",
-                  "state": {
-                    "file": "Charts.md",
-                    "mode": "preview",
-                    "source": false
-                  }
-                }
-              }
-            ]
-          }
-        ],
-        "direction": "vertical",
-        "x": 317,
-        "y": 338,
-        "width": 602,
-        "height": 302,
-        "maximize": false,
-        "zoom": 0
-      }
-    ]
-  },
-  "active": "6a587865018bdfd1",
+  "active": "57759c4079ffc1fc",
   "lastOpenFiles": [
-    "README.md",
     "Things to Checkout.md",
-    "blogs/Continuous Aggregation In Time Scale.md",
-    "blogs/Markdown editor in react.md",
-    "blogs/README.md",
-    "blogs/The Hundred Things Principle.md",
-    "blogs/Tmux for productivity.md",
-    "index.md",
-    "progess/README.md",
-    "progess/week-wise/2023-W28.md",
-    "progess/week-wise/2023-W29.md",
-    "progess/week-wise/2023-W31.md",
     "progess/week-wise/README.md",
+    "docs/Things to Checkout.html",
+    "docs/README.html",
+    "docs/index.html",
+    "docs/Charts.html",
+    "docs/snippets/README.html",
+    "docs/snippets/Preserve CWD in Gnome Terminal.html",
+    "docs/snippets/Multi Generic type in typescript.html",
+    "docs/snippets/Gulp html partial and live server.html",
+    "docs/snippets/Canvas following points.html",
+    "docs/snippets",
+    "docs/assets/images/me.jpg",
+    "progess/week-wise/2023-W31.md",
+    "progess/week-wise/2023-W29.md",
+    "progess/week-wise/2023-W28.md",
+    "blogs/Tmux for productivity.md",
+    "blogs/The Hundred Things Principle.md",
+    "blogs/README.md",
+    "blogs/Markdown editor in react.md",
+    "blogs/Continuous Aggregation In Time Scale.md",
+    "docs/docs/assets/images/me.jpg",
     "rust/README.md",
+    "progess/README.md",
+    "Charts.md",
+    "README.md",
+    "index.md",
     "rust/Writing Test in Rust.md",
     "snippets/Canvas following points.md",
     "snippets/Gulp html partial and live server.md",
@@ -218,20 +211,8 @@
     "snippets/Preserve CWD in Gnome Terminal.md",
     "snippets/README.md",
     "templates/week-report.md",
-    "docs/blogs/continuous-aggregation-in-time-scale.html",
-    "docs/progess/week-wise/2023-w29.html",
-    "Charts.md",
-    "docs/progess/week-wise/readme.html",
-    "docs/progess/week-wise/2023-w28.html",
-    "docs/progess/week-wise",
-    "docs/progess/readme.html",
-    "docs/progess",
-    "docs/templates/week-report.html",
-    "docs/templates",
-    "templates",
     "assets/images/me.jpg",
     "2023-07-03.md",
-    "Untitled 1.md",
-    "docs/assets/images/me.jpg"
+    "Untitled 1.md"
   ]
 }
