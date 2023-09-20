@@ -6,5 +6,7 @@ There are various things and websites that I encounter randomly and want to know
 - [ ] https://framework7.io/
 - [ ] https://yep.com/
 - [ ] https://cpu.land
+- [ ] https://polyglot.readthedocs.io
+- [ ] https://jfxr.frozenfractal.com/#
 ---
 Thanks for reading.
