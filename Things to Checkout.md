@@ -8,5 +8,7 @@ There are various things and websites that I encounter randomly and want to know
 - [ ] https://cpu.land
 - [ ] https://polyglot.readthedocs.io
 - [ ] https://jfxr.frozenfractal.com/#
+- [ ] https://www.zotero.org
+- [ ] https://amplication.com/
 ---
 Thanks for reading.

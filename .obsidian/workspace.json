@@ -13,13 +13,34 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Things to Checkout.md",
+                "file": "index.md",
+                "mode": "preview",
+                "source": false
+              }
+            }
+          },
+          {
+            "id": "2369c0576746c9e8",
+            "type": "leaf",
+            "state": {
+              "type": "empty",
+              "state": {}
+            }
+          },
+          {
+            "id": "e3b5e0ebc08679c0",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "Charts.md",
                 "mode": "source",
                 "source": false
               }
             }
           }
-        ]
+        ],
+        "currentTab": 2
       }
     ],
     "direction": "vertical"
@@ -85,6 +106,7 @@
             "state": {
               "type": "backlink",
               "state": {
+                "file": "snippets/How to prevent circular dependencies.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -101,6 +123,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
+                "file": "snippets/How to prevent circular dependencies.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -122,7 +145,9 @@
             "type": "leaf",
             "state": {
               "type": "outline",
-              "state": {}
+              "state": {
+                "file": "snippets/How to prevent circular dependencies.md"
+              }
             }
           },
           {
@@ -165,23 +190,27 @@
     }
   },
   "floating": {
-    "id": "e03c7a5f785766c6",
+    "id": "60be78d714e1bb7e",
     "type": "floating",
     "children": [
       {
-        "id": "91ef9714687511bc",
+        "id": "2ca2e55dcc73a283",
         "type": "window",
         "children": [
           {
-            "id": "1ac23c5e38e7ec6f",
+            "id": "15039f092523337c",
             "type": "tabs",
             "children": [
               {
-                "id": "38dade2a9dc49b35",
+                "id": "9b85cf6d0e7e75c2",
                 "type": "leaf",
                 "state": {
-                  "type": "empty",
-                  "state": {}
+                  "type": "markdown",
+                  "state": {
+                    "file": "snippets/How to prevent circular dependencies.md",
+                    "mode": "preview",
+                    "source": false
+                  }
                 }
               }
             ]
@@ -197,8 +226,15 @@
       }
     ]
   },
-  "active": "38dade2a9dc49b35",
+  "active": "9b85cf6d0e7e75c2",
   "lastOpenFiles": [
+    "Charts.md",
+    "snippets/How to prevent circular dependencies.md",
+    "assets/snippets",
+    "Untitled",
+    "assets/snippets/shapes.png",
+    "index.md",
+    "blogs/The Hundred Things Principle.md",
     "Things to Checkout.md",
     "progess/week-wise/README.md",
     "docs/Things to Checkout.html",
@@ -209,23 +245,18 @@
     "docs/snippets/Preserve CWD in Gnome Terminal.html",
     "docs/snippets/Multi Generic type in typescript.html",
     "docs/snippets/Gulp html partial and live server.html",
-    "docs/snippets/Canvas following points.html",
-    "docs/snippets",
     "docs/assets/images/me.jpg",
     "progess/week-wise/2023-W31.md",
     "progess/week-wise/2023-W29.md",
     "progess/week-wise/2023-W28.md",
     "blogs/Tmux for productivity.md",
-    "blogs/The Hundred Things Principle.md",
     "blogs/README.md",
     "blogs/Markdown editor in react.md",
     "blogs/Continuous Aggregation In Time Scale.md",
     "docs/docs/assets/images/me.jpg",
     "rust/README.md",
     "progess/README.md",
-    "Charts.md",
     "README.md",
-    "index.md",
     "rust/Writing Test in Rust.md",
     "snippets/Canvas following points.md",
     "snippets/Gulp html partial and live server.md",
