@@ -13,8 +13,20 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "index.md",
+                "file": "legal/return-and-refund-policy.md",
                 "mode": "preview",
+                "source": false
+              }
+            }
+          },
+          {
+            "id": "f4caf99859137409",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "neosanatan/README.md",
+                "mode": "source",
                 "source": false
               }
             }
@@ -64,7 +76,7 @@
             }
           }
         ],
-        "currentTab": 2
+        "currentTab": 1
       }
     ],
     "direction": "vertical"
@@ -130,7 +142,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "legal/return-and-refund-policy.md",
+                "file": "neosanatan/README.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -147,7 +159,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "legal/return-and-refund-policy.md",
+                "file": "neosanatan/README.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -170,7 +182,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "legal/return-and-refund-policy.md"
+                "file": "neosanatan/README.md"
               }
             }
           },
@@ -213,12 +225,14 @@
       "periodic-notes:Open this week": false
     }
   },
-  "active": "8837b1bb5ca589f8",
+  "active": "f4caf99859137409",
   "lastOpenFiles": [
-    "legal/privacy-policy.md",
-    "legal/terms-and-conditions.md",
     "legal/return-and-refund-policy.md",
+    "neosanatan/README.md",
+    "neosanatan",
     "index.md",
+    "legal/terms-and-conditions.md",
+    "legal/privacy-policy.md",
     "legal",
     "snippets/How to prevent circular dependencies.md",
     "Charts.md",
@@ -234,7 +248,6 @@
     "docs/snippets/README.html",
     "docs/snippets/Preserve CWD in Gnome Terminal.html",
     "docs/snippets/Multi Generic type in typescript.html",
-    "docs/snippets/Gulp html partial and live server.html",
     "docs/assets/images/me.jpg",
     "progess/week-wise/2023-W31.md",
     "progess/week-wise/2023-W29.md",
@@ -253,7 +266,6 @@
     "snippets/Multi Generic type in typescript.md",
     "snippets/Preserve CWD in Gnome Terminal.md",
     "snippets/README.md",
-    "templates/week-report.md",
     "assets/images/me.jpg"
   ]
 }
