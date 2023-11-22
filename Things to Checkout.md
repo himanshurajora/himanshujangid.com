@@ -10,5 +10,6 @@ There are various things and websites that I encounter randomly and want to know
 - [ ] https://jfxr.frozenfractal.com/#
 - [ ] https://www.zotero.org
 - [ ] https://amplication.com/
+- [ ] https://www.altogic.com/
 ---
 Thanks for reading.

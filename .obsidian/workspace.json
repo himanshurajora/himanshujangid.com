@@ -20,12 +20,12 @@
             }
           },
           {
-            "id": "f4caf99859137409",
+            "id": "7507ff0b52bdcd95",
             "type": "leaf",
             "state": {
               "type": "markdown",
               "state": {
-                "file": "neosanatan/README.md",
+                "file": "README.md",
                 "mode": "source",
                 "source": false
               }
@@ -142,7 +142,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "neosanatan/README.md",
+                "file": "README.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -159,7 +159,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "neosanatan/README.md",
+                "file": "README.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -182,7 +182,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "neosanatan/README.md"
+                "file": "README.md"
               }
             }
           },
@@ -225,47 +225,84 @@
       "periodic-notes:Open this week": false
     }
   },
-  "active": "f4caf99859137409",
+  "floating": {
+    "id": "31c57d15b2eb82dc",
+    "type": "floating",
+    "children": [
+      {
+        "id": "3cf18e967d911b90",
+        "type": "window",
+        "children": [
+          {
+            "id": "681d412b7011cede",
+            "type": "tabs",
+            "children": [
+              {
+                "id": "37036bbde3d102c8",
+                "type": "leaf",
+                "state": {
+                  "type": "markdown",
+                  "state": {
+                    "file": "README.md",
+                    "mode": "preview",
+                    "source": false
+                  }
+                }
+              }
+            ]
+          }
+        ],
+        "direction": "vertical",
+        "x": 2454,
+        "y": 331,
+        "width": 802,
+        "height": 401,
+        "maximize": false,
+        "zoom": 0
+      }
+    ]
+  },
+  "active": "37036bbde3d102c8",
   "lastOpenFiles": [
-    "legal/return-and-refund-policy.md",
-    "neosanatan/README.md",
-    "neosanatan",
     "index.md",
-    "legal/terms-and-conditions.md",
-    "legal/privacy-policy.md",
-    "legal",
-    "snippets/How to prevent circular dependencies.md",
     "Charts.md",
+    "snippets/README.md",
+    "snippets/Preserve CWD in Gnome Terminal.md",
+    "snippets/Multi Generic type in typescript.md",
+    "snippets/How to prevent circular dependencies.md",
+    "snippets/Gulp html partial and live server.md",
+    "snippets/Canvas following points.md",
+    "rust/Writing Test in Rust.md",
+    "rust/README.md",
+    "progess/README.md",
+    "progess/week-wise/README.md",
+    "progess/week-wise/2023-W31.md",
+    "progess/week-wise/2023-W29.md",
+    "progess/week-wise/2023-W28.md",
+    "legal/terms-and-conditions.md",
+    "legal/return-and-refund-policy.md",
+    "legal/privacy-policy.md",
+    "blogs/Tmux for productivity.md",
+    "blogs/The Hundred Things Principle.md",
+    "blogs/README.md",
+    "blogs/Markdown editor in react.md",
+    "blogs/Continuous Aggregation In Time Scale.md",
+    "README.md",
+    "Things to Checkout.md",
+    "projects/Looking for contributors.md",
+    "projects",
+    "neosanatan",
+    "legal",
     "assets/snippets",
     "assets/snippets/shapes.png",
-    "blogs/The Hundred Things Principle.md",
-    "Things to Checkout.md",
-    "progess/week-wise/README.md",
     "docs/Things to Checkout.html",
     "docs/README.html",
     "docs/index.html",
     "docs/Charts.html",
     "docs/snippets/README.html",
     "docs/snippets/Preserve CWD in Gnome Terminal.html",
-    "docs/snippets/Multi Generic type in typescript.html",
     "docs/assets/images/me.jpg",
-    "progess/week-wise/2023-W31.md",
-    "progess/week-wise/2023-W29.md",
-    "progess/week-wise/2023-W28.md",
-    "blogs/Tmux for productivity.md",
-    "blogs/README.md",
-    "blogs/Markdown editor in react.md",
-    "blogs/Continuous Aggregation In Time Scale.md",
     "docs/docs/assets/images/me.jpg",
-    "rust/README.md",
-    "progess/README.md",
-    "README.md",
-    "rust/Writing Test in Rust.md",
-    "snippets/Canvas following points.md",
-    "snippets/Gulp html partial and live server.md",
-    "snippets/Multi Generic type in typescript.md",
-    "snippets/Preserve CWD in Gnome Terminal.md",
-    "snippets/README.md",
     "assets/images/me.jpg"
   ]
 }
