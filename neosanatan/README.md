@@ -1,3 +1,5 @@
+![[logo-sm.png]]
+
 Neo Sanatan:
 A new religion that aims to give humanity a new hope for living peacefully and progressively.
 

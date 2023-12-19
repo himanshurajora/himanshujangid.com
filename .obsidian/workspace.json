@@ -13,8 +13,8 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "legal/return-and-refund-policy.md",
-                "mode": "preview",
+                "file": "projects/Looking for contributors.md",
+                "mode": "source",
                 "source": false
               }
             }
@@ -75,8 +75,7 @@
               }
             }
           }
-        ],
-        "currentTab": 1
+        ]
       }
     ],
     "direction": "vertical"
@@ -226,19 +225,19 @@
     }
   },
   "floating": {
-    "id": "31c57d15b2eb82dc",
+    "id": "431cf1a2c8215789",
     "type": "floating",
     "children": [
       {
-        "id": "3cf18e967d911b90",
+        "id": "045886634e1c7769",
         "type": "window",
         "children": [
           {
-            "id": "681d412b7011cede",
+            "id": "93c4e9b858995d10",
             "type": "tabs",
             "children": [
               {
-                "id": "37036bbde3d102c8",
+                "id": "23b27ce5ef26e198",
                 "type": "leaf",
                 "state": {
                   "type": "markdown",
@@ -253,16 +252,16 @@
           }
         ],
         "direction": "vertical",
-        "x": 2454,
-        "y": 331,
+        "x": 317,
+        "y": 338,
         "width": 802,
-        "height": 401,
+        "height": 402,
         "maximize": false,
         "zoom": 0
       }
     ]
   },
-  "active": "37036bbde3d102c8",
+  "active": "23b27ce5ef26e198",
   "lastOpenFiles": [
     "index.md",
     "Charts.md",
@@ -274,11 +273,15 @@
     "snippets/Canvas following points.md",
     "rust/Writing Test in Rust.md",
     "rust/README.md",
+    "projects/README.md",
+    "projects/Projects Kanban.md",
+    "projects/Looking for contributors.md",
     "progess/README.md",
     "progess/week-wise/README.md",
     "progess/week-wise/2023-W31.md",
     "progess/week-wise/2023-W29.md",
     "progess/week-wise/2023-W28.md",
+    "neosanatan/README.md",
     "legal/terms-and-conditions.md",
     "legal/return-and-refund-policy.md",
     "legal/privacy-policy.md",
@@ -286,23 +289,24 @@
     "blogs/The Hundred Things Principle.md",
     "blogs/README.md",
     "blogs/Markdown editor in react.md",
-    "blogs/Continuous Aggregation In Time Scale.md",
-    "README.md",
-    "Things to Checkout.md",
-    "projects/Looking for contributors.md",
+    "docs/projects/readme.html",
+    "docs/projects/projects-kanban.html",
+    "docs/projects/looking-for-contributors.html",
+    "docs/projects",
+    "docs/lib/media/logo-sm.png",
+    "docs/neosanatan/readme.html",
+    "docs/neosanatan",
+    "docs/assets/images/logo-sm.png",
+    "docs/assets/images/logo.png",
+    "assets/images/logo-sm.png",
+    "assets/images/logo.png",
+    "assets/images/me.jpg",
+    "assets/snippets/shapes.png",
     "projects",
     "neosanatan",
     "legal",
     "assets/snippets",
-    "assets/snippets/shapes.png",
-    "docs/Things to Checkout.html",
-    "docs/README.html",
-    "docs/index.html",
-    "docs/Charts.html",
-    "docs/snippets/README.html",
-    "docs/snippets/Preserve CWD in Gnome Terminal.html",
     "docs/assets/images/me.jpg",
-    "docs/docs/assets/images/me.jpg",
-    "assets/images/me.jpg"
+    "docs/docs/assets/images/me.jpg"
   ]
 }
