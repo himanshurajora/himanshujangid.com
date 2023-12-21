@@ -13,7 +13,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "projects/Looking for contributors.md",
+                "file": "index.md",
                 "mode": "source",
                 "source": false
               }
@@ -221,7 +221,8 @@
       "command-palette:Open command palette": false,
       "table-editor-obsidian:Advanced Tables Toolbar": false,
       "webpage-html-export:Export Vault to HTML": false,
-      "periodic-notes:Open this week": false
+      "periodic-notes:Open this week": false,
+      "khoj:Khoj": false
     }
   },
   "floating": {
@@ -229,15 +230,15 @@
     "type": "floating",
     "children": [
       {
-        "id": "045886634e1c7769",
+        "id": "9e862a3100b944de",
         "type": "window",
         "children": [
           {
-            "id": "93c4e9b858995d10",
+            "id": "03b883d1bb84b698",
             "type": "tabs",
             "children": [
               {
-                "id": "23b27ce5ef26e198",
+                "id": "3bba174228623707",
                 "type": "leaf",
                 "state": {
                   "type": "markdown",
@@ -261,7 +262,7 @@
       }
     ]
   },
-  "active": "23b27ce5ef26e198",
+  "active": "3bba174228623707",
   "lastOpenFiles": [
     "index.md",
     "Charts.md",

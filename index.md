@@ -5,6 +5,15 @@ Fig 1 : **Himanshu Jangid** on a mountain
 
 # Introduction
 
+- <a rel="me" href="https://mastodon.social/@himanshurajora">Mastodon</a>
+- [Github](https://github.com/himanshurajora)
+- [LinkedIn](https://www.linkedin.com/in/himanshurajora/)
+- [Instagram](https://instagram.com/himy.in)
+- [Code Grepper](https://www.grepper.com/profile/himanshu-jangid)
+- [StackOverflow](https://stackoverflow.com/users/15781928/himanshu-jangid)
+- [HackerRank](https://www.hackerrank.com/himanshurajora)
+- [Reddit](https://www.reddit.com/user/himanshurajora)
+
 Diligent web developer and software engineer with over 2 years of experience. Eager to get new opportunities and work on large scale projects. Skilled in developing plans, managing projects, and code documentation. currently working on NodeJS and React and leaning Rust for a good future.
 
 I like to explore and research new subjects. My hobbies are dancing, listening, and making music. I put experience above knowledge.
@@ -83,15 +92,6 @@ There are a few more portfolios that I have made previously
 
 ### Know more about me statistically
 - Look at some [[Charts]] <- Click It
-
-### Here are some of my social and coder profiles
-- https://github.com/himanshurajora
-- https://www.linkedin.com/in/himanshurajora/
-- https://instagram.com/himy.in
-- https://www.grepper.com/profile/himanshu-jangid
-- https://stackoverflow.com/users/15781928/himanshu-jangid
-- https://www.hackerrank.com/himanshurajora
-- https://www.reddit.com/user/himanshurajora
 
 ---
 
