@@ -1,6 +1,6 @@
 <span style="color:#ffbc05">Warning: This website is primarily made for PC view.</span>
 
-![[me.jpg]]
+![[me-2.jpg]]
 Fig 1 : **Himanshu Jangid** on a mountain
 
 # Introduction

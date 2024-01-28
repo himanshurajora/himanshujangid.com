@@ -4434,34 +4434,53 @@ function fileExtensionToMimeType(extension) {
 }
 async function updateContentIndex(vault, setting, lastSyncedFiles, regenerate = false) {
   console.log(`Khoj: Updating Khoj content index...`);
-  const files = vault.getFiles().filter((file) => file.extension === "md" || file.extension === "pdf");
-  const binaryFileTypes = ["pdf", "png", "jpg", "jpeg"];
+  const files = vault.getFiles().filter((file) => file.extension === "md" || file.extension === "markdown" || file.extension === "pdf");
+  const binaryFileTypes = ["pdf"];
   let countOfFilesToIndex = 0;
   let countOfFilesToDelete = 0;
-  const formData = new FormData();
+  const fileData = [];
   for (const file of files) {
     countOfFilesToIndex++;
     const encoding = binaryFileTypes.includes(file.extension) ? "binary" : "utf8";
     const mimeType = fileExtensionToMimeType(file.extension) + (encoding === "utf8" ? "; charset=UTF-8" : "");
     const fileContent = encoding == "binary" ? await vault.readBinary(file) : await vault.read(file);
-    formData.append("files", new Blob([fileContent], { type: mimeType }), file.path);
+    fileData.push({ blob: new Blob([fileContent], { type: mimeType }), path: file.path });
   }
   for (const lastSyncedFile of lastSyncedFiles) {
     if (!files.includes(lastSyncedFile)) {
       countOfFilesToDelete++;
-      formData.append("files", new Blob([]), lastSyncedFile.path);
+      fileData.push({ blob: new Blob([]), path: lastSyncedFile.path });
     }
   }
-  const response = await fetch(`${setting.khojUrl}/api/v1/index/update?force=${regenerate}&client=obsidian`, {
-    method: "POST",
-    headers: {
-      "Authorization": `Bearer ${setting.khojApiKey}`
-    },
-    body: formData
-  });
-  if (!response.ok) {
-    new import_obsidian.Notice(`\u2757\uFE0FFailed to update Khoj content index. Ensure Khoj server connected or raise issue on Khoj Discord/Github
-Error: ${response.statusText}`);
+  let error_message = null;
+  for (let i2 = 0; i2 < fileData.length; i2 += 1e3) {
+    const filesGroup = fileData.slice(i2, i2 + 1e3);
+    const formData = new FormData();
+    filesGroup.forEach((fileItem) => {
+      formData.append("files", fileItem.blob, fileItem.path);
+    });
+    const response = await fetch(`${setting.khojUrl}/api/v1/index/update?force=${regenerate}&client=obsidian`, {
+      method: "POST",
+      headers: {
+        "Authorization": `Bearer ${setting.khojApiKey}`
+      },
+      body: formData
+    });
+    if (!response.ok) {
+      if (response.status === 429) {
+        error_message = `\u2757\uFE0FFailed to sync your content with Khoj server. Requests were throttled. Upgrade your subscription or try again later.`;
+        break;
+      } else if (response.status === 404) {
+        error_message = `\u2757\uFE0FCould not connect to Khoj server. Ensure you can connect to it.`;
+        break;
+      } else {
+        error_message = `\u2757\uFE0FFailed to sync your content with Khoj server. Raise issue on Khoj Discord or Github
+Error: ${response.statusText}`;
+      }
+    }
+  }
+  if (error_message) {
+    new import_obsidian.Notice(error_message);
   } else {
     console.log(`\u2705 Refreshed Khoj content index. Updated: ${countOfFilesToIndex} files, Deleted: ${countOfFilesToDelete} files.`);
   }
@@ -4497,6 +4516,39 @@ async function createNoteAndCloseModal(query, modal, opt) {
   }
   modal.close();
 }
+async function canConnectToBackend(khojUrl, khojApiKey, showNotice = false) {
+  let connectedToBackend = false;
+  let userEmail = "";
+  if (!!khojUrl) {
+    let headers = !!khojApiKey ? { "Authorization": `Bearer ${khojApiKey}` } : void 0;
+    await (0, import_obsidian.request)({ url: `${khojUrl}/api/health`, method: "GET", headers }).then((response) => {
+      var _a4;
+      connectedToBackend = true;
+      userEmail = (_a4 = JSON.parse(response)) == null ? void 0 : _a4.email;
+    }).catch((error) => {
+      connectedToBackend = false;
+      console.log(`Khoj connection error:
+
+${error}`);
+    });
+  }
+  let statusMessage = getBackendStatusMessage(connectedToBackend, userEmail, khojUrl, khojApiKey);
+  if (showNotice)
+    new import_obsidian.Notice(statusMessage);
+  return { connectedToBackend, statusMessage, userEmail };
+}
+function getBackendStatusMessage(connectedToServer, userEmail, khojUrl, khojApiKey) {
+  if (!!khojApiKey && khojUrl === "https://app.khoj.dev")
+    return `\u{1F308} Welcome to Khoj! Get your API key from ${khojUrl}/config#clients and set it in the Khoj plugin settings on Obsidian`;
+  if (!connectedToServer)
+    return `\u2757\uFE0FCould not connect to Khoj at ${khojUrl}. Ensure your can access it`;
+  else if (!userEmail)
+    return `\u2705 Connected to Khoj. \u2757\uFE0FGet a valid API key from ${khojUrl}/config#clients to log in`;
+  else if (userEmail === "default@example.com")
+    return `\u2705 Signed in to Khoj`;
+  else
+    return `\u2705 Signed in to Khoj as ${userEmail}`;
+}
 
 // src/settings.ts
 var DEFAULT_SETTINGS = {
@@ -4505,7 +4557,8 @@ var DEFAULT_SETTINGS = {
   khojApiKey: "",
   connectedToBackend: false,
   autoConfigure: true,
-  lastSyncedFiles: []
+  lastSyncedFiles: [],
+  userEmail: ""
 };
 var KhojSettingTab = class extends import_obsidian2.PluginSettingTab {
   constructor(app2, plugin) {
@@ -4515,16 +4568,29 @@ var KhojSettingTab = class extends import_obsidian2.PluginSettingTab {
   display() {
     const { containerEl } = this;
     containerEl.empty();
-    containerEl.createEl("small", { text: this.getBackendStatusMessage() });
+    let backendStatusEl = containerEl.createEl("small", {
+      text: getBackendStatusMessage(this.plugin.settings.connectedToBackend, this.plugin.settings.userEmail, this.plugin.settings.khojUrl, this.plugin.settings.khojApiKey)
+    });
+    let backendStatusMessage = "";
     new import_obsidian2.Setting(containerEl).setName("Khoj URL").setDesc("The URL of the Khoj backend.").addText((text) => text.setValue(`${this.plugin.settings.khojUrl}`).onChange(async (value) => {
-      var _a4;
-      this.plugin.settings.khojUrl = value.trim();
+      this.plugin.settings.khojUrl = value.trim().replace(/\/$/, "");
+      ({
+        connectedToBackend: this.plugin.settings.connectedToBackend,
+        userEmail: this.plugin.settings.userEmail,
+        statusMessage: backendStatusMessage
+      } = await canConnectToBackend(this.plugin.settings.khojUrl, this.plugin.settings.khojApiKey));
       await this.plugin.saveSettings();
-      (_a4 = containerEl.firstElementChild) == null ? void 0 : _a4.setText(this.getBackendStatusMessage());
+      backendStatusEl.setText(backendStatusMessage);
     }));
     new import_obsidian2.Setting(containerEl).setName("Khoj API Key").setDesc("Use Khoj Cloud with your Khoj API Key").addText((text) => text.setValue(`${this.plugin.settings.khojApiKey}`).onChange(async (value) => {
       this.plugin.settings.khojApiKey = value.trim();
+      ({
+        connectedToBackend: this.plugin.settings.connectedToBackend,
+        userEmail: this.plugin.settings.userEmail,
+        statusMessage: backendStatusMessage
+      } = await canConnectToBackend(this.plugin.settings.khojUrl, this.plugin.settings.khojApiKey));
       await this.plugin.saveSettings();
+      backendStatusEl.setText(backendStatusMessage);
     }));
     new import_obsidian2.Setting(containerEl).setName("Results Count").setDesc("The number of results to show in search and use for chat.").addSlider((slider) => slider.setLimits(1, 10, 1).setValue(this.plugin.settings.resultsCount).setDynamicTooltip().onChange(async (value) => {
       this.plugin.settings.resultsCount = value;
@@ -4566,9 +4632,6 @@ var KhojSettingTab = class extends import_obsidian2.PluginSettingTab {
       button.setCta();
       indexVaultSetting = indexVaultSetting.setDisabled(false);
     }));
-  }
-  getBackendStatusMessage() {
-    return !this.plugin.settings.connectedToBackend ? "\u2757Disconnected from Khoj backend. Ensure Khoj backend is running and Khoj URL is correctly set below." : "\u2705 Connected to Khoj backend.";
   }
 };
 
@@ -4653,7 +4716,7 @@ var KhojSearchModal = class extends import_obsidian3.SuggestModal {
     let snipped_entry = result.entry.split("\n").slice(0, lines_to_render).join("\n");
     el.createEl("div", { cls: "khoj-result-file" }).setText(filename != null ? filename : "");
     let result_el = el.createEl("div", { cls: "khoj-result-entry" });
-    import_obsidian3.MarkdownRenderer.renderMarkdown(snipped_entry + entry_snipped_indicator, result_el, null, null);
+    import_obsidian3.MarkdownRenderer.renderMarkdown(snipped_entry + entry_snipped_indicator, result_el, result.file, null);
   }
   async onChooseSuggestion(result, _) {
     const mdFiles = this.app.vault.getMarkdownFiles();
@@ -5875,15 +5938,17 @@ var KhojChatModal = class extends import_obsidian4.Modal {
     contentEl.addClass("khoj-chat");
     contentEl.createEl("h1", { attr: { id: "khoj-chat-title" }, text: "Khoj Chat" });
     let chatBodyEl = contentEl.createDiv({ attr: { id: "khoj-chat-body", class: "khoj-chat-body" } });
-    await this.getChatHistory(chatBodyEl);
+    let getChatHistorySucessfully = await this.getChatHistory(chatBodyEl);
+    let placeholderText = getChatHistorySucessfully ? "Chat with Khoj [Hit Enter to send message]" : "Configure Khoj to enable chat";
     let inputRow = contentEl.createDiv("khoj-input-row");
-    const chatInput = inputRow.createEl("input", {
+    let chatInput = inputRow.createEl("input", {
       attr: {
         type: "text",
         id: "khoj-chat-input",
         autofocus: "autofocus",
-        placeholder: "Chat with Khoj [Hit Enter to send message]",
-        class: "khoj-chat-input option"
+        placeholder: placeholderText,
+        class: "khoj-chat-input option",
+        disabled: !getChatHistorySucessfully ? "disabled" : null
       }
     });
     let transcribe = inputRow.createEl("button", {
@@ -5915,7 +5980,7 @@ var KhojChatModal = class extends import_obsidian4.Modal {
     let short_ref = escaped_ref.slice(0, 100);
     short_ref = short_ref.length < escaped_ref.length ? short_ref + "..." : short_ref;
     let referenceButton = messageEl.createEl("button");
-    referenceButton.innerHTML = short_ref;
+    referenceButton.textContent = short_ref;
     referenceButton.id = `ref-${index}`;
     referenceButton.classList.add("reference-button");
     referenceButton.classList.add("collapsed");
@@ -5925,17 +5990,21 @@ var KhojChatModal = class extends import_obsidian4.Modal {
       if (this.classList.contains("collapsed")) {
         this.classList.remove("collapsed");
         this.classList.add("expanded");
-        this.innerHTML = escaped_ref;
+        this.textContent = escaped_ref;
       } else {
         this.classList.add("collapsed");
         this.classList.remove("expanded");
-        this.innerHTML = short_ref;
+        this.textContent = short_ref;
       }
     });
     return referenceButton;
   }
-  renderMessageWithReferences(chatEl, message, sender, context, dt) {
+  renderMessageWithReferences(chatEl, message, sender, context, dt, intentType) {
     if (!message) {
+      return;
+    } else if (intentType === "text-to-image") {
+      let imageMarkdown = `![](data:image/png;base64,${message})`;
+      this.renderMessage(chatEl, imageMarkdown, sender, dt);
       return;
     } else if (!context) {
       this.renderMessage(chatEl, message, sender, dt);
@@ -5974,7 +6043,7 @@ var KhojChatModal = class extends import_obsidian4.Modal {
     let expandButtonText = numReferences == 1 ? "1 reference" : `${numReferences} references`;
     referenceExpandButton.innerHTML = expandButtonText;
   }
-  renderMessage(chatEl, message, sender, dt) {
+  renderMessage(chatEl, message, sender, dt, raw = false) {
     let message_time = this.formatDate(dt != null ? dt : new Date());
     let emojified_sender = sender == "khoj" ? "\u{1F3EE} Khoj" : "\u{1F914} You";
     let chatMessageEl = chatEl.createDiv({
@@ -5986,7 +6055,11 @@ var KhojChatModal = class extends import_obsidian4.Modal {
     let chat_message_body_el = chatMessageEl.createDiv();
     chat_message_body_el.addClasses(["khoj-chat-message-text", sender]);
     let chat_message_body_text_el = chat_message_body_el.createDiv();
-    import_obsidian4.MarkdownRenderer.renderMarkdown(message, chat_message_body_text_el, null, null);
+    if (raw) {
+      chat_message_body_text_el.innerHTML = message;
+    } else {
+      import_obsidian4.MarkdownRenderer.renderMarkdown(message, chat_message_body_text_el, "", null);
+    }
     chatMessageEl.style.userSelect = "text";
     this.modalEl.scrollTop = this.modalEl.scrollHeight;
     return chatMessageEl;
@@ -6007,10 +6080,10 @@ var KhojChatModal = class extends import_obsidian4.Modal {
     this.modalEl.scrollTop = this.modalEl.scrollHeight;
     return chat_message_el;
   }
-  renderIncrementalMessage(htmlElement, additionalMessage) {
+  async renderIncrementalMessage(htmlElement, additionalMessage) {
     this.result += additionalMessage;
     htmlElement.innerHTML = "";
-    import_obsidian4.MarkdownRenderer.renderMarkdown(this.result, htmlElement, null, null);
+    await import_obsidian4.MarkdownRenderer.renderMarkdown(this.result, htmlElement, "", null);
     this.modalEl.scrollTop = this.modalEl.scrollHeight;
   }
   formatDate(date) {
@@ -6021,11 +6094,26 @@ var KhojChatModal = class extends import_obsidian4.Modal {
   async getChatHistory(chatBodyEl) {
     let chatUrl = `${this.setting.khojUrl}/api/chat/history?client=obsidian`;
     let headers = { "Authorization": `Bearer ${this.setting.khojApiKey}` };
-    let response = await (0, import_obsidian4.request)({ url: chatUrl, headers });
-    let chatLogs = JSON.parse(response).response;
-    chatLogs.forEach((chatLog) => {
-      this.renderMessageWithReferences(chatBodyEl, chatLog.message, chatLog.by, chatLog.context, new Date(chatLog.created));
-    });
+    try {
+      let response = await fetch2(chatUrl, { method: "GET", headers });
+      let responseJson = await response.json();
+      if (responseJson.detail) {
+        let setupMsg = "Hi \u{1F44B}\u{1F3FE}, to start chatting add available chat models options via [the Django Admin panel](/server/admin) on the Server";
+        this.renderMessage(chatBodyEl, setupMsg, "khoj", void 0);
+        return false;
+      } else if (responseJson.response) {
+        let chatLogs = responseJson.response;
+        chatLogs.forEach((chatLog) => {
+          var _a4;
+          this.renderMessageWithReferences(chatBodyEl, chatLog.message, chatLog.by, chatLog.context, new Date(chatLog.created), (_a4 = chatLog.intent) == null ? void 0 : _a4.type);
+        });
+      }
+    } catch (err) {
+      let errorMsg = "Unable to get response from Khoj server \u2764\uFE0F\u200D\u{1FA79}. Ensure server is running or contact developers for help at [team@khoj.dev](mailto:team@khoj.dev) or in [Discord](https://discord.gg/BDgyabRM6e)";
+      this.renderMessage(chatBodyEl, errorMsg, "khoj", void 0);
+      return false;
+    }
+    return true;
   }
   async getChatResponse(query) {
     if (!query || query === "")
@@ -6036,7 +6124,7 @@ var KhojChatModal = class extends import_obsidian4.Modal {
     let chatUrl = `${this.setting.khojUrl}/api/chat?q=${encodedQuery}&n=${this.setting.resultsCount}&client=obsidian&stream=true`;
     let responseElement = this.createKhojResponseDiv();
     this.result = "";
-    this.renderIncrementalMessage(responseElement, "\u{1F914}");
+    await this.renderIncrementalMessage(responseElement, "\u{1F914}");
     let response = await fetch2(chatUrl, {
       method: "GET",
       headers: {
@@ -6054,12 +6142,26 @@ var KhojChatModal = class extends import_obsidian4.Modal {
       }
       this.result = "";
       responseElement.innerHTML = "";
+      if (response.headers.get("content-type") == "application/json") {
+        let responseText = "";
+        try {
+          const responseAsJson = await response.json();
+          if (responseAsJson.image) {
+            responseText = `![${query}](data:image/png;base64,${responseAsJson.image})`;
+          } else if (responseAsJson.detail) {
+            responseText = responseAsJson.detail;
+          }
+        } catch (error) {
+          responseText = response.body.read().toString();
+        } finally {
+          await this.renderIncrementalMessage(responseElement, responseText);
+        }
+      }
       for await (const chunk of response.body) {
-        const responseText = chunk.toString();
+        let responseText = chunk.toString();
         if (responseText.includes("### compiled references:")) {
-          const additionalResponse = responseText.split("### compiled references:")[0];
-          this.renderIncrementalMessage(responseElement, additionalResponse);
-          const rawReference = responseText.split("### compiled references:")[1];
+          const [additionalResponse, rawReference] = responseText.split("### compiled references:", 2);
+          await this.renderIncrementalMessage(responseElement, additionalResponse);
           const rawReferenceAsJson = JSON.parse(rawReference);
           let references = responseElement.createDiv();
           references.classList.add("references");
@@ -6089,11 +6191,12 @@ var KhojChatModal = class extends import_obsidian4.Modal {
           referenceExpandButton.innerHTML = expandButtonText;
           references.appendChild(referenceSection);
         } else {
-          this.renderIncrementalMessage(responseElement, responseText);
+          await this.renderIncrementalMessage(responseElement, responseText);
         }
       }
     } catch (err) {
-      this.renderIncrementalMessage(responseElement, "Sorry, unable to get response from Khoj backend \u2764\uFE0F\u200D\u{1FA79}. Contact developer for help at team@khoj.dev or <a href='https://discord.gg/BDgyabRM6e'>in Discord</a>");
+      let errorMsg = "Sorry, unable to get response from Khoj backend \u2764\uFE0F\u200D\u{1FA79}. Contact developer for help at team@khoj.dev or [in Discord](https://discord.gg/BDgyabRM6e)";
+      responseElement.innerHTML = errorMsg;
     }
   }
   flashStatusInChatInput(message) {
@@ -6116,9 +6219,11 @@ var KhojChatModal = class extends import_obsidian4.Modal {
       if (result.status !== "ok") {
         throw new Error("Failed to clear conversation history");
       } else {
-        chatBody.innerHTML = "";
-        await this.getChatHistory(chatBody);
-        this.flashStatusInChatInput(result.message);
+        let getChatHistoryStatus = await this.getChatHistory(chatBody);
+        if (getChatHistoryStatus)
+          chatBody.innerHTML = "";
+        let statusMsg = getChatHistoryStatus ? result.message : "Failed to clear conversation history";
+        this.flashStatusInChatInput(statusMsg);
       }
     } catch (err) {
       this.flashStatusInChatInput("Failed to clear conversation history");
@@ -6156,10 +6261,12 @@ Content-Type: "application/octet-stream"\r
       if (response.status === 200) {
         console.log(response);
         chatInput.value += response.json.text;
-      } else if (response.status === 422) {
-        throw new Error("\u26D4\uFE0F Failed to transcribe audio");
-      } else {
+      } else if (response.status === 501) {
         throw new Error("\u26D4\uFE0F Configure speech-to-text model on server.");
+      } else if (response.status === 422) {
+        throw new Error("\u26D4\uFE0F Audio file to large to process.");
+      } else {
+        throw new Error("\u26D4\uFE0F Failed to transcribe audio.");
       }
     };
     const handleRecording = (stream) => {
@@ -6197,32 +6304,26 @@ var Khoj = class extends import_obsidian5.Plugin {
     this.addCommand({
       id: "search",
       name: "Search",
-      checkCallback: (checking) => {
-        if (!checking && this.settings.connectedToBackend)
-          new KhojSearchModal(this.app, this.settings).open();
-        return this.settings.connectedToBackend;
+      callback: () => {
+        new KhojSearchModal(this.app, this.settings).open();
       }
     });
     this.addCommand({
       id: "similar",
       name: "Find similar notes",
-      editorCheckCallback: (checking) => {
-        if (!checking && this.settings.connectedToBackend)
-          new KhojSearchModal(this.app, this.settings, true).open();
-        return this.settings.connectedToBackend;
+      editorCallback: () => {
+        new KhojSearchModal(this.app, this.settings, true).open();
       }
     });
     this.addCommand({
       id: "chat",
       name: "Chat",
-      checkCallback: (checking) => {
-        if (!checking && this.settings.connectedToBackend)
-          new KhojChatModal(this.app, this.settings).open();
-        return this.settings.connectedToBackend;
+      callback: () => {
+        new KhojChatModal(this.app, this.settings).open();
       }
     });
-    this.addRibbonIcon("search", "Khoj", (_) => {
-      this.settings.connectedToBackend ? new KhojSearchModal(this.app, this.settings).open() : new import_obsidian5.Notice(`\u2757\uFE0FEnsure Khoj backend is running and Khoj URL is pointing to it in the plugin settings`);
+    this.addRibbonIcon("message-circle", "Khoj", (_) => {
+      new KhojChatModal(this.app, this.settings).open();
     });
     this.addSettingTab(new KhojSettingTab(this.app, this));
     this.indexingTimer = setInterval(async () => {
@@ -6233,19 +6334,7 @@ var Khoj = class extends import_obsidian5.Plugin {
   }
   async loadSettings() {
     this.settings = Object.assign({}, DEFAULT_SETTINGS, await this.loadData());
-    let headers = { "Authorization": `Bearer ${this.settings.khojApiKey}` };
-    if (this.settings.khojApiKey === "" && this.settings.khojUrl === "https://app.khoj.dev") {
-      new import_obsidian5.Notice(`\u2757\uFE0FKhoj API key is not configured. Please visit https://app.khoj.dev/config#clients to get an API key.`);
-      return;
-    }
-    await (0, import_obsidian5.request)({ url: this.settings.khojUrl, method: "GET", headers }).then((response) => {
-      this.settings.connectedToBackend = true;
-    }).catch((error) => {
-      this.settings.connectedToBackend = false;
-      new import_obsidian5.Notice(`\u2757\uFE0FEnsure Khoj backend is running and Khoj URL is pointing to it in the plugin settings.
-
-${error}`);
-    });
+    ({ connectedToBackend: this.settings.connectedToBackend } = await canConnectToBackend(this.settings.khojUrl, this.settings.khojApiKey, true));
   }
   async saveSettings() {
     this.saveData(this.settings);
