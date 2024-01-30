@@ -152,7 +152,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "README.md",
+                "file": "snippets/Yield Keyword Javascript - With Real life use-cases.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -169,7 +169,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "README.md",
+                "file": "snippets/Yield Keyword Javascript - With Real life use-cases.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -192,7 +192,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "README.md"
+                "file": "snippets/Yield Keyword Javascript - With Real life use-cases.md"
               }
             }
           },
@@ -266,17 +266,18 @@
           }
         ],
         "direction": "vertical",
-        "x": 317,
-        "y": 338,
-        "width": 802,
-        "height": 402,
+        "x": 316,
+        "y": 337,
+        "width": 804,
+        "height": 405,
         "maximize": false,
         "zoom": 0
       }
     ]
   },
-  "active": "94aaa239ec0a7a35",
+  "active": "3aa3f91892ad4fbd",
   "lastOpenFiles": [
+    "README.md",
     "index.md",
     "Charts.md",
     "snippets/README.md",
@@ -302,7 +303,6 @@
     "blogs/Tmux for productivity.md",
     "blogs/The Hundred Things Principle.md",
     "blogs/README.md",
-    "blogs/Markdown editor in react.md",
     "assets/images/me-2-full.jpg",
     "assets/images/me.jpg",
     "assets/images/me-2.jpg",

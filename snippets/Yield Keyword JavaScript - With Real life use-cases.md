@@ -1,4 +1,4 @@
-gigThe yield keyword in JavaScript is primarily associated with generators, which are a special type of function that can be paused and resumed. Generators are useful for working with sequences of data, asynchronous programming, and creating iterators. Here are some real-life use cases and examples:
+The yield keyword in JavaScript is primarily associated with generators, which are a special type of function that can be paused and resumed. Generators are useful for working with sequences of data, asynchronous programming, and creating iterators. Here are some real-life use cases and examples:
 
 ## Lazy Evaluation and Infinite Sequences:
 Generators allow for lazy evaluation, meaning they produce values on-demand rather than generating them all at once. This is particularly useful when working with infinite sequences.
@@ -10,12 +10,12 @@ function* infiniteSequence() {
     yield i++;
   }
 }
-```
 
 const sequence = infiniteSequence();
 console.log(sequence.next().value); // 0
 console.log(sequence.next().value); // 1
 
+```
 
 ## Asynchronous Programming:
 Generators can be used with asynchronous code to simplify complex asynchronous flows. This is often seen in combination with promises.
