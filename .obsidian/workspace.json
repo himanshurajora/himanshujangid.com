@@ -18,6 +18,18 @@
             }
           },
           {
+            "id": "61edff1c83f77192",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "snippets/Yield Keyword Javascript - With Real life use-cases.md",
+                "mode": "source",
+                "source": false
+              }
+            }
+          },
+          {
             "id": "7507ff0b52bdcd95",
             "type": "leaf",
             "state": {
@@ -73,7 +85,8 @@
               }
             }
           }
-        ]
+        ],
+        "currentTab": 1
       }
     ],
     "direction": "vertical"
@@ -226,19 +239,19 @@
     }
   },
   "floating": {
-    "id": "769abf4d66ec809e",
+    "id": "5852413a5bedae9b",
     "type": "floating",
     "children": [
       {
-        "id": "3909c78c0a71073e",
+        "id": "e12d47b3b394273d",
         "type": "window",
         "children": [
           {
-            "id": "a8caa1b633e85905",
+            "id": "34101e675603ec79",
             "type": "tabs",
             "children": [
               {
-                "id": "509fb76df4156314",
+                "id": "94aaa239ec0a7a35",
                 "type": "leaf",
                 "state": {
                   "type": "markdown",
@@ -253,8 +266,8 @@
           }
         ],
         "direction": "vertical",
-        "x": 598,
-        "y": 374,
+        "x": 317,
+        "y": 338,
         "width": 802,
         "height": 402,
         "maximize": false,
@@ -262,7 +275,7 @@
       }
     ]
   },
-  "active": "509fb76df4156314",
+  "active": "94aaa239ec0a7a35",
   "lastOpenFiles": [
     "index.md",
     "Charts.md",
