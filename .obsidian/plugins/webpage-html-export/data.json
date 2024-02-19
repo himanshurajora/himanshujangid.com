@@ -8,7 +8,7 @@
   "allowFoldingHeadings": true,
   "sidebarsAlwaysCollapsible": false,
   "addFilenameTitle": true,
-  "minifyHTML": true,
+  "minifyHTML": false,
   "customLineWidth": "",
   "contentWidth": "",
   "sidebarWidth": "260px",
