@@ -1,0 +1,89 @@
+/* Base styles */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Custom styles for dark mode reading experience */
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+  
+  body {
+    @apply font-sans leading-relaxed antialiased bg-dark-900 text-light-200;
+  }
+  
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-serif text-light-100;
+  }
+}
+
+@layer components {
+  /* Clean, dark mode card styling */
+  .clean-card {
+    @apply bg-dark-300 p-6 sm:p-8 rounded-lg shadow-md border border-dark-100;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+  
+  .clean-card:hover {
+    @apply shadow-lg;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+  }
+  
+  /* Subtle gradient text for headings */
+  .gradient-text {
+    @apply bg-gradient-to-r from-primary-400 to-primary-300 bg-clip-text text-transparent;
+  }
+  
+  /* Simple link styling */
+  .text-link {
+    @apply text-primary-300 hover:text-primary-200 underline-offset-2 hover:underline font-medium transition;
+  }
+  
+  /* Chart container styling */
+  .chart-container {
+    @apply w-full h-64 relative;
+  }
+}
+
+@layer utilities {
+  /* Subtle floating animation for icons */
+  .floating {
+    animation: float 4s ease-in-out infinite;
+  }
+  
+  @keyframes float {
+    0% {
+      transform: translateY(0px);
+    }
+    50% {
+      transform: translateY(-7px);
+    }
+    100% {
+      transform: translateY(0px);
+    }
+  }
+  
+  /* Subtle parallax container */
+  .parallax-container {
+    @apply relative overflow-hidden inline-block;
+  }
+  
+  /* Dark theme custom colors */
+  .text-light-300 {
+    @apply text-gray-300;
+  }
+  
+  .text-light-400 {
+    @apply text-gray-400;
+  }
+  
+  /* Button styles */
+  .btn-primary {
+    @apply px-4 py-2 bg-primary-600 text-white rounded transition hover:bg-primary-500;
+  }
+  
+  .btn-dark {
+    @apply px-4 py-2 bg-dark-100 text-light-100 rounded transition hover:bg-dark-200;
+  }
+} 

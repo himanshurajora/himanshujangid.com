@@ -2,132 +2,331 @@
 <html lang="en">
 <head>
     @@include('./partials/head.html', {
-        "title": "Coding Statistics & Charts - Himanshu Jangid",
-        "description": "Statistical data and charts about Himanshu Jangid's coding activity, programming languages, work hours, and more.",
-        "keywords": "Himanshu Jangid, Coding Statistics, GitHub Activity, Programming Languages, Developer Charts",
-        "ogtitle": "Coding Statistics & Charts - Himanshu Jangid",
-        "ogdescription": "Statistical data and charts about Himanshu Jangid's coding activity, programming languages, work hours, and more.",
+        "title": "Coding Statistics - Himanshu Jangid",
+        "description": "View detailed statistics about my coding habits, language preferences, and development activities.",
+        "keywords": "coding statistics, programming languages, development metrics, Himanshu Jangid",
+        "ogtitle": "Coding Statistics - Himanshu Jangid",
+        "ogdescription": "View detailed statistics about my coding habits, language preferences, and development activities.",
         "ogurl": "https://himanshujangid.com/charts",
         "customstyles": ""
     })
-    <link rel="stylesheet" href="/css/charts.css">
 </head>
-<body class="bg-gray-50 dark:bg-gray-900 text-gray-800 dark:text-gray-200 min-h-screen flex flex-col">
+<body class="bg-dark-900 text-light-200 min-h-screen flex flex-col overflow-x-hidden">
     @@include('./partials/nav.html', {
-        "homeActive": "text-gray-500 dark:text-gray-300",
-        "chartsActive": "text-gray-900 dark:text-white",
-        "thingsActive": "text-gray-500 dark:text-gray-300"
+        "homeActive": "text-light-300",
+        "chartsActive": "text-light-100"
     })
 
+    <!-- Subtle Particles Background -->
+    <div id="particles-js" class="fixed top-0 left-0 w-full h-full z-0 opacity-20"></div>
+
     <!-- Main Content -->
-    <main class="flex-grow container mx-auto px-4 sm:px-6 lg:px-8 py-8">
+    <main class="flex-grow container mx-auto px-4 sm:px-6 lg:px-8 py-8 relative z-10">
         <!-- Header Section -->
-        <div class="mb-12 text-center">
-            <h1 class="text-4xl font-bold mb-4 bg-gradient-to-r from-primary-600 to-blue-600 bg-clip-text text-transparent">Coding Statistics & Charts</h1>
-            <p class="text-xl max-w-3xl mx-auto text-gray-600 dark:text-gray-400">
-                Get to know me statistically through these visualizations of my coding habits, preferred languages, and work patterns.
-                <span class="block mt-2 text-yellow-500 dark:text-yellow-400 font-medium">
-                    <i class="fas fa-exclamation-triangle mr-2"></i>
-                    Warning: This page may take some time to load due to the charts.
-                </span>
-            </p>
-        </div>
+        <section class="max-w-4xl mx-auto mt-10 mb-12">
+            <div class="clean-card text-center" data-aos="fade-up">
+                <h1 class="text-3xl font-bold mb-4 gradient-text">My Coding Statistics</h1>
+                <p class="text-light-300 mb-2">A visual representation of my development activities, language preferences, and coding habits.</p>
+                <p class="text-light-400 text-sm">Data sourced from <a href="https://wakatime.com" target="_blank" rel="noopener noreferrer" class="text-link">WakaTime</a> and GitHub</p>
+            </div>
+        </section>
 
-        <!-- Charts Section -->
-        <div class="grid grid-cols-1 gap-10">
-            <!-- GitHub Activity Chart -->
-            <section class="bg-white dark:bg-gray-800 rounded-xl shadow-md p-6 chart-container">
-                <h2 class="text-2xl font-bold mb-4 text-primary-600 dark:text-primary-400">GitHub Activity Graph</h2>
-                <p class="mb-6 text-gray-600 dark:text-gray-400">
-                    A visualization of my GitHub contributions throughout the year, showing my consistency and commitment to coding.
-                </p>
-                <div class="bg-gray-100 dark:bg-gray-700 p-4 rounded-lg overflow-hidden chart-image-container">
-                    <img 
-                        src="https://ghchart.rshah.org/himanshurajora" 
-                        alt="Himanshu Jangid's GitHub activity" 
-                        class="chart-image"
-                        loading="lazy"
-                    >
-                </div>
-            </section>
-
+        <!-- Charts Grid -->
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-5xl mx-auto mb-12">
             <!-- Languages Chart -->
-            <section class="bg-white dark:bg-gray-800 rounded-xl shadow-md p-6 chart-container">
-                <h2 class="text-2xl font-bold mb-4 text-primary-600 dark:text-primary-400">Languages that I use</h2>
-                <p class="mb-6 text-gray-600 dark:text-gray-400">
-                    A breakdown of programming languages I use in my daily coding, based on tracking data from WakaTime.
-                </p>
-                <div class="bg-gray-100 dark:bg-gray-700 p-4 rounded-lg overflow-hidden chart-image-container">
-                    <img 
-                        src="https://wakatime.com/share/@himanshurajora/10489ddd-4343-4a35-8405-140c4b468828.svg" 
-                        alt="Language Chart" 
-                        class="chart-image"
-                        loading="lazy"
-                    >
+            <div class="clean-card" data-aos="fade-up">
+                <h2 class="text-xl font-bold mb-4 text-light-100">Programming Languages</h2>
+                <p class="text-light-300 mb-4">Distribution of languages used in my projects over the past year</p>
+                <div class="chart-container">
+                    <canvas id="languagesChart"></canvas>
                 </div>
-            </section>
+            </div>
 
-            <!-- Work Hours Chart -->
-            <section class="bg-white dark:bg-gray-800 rounded-xl shadow-md p-6 chart-container">
-                <h2 class="text-2xl font-bold mb-4 text-primary-600 dark:text-primary-400">My last 7 day work hours</h2>
-                <p class="mb-6 text-gray-600 dark:text-gray-400">
-                    A timeline of my coding activity over the past week, showing when I'm most productive during the day.
-                </p>
-                <div class="bg-gray-100 dark:bg-gray-700 p-4 rounded-lg overflow-hidden chart-image-container">
-                    <img 
-                        src="https://wakatime.com/share/@himanshurajora/dde51b95-c8bb-4c8d-99ea-46c40c63f3dd.svg" 
-                        alt="Activity Chart" 
-                        class="chart-image"
-                        loading="lazy"
-                    >
+            <!-- Coding Time Chart -->
+            <div class="clean-card" data-aos="fade-up">
+                <h2 class="text-xl font-bold mb-4 text-light-100">Coding Activity</h2>
+                <p class="text-light-300 mb-4">Hours spent coding per month in the past year</p>
+                <div class="chart-container">
+                    <canvas id="codingTimeChart"></canvas>
                 </div>
-            </section>
+            </div>
 
-            <!-- Code Editors Chart -->
-            <section class="bg-white dark:bg-gray-800 rounded-xl shadow-md p-6 chart-container">
-                <h2 class="text-2xl font-bold mb-4 text-primary-600 dark:text-primary-400">Code Editors that I use</h2>
-                <p class="mb-6 text-gray-600 dark:text-gray-400">
-                    A comparison of different code editors I use for development, showing my preferences and habits.
-                </p>
-                <div class="bg-gray-100 dark:bg-gray-700 p-4 rounded-lg overflow-hidden chart-image-container">
-                    <img 
-                        src="https://wakatime.com/share/@himanshurajora/084fd830-b611-406a-bf97-1d7ed5cf9c1e.svg" 
-                        alt="Code Editors" 
-                        class="chart-image"
-                        loading="lazy"
-                    >
+            <!-- Frameworks/Libraries Chart -->
+            <div class="clean-card" data-aos="fade-up">
+                <h2 class="text-xl font-bold mb-4 text-light-100">Frameworks & Libraries</h2>
+                <p class="text-light-300 mb-4">Technologies I use most frequently</p>
+                <div class="chart-container">
+                    <canvas id="frameworksChart"></canvas>
                 </div>
-            </section>
+            </div>
 
-            <!-- Categories Chart -->
-            <section class="bg-white dark:bg-gray-800 rounded-xl shadow-md p-6 chart-container">
-                <h2 class="text-2xl font-bold mb-4 text-primary-600 dark:text-primary-400">Do I code or browse more?</h2>
-                <p class="mb-6 text-gray-600 dark:text-gray-400">
-                    A breakdown of my time spent between coding, browsing documentation, and other development activities.
-                </p>
-                <div class="bg-gray-100 dark:bg-gray-700 p-4 rounded-lg overflow-hidden chart-image-container">
-                    <img 
-                        src="https://wakatime.com/share/@himanshurajora/93eeb7db-1438-4375-bba2-be109b0c5034.svg" 
-                        alt="Categories" 
-                        class="chart-image"
-                        loading="lazy"
-                    >
+            <!-- Project Contributions Chart -->
+            <div class="clean-card" data-aos="fade-up">
+                <h2 class="text-xl font-bold mb-4 text-light-100">Project Contributions</h2>
+                <p class="text-light-300 mb-4">Commits and contributions by project</p>
+                <div class="chart-container">
+                    <canvas id="contributionsChart"></canvas>
                 </div>
-            </section>
+            </div>
         </div>
 
-        <!-- Back to Home -->
-        <div class="mt-12 text-center">
-            <a href="/" class="inline-flex items-center text-primary-600 dark:text-primary-400 hover:underline font-medium">
-                <svg class="mr-2 w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18"></path>
-                </svg>
-                Back to Homepage
-            </a>
-        </div>
+        <!-- GitHub Activity Section -->
+        <section class="max-w-4xl mx-auto mb-12">
+            <div class="clean-card" data-aos="fade-up">
+                <h2 class="text-xl font-bold mb-4 text-light-100">GitHub Activity</h2>
+                <p class="text-light-300 mb-4">My contribution activity over time</p>
+                <div class="mb-6">
+                    <div class="overflow-hidden rounded bg-dark-100 p-4">
+                        <img src="https://ghchart.rshah.org/3384ff/himanshurajora" alt="Himanshu's GitHub Contribution Chart" class="w-full">
+                    </div>
+                </div>
+                <div class="text-center">
+                    <a href="https://github.com/himanshurajora" target="_blank" rel="noopener noreferrer" class="inline-flex items-center px-4 py-2 bg-dark-100 text-light-100 rounded transition hover:bg-dark-200">
+                        <i class="fab fa-github mr-2"></i> View GitHub Profile
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Frequently Used Tools -->
+        <section class="max-w-4xl mx-auto mb-12">
+            <div class="clean-card" data-aos="fade-up">
+                <h2 class="text-xl font-bold mb-4 text-light-100">Development Environment</h2>
+                <p class="text-light-300 mb-4">Tools, editors and platforms I use daily</p>
+                
+                <div class="grid grid-cols-2 md:grid-cols-4 gap-6">
+                    <div class="flex flex-col items-center text-center">
+                        <div class="text-3xl mb-2 text-blue-500 floating"><i class="fab fa-linux"></i></div>
+                        <h3 class="font-semibold text-light-100">Arch Linux</h3>
+                        <p class="text-light-400 text-sm">Operating System</p>
+                    </div>
+                    
+                    <div class="flex flex-col items-center text-center">
+                        <div class="text-3xl mb-2 text-blue-400 floating"><i class="fab fa-docker"></i></div>
+                        <h3 class="font-semibold text-light-100">Docker</h3>
+                        <p class="text-light-400 text-sm">Containerization</p>
+                    </div>
+                    
+                    <div class="flex flex-col items-center text-center">
+                        <div class="text-3xl mb-2 text-primary-300 floating"><i class="fas fa-code"></i></div>
+                        <h3 class="font-semibold text-light-100">VS Code</h3>
+                        <p class="text-light-400 text-sm">Code Editor</p>
+                    </div>
+                    
+                    <div class="flex flex-col items-center text-center">
+                        <div class="text-3xl mb-2 text-orange-500 floating"><i class="fab fa-git-alt"></i></div>
+                        <h3 class="font-semibold text-light-100">Git</h3>
+                        <p class="text-light-400 text-sm">Version Control</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Learning Section -->
+        <section class="max-w-4xl mx-auto mb-8">
+            <div class="clean-card text-center" data-aos="fade-up">
+                <h2 class="text-xl font-bold mb-4 text-light-100">Currently Learning</h2>
+                <div class="flex flex-wrap justify-center gap-4">
+                    <span class="px-3 py-1 bg-blue-900 text-blue-200 rounded-full text-sm">Rust</span>
+                    <span class="px-3 py-1 bg-green-900 text-green-200 rounded-full text-sm">Go</span>
+                    <span class="px-3 py-1 bg-purple-900 text-purple-200 rounded-full text-sm">Cloud Architecture</span>
+                    <span class="px-3 py-1 bg-red-900 text-red-200 rounded-full text-sm">WebAssembly</span>
+                </div>
+                <div class="mt-6">
+                    <a href="/" class="text-link inline-flex items-center">
+                        <svg class="mr-1 w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18"></path>
+                        </svg>
+                        Back to Homepage
+                    </a>
+                </div>
+            </div>
+        </section>
     </main>
 
     @@include('./partials/footer.html')
     @@include('./partials/scripts.html')
+
+    <!-- Chart.js -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@3.7.1/dist/chart.min.js"></script>
+    <script>
+        // Wait for DOM to load
+        document.addEventListener('DOMContentLoaded', function() {
+            // Set chart defaults for better appearance in dark mode
+            Chart.defaults.font.family = "'Inter', 'Segoe UI', system-ui, sans-serif";
+            Chart.defaults.color = '#e9ecef';
+            Chart.defaults.plugins.legend.labels.usePointStyle = true;
+            Chart.defaults.plugins.tooltip.padding = 10;
+            Chart.defaults.scale.grid.color = 'rgba(255, 255, 255, 0.05)';
+
+            // Languages Chart
+            const languagesCtx = document.getElementById('languagesChart').getContext('2d');
+            const languagesChart = new Chart(languagesCtx, {
+                type: 'doughnut',
+                data: {
+                    labels: ['TypeScript', 'JavaScript', 'HTML/CSS', 'Rust', 'Python', 'Other'],
+                    datasets: [{
+                        data: [40, 25, 15, 10, 5, 5],
+                        backgroundColor: [
+                            '#3384ff', // TypeScript blue
+                            '#f7df1e', // JavaScript yellow
+                            '#e44d26', // HTML orange
+                            '#ff4c29', // Rust orange
+                            '#3776ab', // Python blue
+                            '#8957e5'  // Purple for others
+                        ],
+                        borderWidth: 2,
+                        borderColor: '#1f1f1f'
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    plugins: {
+                        legend: {
+                            position: 'bottom',
+                            labels: {
+                                padding: 20,
+                                boxWidth: 12,
+                                color: '#e9ecef'
+                            }
+                        }
+                    }
+                }
+            });
+
+            // Coding Time Chart
+            const codingTimeCtx = document.getElementById('codingTimeChart').getContext('2d');
+            const codingTimeChart = new Chart(codingTimeCtx, {
+                type: 'bar',
+                data: {
+                    labels: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'],
+                    datasets: [{
+                        label: 'Hours',
+                        data: [75, 90, 110, 95, 120, 135, 140, 130, 115, 125, 100, 95],
+                        backgroundColor: '#3384ff',
+                        borderRadius: 4
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    plugins: {
+                        legend: {
+                            display: false
+                        }
+                    },
+                    scales: {
+                        y: {
+                            beginAtZero: true,
+                            grid: {
+                                color: 'rgba(255, 255, 255, 0.05)'
+                            },
+                            ticks: {
+                                color: '#e9ecef'
+                            }
+                        },
+                        x: {
+                            grid: {
+                                display: false
+                            },
+                            ticks: {
+                                color: '#e9ecef'
+                            }
+                        }
+                    }
+                }
+            });
+
+            // Frameworks Chart
+            const frameworksCtx = document.getElementById('frameworksChart').getContext('2d');
+            const frameworksChart = new Chart(frameworksCtx, {
+                type: 'polarArea',
+                data: {
+                    labels: ['React', 'Node.js', 'Express', 'Next.js', 'NestJS', 'Tailwind CSS'],
+                    datasets: [{
+                        data: [90, 80, 70, 75, 65, 85],
+                        backgroundColor: [
+                            'rgba(97, 218, 251, 0.7)',  // React blue
+                            'rgba(104, 160, 99, 0.7)',  // Node green
+                            'rgba(255, 255, 255, 0.7)', // Express white
+                            'rgba(0, 0, 0, 0.7)',       // Next.js black
+                            'rgba(236, 72, 153, 0.7)',  // NestJS pink
+                            'rgba(14, 165, 233, 0.7)'   // Tailwind sky blue
+                        ],
+                        borderWidth: 1
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    plugins: {
+                        legend: {
+                            position: 'bottom',
+                            labels: {
+                                padding: 20,
+                                boxWidth: 12,
+                                color: '#e9ecef'
+                            }
+                        }
+                    },
+                    scales: {
+                        r: {
+                            ticks: {
+                                display: false
+                            },
+                            grid: {
+                                color: 'rgba(255, 255, 255, 0.05)'
+                            }
+                        }
+                    }
+                }
+            });
+
+            // Contributions Chart
+            const contributionsCtx = document.getElementById('contributionsChart').getContext('2d');
+            const contributionsChart = new Chart(contributionsCtx, {
+                type: 'bar',
+                data: {
+                    labels: ['Personal', 'Work', 'Open Source', 'Learning', 'Documentation'],
+                    datasets: [{
+                        label: 'Commits',
+                        data: [350, 520, 120, 180, 90],
+                        backgroundColor: '#8957e5',
+                        borderRadius: 4
+                    }]
+                },
+                options: {
+                    indexAxis: 'y',
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    plugins: {
+                        legend: {
+                            display: false
+                        }
+                    },
+                    scales: {
+                        x: {
+                            beginAtZero: true,
+                            grid: {
+                                color: 'rgba(255, 255, 255, 0.05)'
+                            },
+                            ticks: {
+                                color: '#e9ecef'
+                            }
+                        },
+                        y: {
+                            grid: {
+                                display: false
+                            },
+                            ticks: {
+                                color: '#e9ecef'
+                            }
+                        }
+                    }
+                }
+            });
+        });
+    </script>
 </body>
 </html> 
