@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    @@include('./partials/head.html', {
+        "title": "Coding Statistics & Charts - Himanshu Jangid",
+        "description": "Statistical data and charts about Himanshu Jangid's coding activity, programming languages, work hours, and more.",
+        "keywords": "Himanshu Jangid, Coding Statistics, GitHub Activity, Programming Languages, Developer Charts",
+        "ogtitle": "Coding Statistics & Charts - Himanshu Jangid",
+        "ogdescription": "Statistical data and charts about Himanshu Jangid's coding activity, programming languages, work hours, and more.",
+        "ogurl": "https://himanshujangid.com/charts",
+        "customstyles": ""
+    })
+    <link rel="stylesheet" href="/css/charts.css">
+</head>
+<body class="bg-gray-50 dark:bg-gray-900 text-gray-800 dark:text-gray-200 min-h-screen flex flex-col">
+    @@include('./partials/nav.html', {
+        "homeActive": "text-gray-500 dark:text-gray-300",
+        "chartsActive": "text-gray-900 dark:text-white",
+        "thingsActive": "text-gray-500 dark:text-gray-300"
+    })
+
+    <!-- Main Content -->
+    <main class="flex-grow container mx-auto px-4 sm:px-6 lg:px-8 py-8">
+        <!-- Header Section -->
+        <div class="mb-12 text-center">
+            <h1 class="text-4xl font-bold mb-4 bg-gradient-to-r from-primary-600 to-blue-600 bg-clip-text text-transparent">Coding Statistics & Charts</h1>
+            <p class="text-xl max-w-3xl mx-auto text-gray-600 dark:text-gray-400">
+                Get to know me statistically through these visualizations of my coding habits, preferred languages, and work patterns.
+                <span class="block mt-2 text-yellow-500 dark:text-yellow-400 font-medium">
+                    <i class="fas fa-exclamation-triangle mr-2"></i>
+                    Warning: This page may take some time to load due to the charts.
+                </span>
+            </p>
+        </div>
+
+        <!-- Charts Section -->
+        <div class="grid grid-cols-1 gap-10">
+            <!-- GitHub Activity Chart -->
+            <section class="bg-white dark:bg-gray-800 rounded-xl shadow-md p-6 chart-container">
+                <h2 class="text-2xl font-bold mb-4 text-primary-600 dark:text-primary-400">GitHub Activity Graph</h2>
+                <p class="mb-6 text-gray-600 dark:text-gray-400">
+                    A visualization of my GitHub contributions throughout the year, showing my consistency and commitment to coding.
+                </p>
+                <div class="bg-gray-100 dark:bg-gray-700 p-4 rounded-lg overflow-hidden chart-image-container">
+                    <img 
+                        src="https://ghchart.rshah.org/himanshurajora" 
+                        alt="Himanshu Jangid's GitHub activity" 
+                        class="chart-image"
+                        loading="lazy"
+                    >
+                </div>
+            </section>
+
+            <!-- Languages Chart -->
+            <section class="bg-white dark:bg-gray-800 rounded-xl shadow-md p-6 chart-container">
+                <h2 class="text-2xl font-bold mb-4 text-primary-600 dark:text-primary-400">Languages that I use</h2>
+                <p class="mb-6 text-gray-600 dark:text-gray-400">
+                    A breakdown of programming languages I use in my daily coding, based on tracking data from WakaTime.
+                </p>
+                <div class="bg-gray-100 dark:bg-gray-700 p-4 rounded-lg overflow-hidden chart-image-container">
+                    <img 
+                        src="https://wakatime.com/share/@himanshurajora/10489ddd-4343-4a35-8405-140c4b468828.svg" 
+                        alt="Language Chart" 
+                        class="chart-image"
+                        loading="lazy"
+                    >
+                </div>
+            </section>
+
+            <!-- Work Hours Chart -->
+            <section class="bg-white dark:bg-gray-800 rounded-xl shadow-md p-6 chart-container">
+                <h2 class="text-2xl font-bold mb-4 text-primary-600 dark:text-primary-400">My last 7 day work hours</h2>
+                <p class="mb-6 text-gray-600 dark:text-gray-400">
+                    A timeline of my coding activity over the past week, showing when I'm most productive during the day.
+                </p>
+                <div class="bg-gray-100 dark:bg-gray-700 p-4 rounded-lg overflow-hidden chart-image-container">
+                    <img 
+                        src="https://wakatime.com/share/@himanshurajora/dde51b95-c8bb-4c8d-99ea-46c40c63f3dd.svg" 
+                        alt="Activity Chart" 
+                        class="chart-image"
+                        loading="lazy"
+                    >
+                </div>
+            </section>
+
+            <!-- Code Editors Chart -->
+            <section class="bg-white dark:bg-gray-800 rounded-xl shadow-md p-6 chart-container">
+                <h2 class="text-2xl font-bold mb-4 text-primary-600 dark:text-primary-400">Code Editors that I use</h2>
+                <p class="mb-6 text-gray-600 dark:text-gray-400">
+                    A comparison of different code editors I use for development, showing my preferences and habits.
+                </p>
+                <div class="bg-gray-100 dark:bg-gray-700 p-4 rounded-lg overflow-hidden chart-image-container">
+                    <img 
+                        src="https://wakatime.com/share/@himanshurajora/084fd830-b611-406a-bf97-1d7ed5cf9c1e.svg" 
+                        alt="Code Editors" 
+                        class="chart-image"
+                        loading="lazy"
+                    >
+                </div>
+            </section>
+
+            <!-- Categories Chart -->
+            <section class="bg-white dark:bg-gray-800 rounded-xl shadow-md p-6 chart-container">
+                <h2 class="text-2xl font-bold mb-4 text-primary-600 dark:text-primary-400">Do I code or browse more?</h2>
+                <p class="mb-6 text-gray-600 dark:text-gray-400">
+                    A breakdown of my time spent between coding, browsing documentation, and other development activities.
+                </p>
+                <div class="bg-gray-100 dark:bg-gray-700 p-4 rounded-lg overflow-hidden chart-image-container">
+                    <img 
+                        src="https://wakatime.com/share/@himanshurajora/93eeb7db-1438-4375-bba2-be109b0c5034.svg" 
+                        alt="Categories" 
+                        class="chart-image"
+                        loading="lazy"
+                    >
+                </div>
+            </section>
+        </div>
+
+        <!-- Back to Home -->
+        <div class="mt-12 text-center">
+            <a href="/" class="inline-flex items-center text-primary-600 dark:text-primary-400 hover:underline font-medium">
+                <svg class="mr-2 w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18"></path>
+                </svg>
+                Back to Homepage
+            </a>
+        </div>
+    </main>
+
+    @@include('./partials/footer.html')
+    @@include('./partials/scripts.html')
+</body>
+</html> 

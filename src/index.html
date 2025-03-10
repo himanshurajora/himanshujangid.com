@@ -1,127 +1,22 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Himanshu Jangid - Software Engineer & Web Developer</title>
-    <meta name="description" content="Portfolio of Himanshu Jangid, a diligent web developer and software engineer with over 2 years of experience in React, NodeJS, TypeScript and more.">
-    <meta name="keywords" content="Himanshu Jangid, Web Developer, Software Engineer, React, NodeJS, TypeScript, JavaScript, Rust, Full Stack Developer">
-    <meta name="author" content="Himanshu Jangid">
-    
-    <!-- Open Graph tags -->
-    <meta property="og:title" content="Himanshu Jangid - Software Engineer & Web Developer">
-    <meta property="og:description" content="Portfolio of Himanshu Jangid, a diligent web developer and software engineer with over 2 years of experience in React, NodeJS, TypeScript and more.">
-    <meta property="og:image" content="/assets/images/me-2.jpg">
-    <meta property="og:url" content="https://himanshujangid.com">
-    <meta property="og:type" content="website">
-
-    <!-- Twitter Card tags -->
-    <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="Himanshu Jangid - Software Engineer & Web Developer">
-    <meta name="twitter:description" content="Portfolio of Himanshu Jangid, a diligent web developer and software engineer with over 2 years of experience.">
-    <meta name="twitter:image" content="/assets/images/me-2.jpg">
-
-    <!-- Favicon -->
-    <link rel="icon" type="image/png" href="/assets/images/me-2.jpg">
-    
-    <!-- Tailwind CSS -->
-    <script src="https://cdn.tailwindcss.com"></script>
-    <script>
-        tailwind.config = {
-            darkMode: 'class',
-            theme: {
-                extend: {
-                    colors: {
-                        primary: {
-                            50: '#f0fdfa',
-                            100: '#ccfbf1',
-                            200: '#99f6e4',
-                            300: '#5eead4',
-                            400: '#2dd4bf',
-                            500: '#14b8a6',
-                            600: '#0d9488',
-                            700: '#0f766e',
-                            800: '#115e59',
-                            900: '#134e4a',
-                        },
-                    },
-                    fontFamily: {
-                        sans: ['Inter', 'sans-serif'],
-                        mono: ['Fira Code', 'monospace'],
-                    },
-                },
-            },
-        }
-    </script>
-    
-    <!-- Google Fonts -->
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Fira+Code:wght@400;500;600&display=swap" rel="stylesheet">
-    
-    <!-- FontAwesome -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-    
-    <!-- Custom styles -->
-    <style>
-        /* For code blocks and syntax highlighting */
-        .code-block {
-            background-color: #1e293b;
-            border-radius: 0.5rem;
-            padding: 1rem;
-            margin: 1rem 0;
-            overflow-x: auto;
-        }
-        
-        /* Smooth scrolling */
-        html {
-            scroll-behavior: smooth;
-        }
-        
-        /* Custom scrollbar */
-        ::-webkit-scrollbar {
-            width: 8px;
-            height: 8px;
-        }
-        ::-webkit-scrollbar-track {
-            background: #f1f1f1;
-        }
-        ::-webkit-scrollbar-thumb {
-            background: #888;
-            border-radius: 4px;
-        }
-        ::-webkit-scrollbar-thumb:hover {
-            background: #555;
-        }
-    </style>
+    @@include('./partials/head.html', {
+        "title": "Himanshu Jangid - Software Engineer & Web Developer",
+        "description": "Portfolio of Himanshu Jangid, a diligent web developer and software engineer with over 2 years of experience in React, NodeJS, TypeScript and more.",
+        "keywords": "Himanshu Jangid, Web Developer, Software Engineer, React, NodeJS, TypeScript, JavaScript, Rust, Full Stack Developer",
+        "ogtitle": "Himanshu Jangid - Software Engineer & Web Developer",
+        "ogdescription": "Portfolio of Himanshu Jangid, a diligent web developer and software engineer with over 2 years of experience in React, NodeJS, TypeScript and more.",
+        "ogurl": "https://himanshujangid.com",
+        "customstyles": ""
+    })
 </head>
 <body class="bg-gray-50 dark:bg-gray-900 text-gray-800 dark:text-gray-200 min-h-screen flex flex-col">
-    <!-- Navigation -->
-    <nav class="bg-white dark:bg-gray-800 shadow-md sticky top-0 z-50">
-        <div class="container mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="flex justify-between h-16">
-                <div class="flex items-center">
-                    <a href="/" class="flex-shrink-0 flex items-center">
-                        <img class="h-8 w-auto" src="/assets/images/me-2.jpg" alt="Himanshu Jangid Logo">
-                        <span class="ml-2 text-xl font-bold">Himanshu Jangid</span>
-                    </a>
-                </div>
-                <div class="flex items-center space-x-4">
-                    <div class="hidden md:flex md:items-center md:space-x-4">
-                        <a href="/" class="px-3 py-2 rounded-md text-sm font-medium text-gray-900 dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700">Home</a>
-                        <a href="/charts.html" class="px-3 py-2 rounded-md text-sm font-medium text-gray-500 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-700">Charts</a>
-                        <a href="/things-to-checkout.html" class="px-3 py-2 rounded-md text-sm font-medium text-gray-500 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-700">Things to Checkout</a>
-                    </div>
-                    <button id="theme-toggle" class="p-2 rounded-md text-gray-500 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-700">
-                        <svg id="theme-toggle-dark-icon" class="w-5 h-5 hidden" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
-                            <path d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z"></path>
-                        </svg>
-                        <svg id="theme-toggle-light-icon" class="w-5 h-5 hidden" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
-                            <path fill-rule="evenodd" d="M10 2a1 1 0 011 1v1a1 1 0 11-2 0V3a1 1 0 011-1zm4 8a4 4 0 11-8 0 4 4 0 018 0zm-.464 4.95l.707.707a1 1 0 001.414-1.414l-.707-.707a1 1 0 00-1.414 1.414zm2.12-10.607a1 1 0 010 1.414l-.706.707a1 1 0 11-1.414-1.414l.707-.707a1 1 0 011.414 0zM17 11a1 1 0 100-2h-1a1 1 0 100 2h1zm-7 4a1 1 0 011 1v1a1 1 0 11-2 0v-1a1 1 0 011-1zM5.05 6.464A1 1 0 106.465 5.05l-.708-.707a1 1 0 00-1.414 1.414l.707.707zm1.414 8.486l-.707.707a1 1 0 01-1.414-1.414l.707-.707a1 1 0 011.414 1.414zM4 11a1 1 0 100-2H3a1 1 0 000 2h1z" clip-rule="evenodd"></path>
-                        </svg>
-                    </button>
-                </div>
-            </div>
-        </div>
-    </nav>
+    @@include('./partials/nav.html', {
+        "homeActive": "text-gray-900 dark:text-white",
+        "chartsActive": "text-gray-500 dark:text-gray-300",
+        "thingsActive": "text-gray-500 dark:text-gray-300"
+    })
 
     <!-- Main Content -->
     <main class="flex-grow container mx-auto px-4 sm:px-6 lg:px-8 py-8">
@@ -344,55 +239,7 @@
         </section>
     </main>
 
-    <!-- Footer -->
-    <footer class="bg-white dark:bg-gray-800 shadow-inner mt-12 py-8">
-        <div class="container mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="flex flex-col md:flex-row justify-between items-center">
-                <div class="mb-4 md:mb-0">
-                    <p class="text-gray-600 dark:text-gray-400">© 2023 Himanshu Jangid. All rights reserved.</p>
-                </div>
-                <div class="flex space-x-4">
-                    <a href="https://github.com/himanshurajora" target="_blank" rel="noopener noreferrer" class="text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white">
-                        <i class="fab fa-github text-lg"></i>
-                    </a>
-                    <a href="https://www.linkedin.com/in/himanshurajora/" target="_blank" rel="noopener noreferrer" class="text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white">
-                        <i class="fab fa-linkedin text-lg"></i>
-                    </a>
-                </div>
-            </div>
-        </div>
-    </footer>
-
-    <!-- JavaScript for theme toggle -->
-    <script>
-        // Theme toggle functionality
-        const themeToggleBtn = document.getElementById('theme-toggle');
-        const themeToggleDarkIcon = document.getElementById('theme-toggle-dark-icon');
-        const themeToggleLightIcon = document.getElementById('theme-toggle-light-icon');
-
-        // Change the icons inside the button based on previous settings
-        if (localStorage.getItem('color-theme') === 'dark' || (!('color-theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
-            themeToggleLightIcon.classList.remove('hidden');
-            document.documentElement.classList.add('dark');
-        } else {
-            themeToggleDarkIcon.classList.remove('hidden');
-            document.documentElement.classList.remove('dark');
-        }
-
-        themeToggleBtn.addEventListener('click', function() {
-            // Toggle icons
-            themeToggleDarkIcon.classList.toggle('hidden');
-            themeToggleLightIcon.classList.toggle('hidden');
-            
-            // Toggle dark mode on documentElement
-            if (document.documentElement.classList.contains('dark')) {
-                document.documentElement.classList.remove('dark');
-                localStorage.setItem('color-theme', 'light');
-            } else {
-                document.documentElement.classList.add('dark');
-                localStorage.setItem('color-theme', 'dark');
-            }
-        });
-    </script>
+    @@include('./partials/footer.html')
+    @@include('./partials/scripts.html')
 </body>
 </html> 
