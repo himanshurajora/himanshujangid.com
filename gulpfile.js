@@ -4,6 +4,7 @@ const htmlmin = require('gulp-htmlmin');
 const cleanCSS = require('gulp-clean-css');
 const terser = require('gulp-terser');
 const browserSync = require('browser-sync').create();
+const sitemap = require('gulp-sitemap');
 
 // HTML task - process HTML files with partials
 function html() {
@@ -42,11 +43,25 @@ function assets() {
     .pipe(gulp.dest('./dist/assets'));
 }
 
+// Generate sitemap
+function generateSitemap() {
+  return gulp.src(['./dist/**/*.html', '!./dist/404.html'])
+    .pipe(sitemap({
+      siteUrl: 'https://himanshujangid.com',
+      changefreq: 'monthly',
+      priority: function(siteUrl, loc, entry) {
+        // Set priorities based on path depth
+        if (loc === '/index.html' || loc === '/') return 1.0;
+        return 0.8;
+      }
+    }))
+    .pipe(gulp.dest('./dist'));
+}
+
 // Copy task - copy miscellaneous files to dist
 function copyFiles() {
   return gulp.src([
-    './robots.txt',
-    './sitemap.xml'
+    './robots.txt'
   ])
     .pipe(gulp.dest('./dist'));
 }
@@ -81,7 +96,7 @@ function clean(cb) {
 }
 
 // Define complex tasks
-const build = gulp.series(clean, gulp.parallel(html, css, js, assets, copyFiles));
+const build = gulp.series(clean, gulp.parallel(html, css, js, assets, copyFiles), generateSitemap);
 const watch = gulp.series(build, watchFiles);
 
 // Export tasks
@@ -90,6 +105,7 @@ exports.css = css;
 exports.js = js;
 exports.assets = assets;
 exports.clean = clean;
+exports.sitemap = generateSitemap;
 exports.build = build;
 exports.watch = watch;
 exports.default = build; 

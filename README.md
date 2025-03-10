@@ -15,6 +15,14 @@ The website is built using HTML, CSS, and JavaScript with Tailwind CSS for styli
 - `dist/`: Generated output files (created by Gulp)
 - `assets/`: Images and other static assets
 
+## Features
+
+- Responsive design with dark/light mode
+- Interactive GitHub statistics and charts
+- Resume viewing and downloading functionality
+- Automatic sitemap generation
+- SEO optimized with meta tags and structured data
+
 ## Development
 
 ### Prerequisites
@@ -49,23 +57,37 @@ To build the site for production:
 npm run build
 ```
 
-The output will be in the `dist/` directory.
+The output will be in the `dist/` directory. This process:
+- Minifies HTML, CSS, and JavaScript
+- Processes HTML templates
+- Copies assets
+- Generates a sitemap automatically
+
+## Gulp Tasks
+
+The site uses several Gulp tasks to automate the build process:
+
+- `gulp html` - Process HTML files
+- `gulp css` - Process and minify CSS files
+- `gulp js` - Process and minify JavaScript files
+- `gulp assets` - Copy assets to dist folder
+- `gulp sitemap` - Generate the sitemap.xml file
+- `gulp build` - Run all tasks for production
+- `gulp watch` - Run build and watch for changes
 
 ## Structure
 
-### HTML Partials
+### HTML Structure
 
-The website uses a partials system to avoid code duplication. Common elements like the header, navigation, and footer are stored in the `src/partials/` directory and included in the main HTML files.
+The website includes:
 
-- `head.html`: Contains the head element with meta tags, CSS imports, etc.
-- `nav.html`: The navigation bar
-- `footer.html`: The footer section
-- `scripts.html`: Common JavaScript code
+- `index.html` - Main resume/portfolio page
+- `charts.html` - GitHub statistics and charts page
 
 ### CSS Organization
 
-- Common styles are included in the head partial
-- Page-specific styles are in the `src/css/` directory
+- Common styles are included in the head
+- Tailwind CSS is used for styling components
 
 ## Deployment
 

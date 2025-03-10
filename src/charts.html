@@ -1,252 +1,449 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    @@include('./partials/head.html', {
-        "title": "Coding Statistics - Himanshu Jangid",
-        "description": "View detailed statistics about my GitHub activity, contributions, and coding patterns.",
-        "keywords": "coding statistics, GitHub metrics, development activity, Himanshu Jangid",
-        "ogtitle": "Coding Statistics - Himanshu Jangid",
-        "ogdescription": "View detailed statistics about my GitHub activity, contributions, and coding patterns.",
-        "ogurl": "https://himanshujangid.com/charts",
-        "customstyles": ""
-    })
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Coding Statistics - Himanshu Jangid</title>
+    <meta name="description" content="View detailed statistics about Himanshu Jangid's GitHub activity, contributions, and coding patterns. Explore my technology usage and project statistics.">
+    <meta name="keywords" content="Himanshu Jangid, GitHub Statistics, Coding Metrics, Software Engineer, Developer Activity, Contribution Graph">
+    
+    <!-- Open Graph Meta Tags -->
+    <meta property="og:title" content="Coding Statistics - Himanshu Jangid">
+    <meta property="og:description" content="View detailed statistics about Himanshu Jangid's GitHub activity, contributions, and coding patterns.">
+    <meta property="og:url" content="https://himanshujangid.com/charts">
+    <meta property="og:type" content="website">
+    <meta property="og:image" content="/assets/images/me-2-full.jpg">
+    
+    <!-- Twitter Card Meta Tags -->
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:title" content="Coding Statistics - Himanshu Jangid">
+    <meta name="twitter:description" content="View detailed statistics about Himanshu Jangid's GitHub activity, contributions, and coding patterns.">
+    <meta name="twitter:image" content="/assets/images/me-2-full.jpg">
+    
+    <!-- Structured Data (JSON-LD) for SEO -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "ProfilePage",
+        "mainEntity": {
+            "@type": "Person",
+            "name": "Himanshu Jangid",
+            "jobTitle": "Software Engineer",
+            "url": "https://himanshujangid.com",
+            "image": "https://himanshujangid.com/assets/images/me-2-full.jpg",
+            "sameAs": [
+                "https://github.com/himanshurajora",
+                "https://www.linkedin.com/in/himanshurajora/",
+                "https://stackoverflow.com/users/15781928/himanshu-jangid"
+            ]
+        },
+        "specialty": "GitHub Statistics and Coding Metrics",
+        "about": {
+            "@type": "Thing",
+            "name": "GitHub Activity Statistics"
+        },
+        "datePublished": "2023-05-30",
+        "dateModified": "2024-03-10"
+    }
+    </script>
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="/assets/images/me-2.jpg">
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        primary: {
+                            50: '#e6f0ff',
+                            100: '#cce0ff',
+                            200: '#99c1ff',
+                            300: '#66a3ff',
+                            400: '#3384ff',
+                            500: '#0066ff',
+                            600: '#0052cc',
+                            700: '#003d99',
+                            800: '#002966',
+                            900: '#001433',
+                        },
+                        dark: {
+                            100: '#2d2d2d',
+                            200: '#252525',
+                            300: '#1f1f1f',
+                            900: '#121212',
+                        },
+                        light: {
+                            100: '#f8f9fa',
+                            200: '#e9ecef',
+                            300: '#dee2e6',
+                            400: '#ced4da',
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'system-ui', 'sans-serif'],
+                        serif: ['Merriweather', 'Georgia', 'serif'],
+                        mono: ['Fira Code', 'monospace'],
+                    }
+                },
+            },
+        }
+    </script>
+    
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Merriweather:wght@300;400;700&family=Fira+Code:wght@400;500;600&display=swap" rel="stylesheet">
+    
+    <!-- FontAwesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    
+    <!-- Particles.js for background -->
+    <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+    
+    <style>
+        /* Base styles */
+        body {
+            font-family: 'Inter', system-ui, -apple-system, sans-serif;
+            line-height: 1.5;
+        }
+        
+        /* Light mode styles */
+        :root {
+            --bg-color: #f8f9fa;
+            --text-color: #1f1f1f;
+            --card-bg: #ffffff;
+            --card-border: #e9ecef;
+            --section-border: #dee2e6;
+            --accent-color: #0066ff;
+            --accent-hover: #0052cc;
+            --muted-color: #6c757d;
+        }
+        
+        /* Dark mode styles */
+        .dark {
+            --bg-color: #121212;
+            --text-color: #e9ecef;
+            --card-bg: #1f1f1f;
+            --card-border: #2d2d2d;
+            --section-border: #252525;
+            --accent-color: #3384ff;
+            --accent-hover: #66a3ff;
+            --muted-color: #adb5bd;
+        }
+        
+        body {
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            transition: background-color 0.3s, color 0.3s;
+        }
+        
+        .clean-card {
+            background-color: var(--card-bg);
+            border: 1px solid var(--card-border);
+            border-radius: 0.5rem;
+            padding: 1.5rem;
+            margin-bottom: 1.5rem;
+            transition: background-color 0.3s, border-color 0.3s;
+        }
+        
+        .section-title {
+            color: var(--accent-color);
+            border-bottom: 2px solid var(--section-border);
+            padding-bottom: 0.25rem;
+            margin-bottom: 1rem;
+            font-weight: 600;
+        }
+        
+        .gradient-text {
+            background: linear-gradient(90deg, #0066ff, #3384ff);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            color: transparent;
+        }
+        
+        .text-link {
+            color: var(--accent-color);
+            text-decoration: none;
+            transition: color 0.2s;
+        }
+        
+        .text-link:hover {
+            color: var(--accent-hover);
+            text-decoration: underline;
+        }
+    </style>
 </head>
-<body class="bg-dark-900 text-light-200 min-h-screen flex flex-col overflow-x-hidden">
-    @@include('./partials/nav.html', {
-        "homeActive": "text-light-300",
-        "chartsActive": "text-light-100"
-    })
+<body>
+    <!-- Header with theme toggle and navigation -->
+    <header class="sticky top-0 z-50 bg-opacity-95 dark:bg-opacity-95 backdrop-blur-sm border-b border-gray-200 dark:border-dark-200 bg-white dark:bg-dark-300 transition-colors duration-300">
+        <div class="container mx-auto px-3 py-2 flex justify-between items-center">
+            <h1 class="text-lg font-semibold">
+                <a href="/" class="flex items-center gap-2">
+                    <img src="/assets/images/me-2.jpg" alt="Himanshu Jangid" class="h-8 w-8 rounded-full">
+                    <span>Himanshu Jangid</span>
+                </a>
+            </h1>
+            <div class="flex items-center gap-3">
+                <!-- Navigation links -->
+                <nav class="flex items-center gap-4 mr-4">
+                    <a href="/charts" class="text-primary-600 dark:text-primary-400 transition-colors">
+                        <i class="fas fa-chart-bar mr-1"></i>Charts
+                    </a>
+                </nav>
+                
+                <!-- Theme toggle button -->
+                <button id="theme-toggle" class="p-2 rounded-full hover:bg-gray-100 dark:hover:bg-dark-100 transition-colors">
+                    <i class="fas fa-sun text-yellow-500 dark:hidden"></i>
+                    <i class="fas fa-moon text-blue-300 hidden dark:inline-block"></i>
+                </button>
+            </div>
+        </div>
+    </header>
 
     <!-- Subtle Particles Background -->
     <div id="particles-js" class="fixed top-0 left-0 w-full h-full z-0 opacity-20"></div>
 
     <!-- Main Content -->
-    <main class="flex-grow container mx-auto px-4 sm:px-6 lg:px-8 py-8 relative z-10">
+    <main class="container mx-auto px-4 py-5 max-w-4xl relative z-10">
         <!-- Header Section -->
-        <section class="max-w-4xl mx-auto mt-10 mb-12">
-            <div class="clean-card text-center" data-aos="fade-up">
-                <h1 class="text-3xl font-bold mb-4 gradient-text">GitHub Activity</h1>
-                <p class="text-light-300 mb-2">A visual representation of my GitHub activity, contributions, and coding patterns.</p>
-                <p class="text-light-400 text-sm">All data is sourced directly from <a href="https://github.com/himanshurajora" target="_blank" rel="noopener noreferrer" class="text-link">GitHub's public APIs</a></p>
+        <section class="mb-6 clean-card">
+            <div class="text-center" data-aos="fade-up">
+                <h1 class="text-3xl font-bold mb-4 text-primary-600 dark:text-primary-400">GitHub Activity</h1>
+                <p class="text-gray-700 dark:text-gray-300 mb-2">A visual representation of my GitHub activity, contributions, and coding patterns.</p>
+                <p class="text-gray-600 dark:text-gray-400 text-sm">All data is sourced directly from <a href="https://github.com/himanshurajora" target="_blank" rel="noopener noreferrer" class="text-primary-600 dark:text-primary-400 hover:underline">GitHub's public APIs</a></p>
             </div>
         </section>
 
         <!-- GitHub Contribution Graph -->
-        <section class="max-w-4xl mx-auto mb-12">
-            <div class="clean-card" data-aos="fade-up">
-                <h2 class="text-xl font-bold mb-4 text-light-100">Contribution Activity</h2>
-                <p class="text-light-300 mb-4">My GitHub contribution activity over the past year</p>
-                <div class="mb-6">
-                    <div class="overflow-hidden rounded bg-dark-100 p-4">
-                        <img src="https://ghchart.rshah.org/3384ff/himanshurajora" alt="Himanshu's GitHub Contribution Chart" class="w-full">
-                    </div>
+        <section class="mb-6 clean-card">
+            <h2 class="text-xl font-bold mb-4 section-title">Contribution Activity</h2>
+            <p class="text-gray-700 dark:text-gray-300 mb-4">My GitHub contribution activity over the past year</p>
+            <div class="mb-6">
+                <div class="overflow-hidden rounded bg-gray-100 dark:bg-dark-100 p-4">
+                    <img src="https://ghchart.rshah.org/3384ff/himanshurajora" alt="Himanshu's GitHub Contribution Chart" class="w-full">
                 </div>
-                <div class="text-center">
-                    <a href="https://github.com/himanshurajora" target="_blank" rel="noopener noreferrer" class="inline-flex items-center px-4 py-2 bg-dark-100 text-light-100 rounded transition hover:bg-dark-200">
-                        <i class="fab fa-github mr-2"></i> View GitHub Profile
-                    </a>
-                </div>
+            </div>
+            <div class="text-center">
+                <a href="https://github.com/himanshurajora" target="_blank" rel="noopener noreferrer" class="inline-flex items-center px-4 py-2 bg-primary-600 hover:bg-primary-700 text-white rounded transition-colors">
+                    <i class="fab fa-github mr-2"></i> View GitHub Profile
+                </a>
             </div>
         </section>
 
         <!-- GitHub Stats Cards -->
-        <section class="max-w-4xl mx-auto mb-12">
-            <div class="clean-card" data-aos="fade-up">
-                <h2 class="text-xl font-bold mb-4 text-light-100">GitHub Stats</h2>
-                <p class="text-light-300 mb-6">Overall statistics for my GitHub profile and repositories</p>
+        <section class="mb-6 clean-card">
+            <h2 class="text-xl font-bold mb-4 section-title">GitHub Stats</h2>
+            <p class="text-gray-700 dark:text-gray-300 mb-6">Overall statistics for my GitHub profile and repositories</p>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <!-- GitHub Stats Card -->
+                <div class="bg-gray-100 dark:bg-dark-100 p-4 rounded">
+                    <img src="https://github-readme-stats.vercel.app/api?username=himanshurajora&show_icons=true&theme=dark&hide_border=true&bg_color=1f1f1f&title_color=3384ff&icon_color=3384ff&text_color=e9ecef" alt="Himanshu's GitHub Stats" class="w-full">
+                </div>
                 
-                <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-                    <!-- GitHub Stats Card -->
-                    <div class="bg-dark-100 p-4 rounded">
-                        <img src="https://github-readme-stats.vercel.app/api?username=himanshurajora&show_icons=true&theme=dark&hide_border=true&bg_color=1f1f1f&title_color=3384ff&icon_color=3384ff&text_color=e9ecef" alt="Himanshu's GitHub Stats" class="w-full">
-                    </div>
-                    
-                    <!-- Top Languages Card -->
-                    <div class="bg-dark-100 p-4 rounded">
-                        <img src="https://github-readme-stats.vercel.app/api/top-langs/?username=himanshurajora&layout=compact&theme=dark&hide_border=true&bg_color=1f1f1f&title_color=3384ff&text_color=e9ecef" alt="Himanshu's Top Languages" class="w-full">
-                    </div>
+                <!-- Top Languages Card -->
+                <div class="bg-gray-100 dark:bg-dark-100 p-4 rounded">
+                    <img src="https://github-readme-stats.vercel.app/api/top-langs/?username=himanshurajora&layout=compact&theme=dark&hide_border=true&bg_color=1f1f1f&title_color=3384ff&text_color=e9ecef" alt="Himanshu's Top Languages" class="w-full">
                 </div>
             </div>
         </section>
 
         <!-- GitHub Streak Stats -->
-        <section class="max-w-4xl mx-auto mb-12">
-            <div class="clean-card" data-aos="fade-up">
-                <h2 class="text-xl font-bold mb-4 text-light-100">Contribution Streak</h2>
-                <p class="text-light-300 mb-4">My current and longest contribution streaks on GitHub</p>
-                <div class="bg-dark-100 p-4 rounded">
-                    <img src="https://github-readme-streak-stats.herokuapp.com/?user=himanshurajora&theme=dark&hide_border=true&background=1f1f1f&stroke=3384ff&ring=3384ff&fire=3384ff&currStreakNum=e9ecef&sideNums=e9ecef&currStreakLabel=3384ff&sideLabels=e9ecef&dates=e9ecef" alt="Himanshu's GitHub Streak Stats" class="w-full">
-                </div>
+        <section class="mb-6 clean-card">
+            <h2 class="text-xl font-bold mb-4 section-title">Contribution Streak</h2>
+            <p class="text-gray-700 dark:text-gray-300 mb-4">My current and longest contribution streaks on GitHub</p>
+            <div class="bg-gray-100 dark:bg-dark-100 p-4 rounded">
+                <img src="https://github-readme-streak-stats.herokuapp.com/?user=himanshurajora&theme=dark&hide_border=true&background=1f1f1f&stroke=3384ff&ring=3384ff&fire=3384ff&currStreakNum=e9ecef&sideNums=e9ecef&currStreakLabel=3384ff&sideLabels=e9ecef&dates=e9ecef" alt="Himanshu's GitHub Streak Stats" class="w-full">
             </div>
         </section>
 
         <!-- Pinned Repositories -->
-        <section class="max-w-4xl mx-auto mb-12">
-            <div class="clean-card" data-aos="fade-up">
-                <h2 class="text-xl font-bold mb-4 text-light-100">Featured Projects</h2>
-                <p class="text-light-300 mb-6">Highlighted repositories from my GitHub profile</p>
-                
-                <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-                    <div id="repo-cards-container" class="grid grid-cols-1 gap-6 col-span-2">
-                        <!-- Repository cards will be loaded here via JavaScript -->
-                        <div class="text-center p-8">
-                            <div class="inline-block animate-spin rounded-full h-8 w-8 border-t-2 border-b-2 border-primary-300"></div>
-                            <p class="mt-4 text-light-300">Loading repositories...</p>
-                        </div>
+        <section class="mb-6 clean-card">
+            <h2 class="text-xl font-bold mb-4 section-title">Featured Projects</h2>
+            <p class="text-gray-700 dark:text-gray-300 mb-6">Highlighted repositories from my GitHub profile</p>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <div id="repo-cards-container" class="grid grid-cols-1 gap-6 col-span-2">
+                    <!-- Repository cards will be loaded here via JavaScript -->
+                    <div class="text-center p-8">
+                        <div class="inline-block animate-spin rounded-full h-8 w-8 border-t-2 border-b-2 border-primary-300"></div>
+                        <p class="mt-4 text-gray-700 dark:text-gray-300">Loading repositories...</p>
                     </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- Development Environment -->
-        <section class="max-w-4xl mx-auto mb-12">
-            <div class="clean-card" data-aos="fade-up">
-                <h2 class="text-xl font-bold mb-4 text-light-100">Development Environment</h2>
-                <p class="text-light-300 mb-4">Tools, editors and platforms I use daily</p>
-                
-                <div class="grid grid-cols-2 md:grid-cols-4 gap-6">
-                    <div class="flex flex-col items-center text-center">
-                        <div class="text-3xl mb-2 text-blue-500 floating"><i class="fab fa-linux"></i></div>
-                        <h3 class="font-semibold text-light-100">Arch Linux</h3>
-                        <p class="text-light-400 text-sm">Operating System</p>
-                    </div>
-                    
-                    <div class="flex flex-col items-center text-center">
-                        <div class="text-3xl mb-2 text-blue-400 floating"><i class="fab fa-docker"></i></div>
-                        <h3 class="font-semibold text-light-100">Docker</h3>
-                        <p class="text-light-400 text-sm">Containerization</p>
-                    </div>
-                    
-                    <div class="flex flex-col items-center text-center">
-                        <div class="text-3xl mb-2 text-primary-300 floating"><i class="fas fa-code"></i></div>
-                        <h3 class="font-semibold text-light-100">VS Code</h3>
-                        <p class="text-light-400 text-sm">Code Editor</p>
-                    </div>
-                    
-                    <div class="flex flex-col items-center text-center">
-                        <div class="text-3xl mb-2 text-orange-500 floating"><i class="fab fa-git-alt"></i></div>
-                        <h3 class="font-semibold text-light-100">Git</h3>
-                        <p class="text-light-400 text-sm">Version Control</p>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- Learning Section -->
-        <section class="max-w-4xl mx-auto mb-8">
-            <div class="clean-card text-center" data-aos="fade-up">
-                <h2 class="text-xl font-bold mb-4 text-light-100">Currently Learning</h2>
-                <div class="flex flex-wrap justify-center gap-4">
-                    <span class="px-3 py-1 bg-blue-900 text-blue-200 rounded-full text-sm">Rust</span>
-                    <span class="px-3 py-1 bg-green-900 text-green-200 rounded-full text-sm">Go</span>
-                    <span class="px-3 py-1 bg-purple-900 text-purple-200 rounded-full text-sm">Cloud Architecture</span>
-                    <span class="px-3 py-1 bg-red-900 text-red-200 rounded-full text-sm">WebAssembly</span>
-                </div>
-                <div class="mt-6">
-                    <a href="/" class="text-link inline-flex items-center">
-                        <svg class="mr-1 w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18"></path>
-                        </svg>
-                        Back to Homepage
-                    </a>
                 </div>
             </div>
         </section>
     </main>
+    
+    <!-- Footer -->
+    <footer class="bg-white dark:bg-dark-300 border-t border-gray-200 dark:border-dark-200 py-4 transition-colors duration-300">
+        <div class="container mx-auto px-4">
+            <div class="text-center">
+                <p class="text-gray-600 dark:text-gray-400 text-sm">&copy; 2023 Himanshu Jangid. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
 
-    @@include('./partials/footer.html')
-    @@include('./partials/scripts.html')
-
-    <!-- GitHub Repository Loader Script -->
+    <!-- Scripts -->
     <script>
+        // DOM loaded event
         document.addEventListener('DOMContentLoaded', function() {
-            // Function to fetch pinned repositories
-            async function fetchPinnedRepos() {
-                try {
-                    // GitHub username
-                    const username = 'himanshurajora';
-                    // Fetch repos
-                    const response = await fetch(`https://api.github.com/users/${username}/repos?sort=updated&per_page=6`);
-                    
-                    if (!response.ok) {
-                        throw new Error('Failed to fetch repositories');
+            // Setup particles.js
+            particlesJS('particles-js', {
+                particles: {
+                    number: { value: 80, density: { enable: true, value_area: 800 } },
+                    color: { value: '#3384ff' },
+                    shape: { type: 'circle' },
+                    opacity: { value: 0.5, random: true },
+                    size: { value: 3, random: true },
+                    line_linked: {
+                        enable: true,
+                        distance: 150,
+                        color: '#3384ff',
+                        opacity: 0.2,
+                        width: 1
+                    },
+                    move: {
+                        enable: true,
+                        speed: 2,
+                        direction: 'none',
+                        random: true,
+                        out_mode: 'out'
                     }
-                    
-                    const repos = await response.json();
-                    
-                    // Get container
-                    const container = document.getElementById('repo-cards-container');
-                    // Clear loading indicator
-                    container.innerHTML = '';
-                    
-                    // Display top 6 repositories
-                    repos.slice(0, 6).forEach(repo => {
-                        const card = document.createElement('div');
-                        card.className = 'bg-dark-100 p-5 rounded border border-dark-200 hover:border-primary-600 transition-all duration-300';
-                        
-                        // Create repo name with link
-                        const repoName = document.createElement('h3');
-                        repoName.className = 'text-lg font-bold mb-2 text-primary-300';
-                        const repoLink = document.createElement('a');
-                        repoLink.href = repo.html_url;
-                        repoLink.target = '_blank';
-                        repoLink.rel = 'noopener noreferrer';
-                        repoLink.textContent = repo.name;
-                        repoName.appendChild(repoLink);
-                        
-                        // Create description
-                        const description = document.createElement('p');
-                        description.className = 'text-light-300 text-sm mb-4';
-                        description.textContent = repo.description || 'No description available';
-                        
-                        // Create stats container
-                        const stats = document.createElement('div');
-                        stats.className = 'flex items-center space-x-4 text-sm text-light-400';
-                        
-                        // Add stars
-                        const stars = document.createElement('div');
-                        stars.className = 'flex items-center';
-                        stars.innerHTML = `<i class="fas fa-star mr-1 text-yellow-400"></i> ${repo.stargazers_count}`;
-                        
-                        // Add forks
-                        const forks = document.createElement('div');
-                        forks.className = 'flex items-center';
-                        forks.innerHTML = `<i class="fas fa-code-branch mr-1"></i> ${repo.forks_count}`;
-                        
-                        // Add language if available
-                        let language = null;
-                        if (repo.language) {
-                            language = document.createElement('div');
-                            language.className = 'flex items-center';
-                            language.innerHTML = `<i class="fas fa-circle mr-1 text-xs text-primary-400"></i> ${repo.language}`;
-                        }
-                        
-                        // Append all elements
-                        stats.appendChild(stars);
-                        stats.appendChild(forks);
-                        if (language) stats.appendChild(language);
-                        
-                        card.appendChild(repoName);
-                        card.appendChild(description);
-                        card.appendChild(stats);
-                        
-                        container.appendChild(card);
-                    });
-                    
-                } catch (error) {
-                    console.error('Error fetching repositories:', error);
-                    const container = document.getElementById('repo-cards-container');
-                    container.innerHTML = `
-                        <div class="col-span-2 text-center p-8">
-                            <p class="text-light-300">Failed to load repositories. Please try again later.</p>
-                        </div>
-                    `;
-                }
+                },
+                interactivity: {
+                    detect_on: 'canvas',
+                    events: {
+                        onhover: { enable: true, mode: 'grab' },
+                        onclick: { enable: true, mode: 'push' },
+                        resize: true
+                    }
+                },
+                retina_detect: true
+            });
+            
+            // Load repository cards
+            fetchGitHubRepos();
+            
+            // Theme toggle functionality
+            const themeToggle = document.getElementById('theme-toggle');
+            
+            // Check for saved theme preference or use system preference
+            if (localStorage.getItem('theme') === 'dark' || 
+                (!localStorage.getItem('theme') && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+                document.documentElement.classList.add('dark');
+            } else {
+                document.documentElement.classList.remove('dark');
             }
             
-            // Call the function to fetch and display repositories
-            fetchPinnedRepos();
+            // Toggle theme
+            themeToggle.addEventListener('click', function() {
+                if (document.documentElement.classList.contains('dark')) {
+                    document.documentElement.classList.remove('dark');
+                    localStorage.setItem('theme', 'light');
+                } else {
+                    document.documentElement.classList.add('dark');
+                    localStorage.setItem('theme', 'dark');
+                }
+            });
         });
+        
+        // Fetch GitHub repos
+        async function fetchGitHubRepos() {
+            try {
+                const response = await fetch('https://api.github.com/users/himanshurajora/repos?sort=updated&per_page=6');
+                const repos = await response.json();
+                
+                if (Array.isArray(repos)) {
+                    displayRepos(repos);
+                } else {
+                    throw new Error('Invalid response from GitHub API');
+                }
+            } catch (error) {
+                console.error('Error fetching GitHub repos:', error);
+                document.getElementById('repo-cards-container').innerHTML = `
+                    <div class="col-span-2 text-center p-8">
+                        <p class="text-gray-700 dark:text-gray-300">
+                            <i class="fas fa-exclamation-triangle text-yellow-500 mr-2"></i>
+                            Unable to load repositories. Please try again later.
+                        </p>
+                    </div>
+                `;
+            }
+        }
+        
+        // Display repos in cards
+        function displayRepos(repos) {
+            const container = document.getElementById('repo-cards-container');
+            
+            // Filter featured repos or use the most recent ones
+            const featuredRepos = repos.filter(repo => !repo.fork && !repo.archived).slice(0, 6);
+            
+            if (featuredRepos.length === 0) {
+                container.innerHTML = `
+                    <div class="col-span-2 text-center p-8">
+                        <p class="text-gray-700 dark:text-gray-300">No public repositories found.</p>
+                    </div>
+                `;
+                return;
+            }
+            
+            container.innerHTML = featuredRepos.map(repo => {
+                // Format date
+                const updatedDate = new Date(repo.updated_at);
+                const formattedDate = updatedDate.toLocaleDateString('en-US', {
+                    year: 'numeric',
+                    month: 'short',
+                    day: 'numeric'
+                });
+                
+                // Get language color
+                const langColors = {
+                    JavaScript: '#f7df1e',
+                    TypeScript: '#3178c6',
+                    HTML: '#e34c26',
+                    CSS: '#563d7c',
+                    Python: '#3572A5',
+                    PHP: '#4F5D95',
+                    'C#': '#178600',
+                    Java: '#b07219',
+                    Rust: '#dea584',
+                    Go: '#00ADD8'
+                };
+                
+                const langColor = repo.language ? (langColors[repo.language] || '#6c757d') : '#6c757d';
+                
+                return `
+                    <div class="bg-gray-100 dark:bg-dark-100 rounded-lg p-4 shadow transition-transform duration-300 hover:scale-102">
+                        <h3 class="text-lg font-semibold mb-2">
+                            <a href="${repo.html_url}" target="_blank" rel="noopener noreferrer" class="text-primary-600 dark:text-primary-400 hover:underline">
+                                ${repo.name}
+                            </a>
+                        </h3>
+                        <p class="text-gray-700 dark:text-gray-300 text-sm mb-3">${repo.description || 'No description provided'}</p>
+                        <div class="flex justify-between items-center text-xs">
+                            <div class="flex items-center gap-3">
+                                ${repo.language ? `
+                                    <span class="flex items-center">
+                                        <span class="w-3 h-3 rounded-full mr-1" style="background-color: ${langColor}"></span>
+                                        ${repo.language}
+                                    </span>
+                                ` : ''}
+                                <span class="flex items-center">
+                                    <i class="fas fa-star mr-1"></i> ${repo.stargazers_count}
+                                </span>
+                                <span class="flex items-center">
+                                    <i class="fas fa-code-branch mr-1"></i> ${repo.forks_count}
+                                </span>
+                            </div>
+                            <span class="text-gray-600 dark:text-gray-400">Updated: ${formattedDate}</span>
+                        </div>
+                    </div>
+                `;
+            }).join('');
+        }
     </script>
 </body>
 </html> 

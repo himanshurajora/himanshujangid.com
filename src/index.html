@@ -53,6 +53,41 @@
         }
     </script>
     
+    <!-- Structured Data (JSON-LD) for SEO -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "ProfilePage",
+        "mainEntity": {
+            "@type": "Person",
+            "name": "Himanshu Jangid",
+            "jobTitle": "Software Engineer",
+            "email": "himanshujhar@gmail.com",
+            "telephone": "+91 6376048898",
+            "url": "https://himanshujangid.com",
+            "image": "https://himanshujangid.com/assets/images/me-2-full.jpg",
+            "sameAs": [
+                "https://github.com/himanshurajora",
+                "https://www.linkedin.com/in/himanshurajora/",
+                "https://stackoverflow.com/users/15781928/himanshu-jangid"
+            ],
+            "knowsAbout": ["TypeScript", "Angular", "React", "Node.js", "NextJS", "NestJS"],
+            "worksFor": {
+                "@type": "Organization",
+                "name": "Wisflux Private Limited",
+                "url": "https://wisflux.com"
+            },
+            "alumniOf": {
+                "@type": "CollegeOrUniversity",
+                "name": "Anand International College of Engineering",
+                "url": "https://anandice.ac.in"
+            }
+        },
+        "datePublished": "2023-05-30",
+        "dateModified": "2024-03-10"
+    }
+    </script>
+    
     <!-- Google Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Merriweather:wght@300;400;700&family=Fira+Code:wght@400;500;600&display=swap" rel="stylesheet">
     
@@ -317,6 +352,13 @@
                 </a>
             </h1>
             <div class="flex items-center gap-3">
+                <!-- Navigation links -->
+                <nav class="flex items-center gap-4 mr-4">
+                    <a href="/charts" class="text-gray-700 dark:text-gray-300 hover:text-primary-600 dark:hover:text-primary-400 transition-colors">
+                        <i class="fas fa-chart-bar mr-1"></i>Charts
+                    </a>
+                </nav>
+                
                 <!-- Theme toggle button -->
                 <button id="theme-toggle" class="p-2 rounded-full hover:bg-gray-100 dark:hover:bg-dark-100 transition-colors">
                     <i class="fas fa-sun text-yellow-500 dark:hidden"></i>
@@ -700,262 +742,296 @@
         
         // Generate ATS-friendly PDF resume
         function generatePDF() {
-            // Create a temporary container for the PDF content
-            const pdfContent = document.createElement('div');
-            pdfContent.className = 'pdf-content';
-            pdfContent.style.width = '8.5in';
-            pdfContent.style.fontSize = '12px';
-            pdfContent.style.fontFamily = 'Arial, sans-serif';
-            pdfContent.style.lineHeight = '1.3';
-            pdfContent.style.color = '#000';
-            pdfContent.style.padding = '0.5in';
+            // Check if jsPDF is loaded
+            if (typeof jspdf === 'undefined' || typeof html2canvas === 'undefined') {
+                console.error('PDF generation libraries not loaded');
+                alert('PDF generation is not available. Please try again later.');
+                return;
+            }
             
-            // Personal information
-            const header = document.createElement('div');
-            header.style.textAlign = 'center';
-            header.style.marginBottom = '20px';
-            header.innerHTML = `
-                <h1 style="font-size: 24px; font-weight: bold; margin-bottom: 8px;">${resumeData.personal.name}</h1>
-                <h2 style="font-size: 18px; margin-bottom: 12px;">${resumeData.personal.title}</h2>
-                <div style="display: flex; justify-content: center; gap: 15px; margin-bottom: 8px;">
-                    <a href="mailto:${resumeData.personal.email}" style="color: #0066ff;">${resumeData.personal.email}</a>
-                    <span>${resumeData.personal.phone}</span>
-                    <span>${resumeData.personal.location}</span>
-                </div>
-                <div style="display: flex; justify-content: center; gap: 15px;">
-                    <a href="https://github.com/himanshurajora" style="color: #0066ff;">GitHub: himanshurajora</a>
-                    <a href="https://www.linkedin.com/in/himanshurajora/" style="color: #0066ff;">LinkedIn: himanshurajora</a>
+            // Show a loading indicator
+            const loadingIndicator = document.createElement('div');
+            loadingIndicator.className = 'fixed inset-0 flex items-center justify-center bg-black bg-opacity-50 z-50';
+            loadingIndicator.innerHTML = `
+                <div class="bg-white dark:bg-dark-200 p-4 rounded-lg shadow-lg flex flex-col items-center">
+                    <div class="animate-spin rounded-full h-10 w-10 border-t-2 border-b-2 border-primary-500 mb-3"></div>
+                    <p class="text-gray-700 dark:text-gray-300">Generating ATS-friendly PDF...</p>
                 </div>
             `;
-            pdfContent.appendChild(header);
+            document.body.appendChild(loadingIndicator);
             
-            // Summary
-            const summary = document.createElement('div');
-            summary.style.marginBottom = '20px';
-            summary.innerHTML = `
-                <h2 style="font-size: 16px; border-bottom: 1px solid #000; padding-bottom: 5px; margin-bottom: 10px; font-weight: bold;">PROFESSIONAL SUMMARY</h2>
-                <p>${resumeData.personal.summary}</p>
-            `;
-            pdfContent.appendChild(summary);
-            
-            // Skills section
-            const skills = document.createElement('div');
-            skills.style.marginBottom = '20px';
-            skills.innerHTML = `
-                <h2 style="font-size: 16px; border-bottom: 1px solid #000; padding-bottom: 5px; margin-bottom: 10px; font-weight: bold;">SKILLS</h2>
-                <p><strong>Key Technologies:</strong> ${resumeData.skills.main.map(s => s.name).join(', ')}</p>
-                <p><strong>Additional Skills:</strong> ${resumeData.skills.other.join(', ')}</p>
-            `;
-            pdfContent.appendChild(skills);
-            
-            // Experience section
-            const experience = document.createElement('div');
-            experience.style.marginBottom = '20px';
-            experience.innerHTML = `
-                <h2 style="font-size: 16px; border-bottom: 1px solid #000; padding-bottom: 5px; margin-bottom: 10px; font-weight: bold;">PROFESSIONAL EXPERIENCE</h2>
-            `;
-            
-            // Add each experience item
-            resumeData.experience.forEach(exp => {
-                const expItem = document.createElement('div');
-                expItem.style.marginBottom = '15px';
-                expItem.innerHTML = `
-                    <div style="display: flex; justify-content: space-between; margin-bottom: 5px;">
-                        <div>
-                            <h3 style="font-size: 14px; font-weight: bold; margin: 0;">${exp.title}</h3>
-                            <p style="margin: 0; font-weight: bold;">${exp.company}</p>
-                        </div>
-                        <p style="margin: 0;">${exp.period}</p>
-                    </div>
-                    <p style="margin-top: 5px;">${exp.description}</p>
-                `;
-                experience.appendChild(expItem);
+            // Create PDF with A4 format - optimized for ATS readability
+            const pdf = new jspdf.jsPDF({
+                orientation: 'portrait',
+                unit: 'mm',
+                format: 'a4',
+                putOnlyUsedFonts: true,
+                floatPrecision: 16 // for better text positioning precision
             });
-            pdfContent.appendChild(experience);
+            
+            const pdfWidth = pdf.internal.pageSize.getWidth();
+            const pdfHeight = pdf.internal.pageSize.getHeight();
+            const margin = 14; // slightly smaller margin for more content space
+            const contentWidth = pdfWidth - (margin * 2);
+            
+            // Set default font to standard ATS-friendly font
+            pdf.setFont("helvetica", "normal");
+            
+            // Helper function to add text with proper line breaks - improved for ATS readability
+            function addWrappedText(text, x, y, maxWidth, fontSize, fontStyle = 'normal', align = 'left') {
+                const lineHeight = fontSize * 0.5;
+                pdf.setFontSize(fontSize);
+                pdf.setFont("helvetica", fontStyle);
+                
+                const lines = pdf.splitTextToSize(text, maxWidth);
+                for (let i = 0; i < lines.length; i++) {
+                    if (align === 'center') {
+                        const textWidth = pdf.getStringUnitWidth(lines[i]) * fontSize / pdf.internal.scaleFactor;
+                        pdf.text(lines[i], x + (maxWidth - textWidth) / 2, y + (i * lineHeight));
+                    } else if (align === 'right') {
+                        const textWidth = pdf.getStringUnitWidth(lines[i]) * fontSize / pdf.internal.scaleFactor;
+                        pdf.text(lines[i], x + maxWidth - textWidth, y + (i * lineHeight));
+                    } else {
+                        pdf.text(lines[i], x, y + (i * lineHeight));
+                    }
+                }
+                
+                return lines.length * lineHeight;
+            }
+            
+            // Helper function to add a section heading - simplified for ATS compatibility
+            function addSectionHeading(title, y) {
+                pdf.setFontSize(10);
+                pdf.setFont("helvetica", "bold");
+                pdf.setDrawColor(0);
+                pdf.setLineWidth(0.2);
+                
+                pdf.text(title.toUpperCase(), margin, y);
+                pdf.line(margin, y + 1, pdfWidth - margin, y + 1);
+                
+                return y + 4; // reduced spacing for tighter content
+            }
+            
+            // Add centered header with personal info - ATS optimized
+            let yPos = margin;
+            
+            // Name
+            pdf.setFontSize(14); // slightly smaller for better content fit
+            pdf.setFont("helvetica", "bold");
+            const nameWidth = pdf.getStringUnitWidth(resumeData.personal.name) * 14 / pdf.internal.scaleFactor;
+            pdf.text(resumeData.personal.name, (pdfWidth - nameWidth) / 2, yPos);
+            yPos += 6;
+            
+            // Title
+            pdf.setFontSize(11);
+            pdf.setFont("helvetica", "normal");
+            const titleWidth = pdf.getStringUnitWidth(resumeData.personal.title) * 11 / pdf.internal.scaleFactor;
+            pdf.text(resumeData.personal.title, (pdfWidth - titleWidth) / 2, yPos);
+            yPos += 5;
+            
+            // Contact info - all on one line for ATS friendliness
+            pdf.setFontSize(8); // Smaller font size for contact info
+
+            // Create a contact string
+            const contactInfo = `${resumeData.personal.email} | ${resumeData.personal.phone} | ${resumeData.personal.location}`;
+            const contactWidth = pdf.getStringUnitWidth(contactInfo) * 8 / pdf.internal.scaleFactor;
+            
+            // Center the contact info
+            pdf.text(contactInfo, (pdfWidth - contactWidth) / 2, yPos);
+            yPos += 3;
+            
+            // Links row - combined for space efficiency
+            const linksInfo = "GitHub & LinkedIn: himanshurajora";
+            const linksWidth = pdf.getStringUnitWidth(linksInfo) * 8 / pdf.internal.scaleFactor;
+            pdf.text(linksInfo, (pdfWidth - linksWidth) / 2, yPos);
+            
+            // Now add the actual links as invisible clickable areas
+            pdf.link((pdfWidth - linksWidth) / 2, yPos - 3, linksWidth/2, 3, { url: "https://github.com/himanshurajora" });
+            pdf.link((pdfWidth - linksWidth) / 2 + linksWidth/2, yPos - 3, linksWidth/2, 3, { url: "https://www.linkedin.com/in/himanshurajora/" });
+            
+            yPos += 6;
+            
+            // Summary section - keep brief for ATS
+            yPos = addSectionHeading("PROFESSIONAL SUMMARY", yPos);
+            // Truncate summary if too long for ATS optimization
+            const summaryText = resumeData.personal.summary.length > 300 
+                ? resumeData.personal.summary.substring(0, 300) + '...' 
+                : resumeData.personal.summary;
+            yPos += addWrappedText(summaryText, margin, yPos, contentWidth, 8.5) + 4;
+            
+            // Skills section - ATS friendly format
+            yPos = addSectionHeading("SKILLS", yPos);
+            
+            // Key technologies - on one line with clear labeling
+            const techSkillsText = `Key Technologies: ${resumeData.skills.main.map(s => s.name).join(', ')}`;
+            yPos += addWrappedText(techSkillsText, margin, yPos, contentWidth, 8.5);
+            
+            // Additional skills - on one line for easy parsing
+            yPos += 3;
+            const additionalSkillsText = `Additional: ${resumeData.skills.other.join(', ')}`;
+            yPos += addWrappedText(additionalSkillsText, margin, yPos, contentWidth, 8.5) + 4;
+            
+            // Experience section - most important for ATS
+            yPos = addSectionHeading("PROFESSIONAL EXPERIENCE", yPos);
+            
+            resumeData.experience.forEach(exp => {
+                // Company and title on same line - ATS prefers this format
+                pdf.setFont("helvetica", "bold");
+                pdf.setFontSize(9.5);
+                pdf.text(`${exp.company} - ${exp.title}`, margin, yPos);
+                
+                // Date right aligned
+                const dateWidth = pdf.getStringUnitWidth(exp.period) * 8.5 / pdf.internal.scaleFactor;
+                pdf.setFontSize(8.5);
+                pdf.setFont("helvetica", "normal");
+                pdf.text(exp.period, pdfWidth - margin - dateWidth, yPos);
+                yPos += 3;
+                
+                // Description - keep concise for ATS
+                pdf.setFont("helvetica", "normal");
+                yPos += addWrappedText(exp.description, margin, yPos, contentWidth, 8) + 5;
+            });
             
             // Education section
-            const education = document.createElement('div');
-            education.style.marginBottom = '20px';
-            education.innerHTML = `
-                <h2 style="font-size: 16px; border-bottom: 1px solid #000; padding-bottom: 5px; margin-bottom: 10px; font-weight: bold;">EDUCATION</h2>
-            `;
+            yPos = addSectionHeading("EDUCATION", yPos);
             
-            // Add each education item
             resumeData.education.forEach(edu => {
-                const eduItem = document.createElement('div');
-                eduItem.style.marginBottom = '15px';
-                eduItem.innerHTML = `
-                    <div style="display: flex; justify-content: space-between; margin-bottom: 5px;">
-                        <div>
-                            <h3 style="font-size: 14px; font-weight: bold; margin: 0;">${edu.degree} in ${edu.field}</h3>
-                            <p style="margin: 0; font-weight: bold;">${edu.institution}</p>
-                        </div>
-                        <p style="margin: 0;">${edu.period}</p>
-                    </div>
-                    <p style="margin-top: 5px;">${edu.location}</p>
-                `;
-                education.appendChild(eduItem);
+                pdf.setFont("helvetica", "bold");
+                pdf.setFontSize(9.5);
+                pdf.text(`${edu.degree} in ${edu.field}`, margin, yPos);
+                
+                const dateWidth = pdf.getStringUnitWidth(edu.period) * 8.5 / pdf.internal.scaleFactor;
+                pdf.setFontSize(8.5);
+                pdf.setFont("helvetica", "normal");
+                pdf.text(edu.period, pdfWidth - margin - dateWidth, yPos);
+                yPos += 3;
+                
+                // Institution and location on one line for space efficiency
+                pdf.setFontSize(8.5);
+                pdf.text(`${edu.institution}, ${edu.location}`, margin, yPos);
+                yPos += 5;
             });
-            pdfContent.appendChild(education);
             
-            // Certifications section
-            const certification = document.createElement('div');
-            certification.style.marginBottom = '20px';
-            certification.innerHTML = `
-                <h2 style="font-size: 16px; border-bottom: 1px solid #000; padding-bottom: 5px; margin-bottom: 10px; font-weight: bold;">CERTIFICATIONS</h2>
-            `;
+            // Check if we need a new page
+            if (yPos > pdfHeight - 60) {
+                pdf.addPage();
+                yPos = margin;
+            }
             
-            // Add each certification item
-            resumeData.certifications.forEach(cert => {
-                const certItem = document.createElement('div');
-                certItem.style.marginBottom = '15px';
-                certItem.innerHTML = `
-                    <div style="display: flex; justify-content: space-between; margin-bottom: 5px;">
-                        <div>
-                            <h3 style="font-size: 14px; font-weight: bold; margin: 0;">${cert.name}</h3>
-                            <p style="margin: 0; font-weight: bold;">${cert.issuer}</p>
-                        </div>
-                        <p style="margin: 0;">${cert.date}</p>
-                    </div>
-                    <p style="margin-top: 5px;">${cert.url}</p>
-                `;
-                certification.appendChild(certItem);
+            // Certifications section - important but keep compact
+            yPos = addSectionHeading("CERTIFICATIONS", yPos);
+            
+            // Use a more compact format for certifications
+            resumeData.certifications.forEach((cert, index) => {
+                // Limited to first 4 certifications for space
+                if (index < 4) {
+                    pdf.setFontSize(8.5);
+                    
+                    // Create a single line for each certification
+                    const certText = `${cert.name} (${cert.issuer}) - ${cert.date}`;
+                    yPos += addWrappedText(certText, margin, yPos, contentWidth, 8.5);
+                    
+                    // Add invisible link if URL exists
+                    if (cert.url) {
+                        const certWidth = pdf.getStringUnitWidth(certText) * 8.5 / pdf.internal.scaleFactor;
+                        pdf.link(margin, yPos - 3, certWidth, 3, { url: cert.url });
+                    }
+                    
+                    yPos += 2.5; // reduced spacing
+                }
             });
-            pdfContent.appendChild(certification);
             
-            // Projects section
-            const project = document.createElement('div');
-            project.style.marginBottom = '20px';
-            project.innerHTML = `
-                <h2 style="font-size: 16px; border-bottom: 1px solid #000; padding-bottom: 5px; margin-bottom: 10px; font-weight: bold;">FEATURED PROJECTS</h2>
-            `;
+            yPos += 2; // Small extra space after certifications
             
-            // Add each project item
-            resumeData.projects.forEach(proj => {
-                const projItem = document.createElement('div');
-                projItem.style.marginBottom = '15px';
-                projItem.innerHTML = `
-                    <div style="display: flex; justify-content: space-between; margin-bottom: 5px;">
-                        <div>
-                            <h3 style="font-size: 14px; font-weight: bold; margin: 0;">${proj.name}</h3>
-                            <p style="margin: 0; font-weight: bold;">${proj.description}</p>
-                        </div>
-                        <p style="margin: 0;">${proj.date}</p>
-                    </div>
-                    <div class="flex justify-between items-center">
-                        <p style="margin-top: 5px;">${proj.technologies}</p>
-                        <a href="${proj.url}" target="_blank" rel="noopener noreferrer" class="text-primary-600 dark:text-primary-400 hover:underline">
-                            <i class="fas fa-external-link-alt mr-1"></i>View Project
-                        </a>
-                    </div>
-                `;
-                project.appendChild(projItem);
+            // Projects section - condensed for better fit
+            if (yPos > pdfHeight - 40) {
+                pdf.addPage();
+                yPos = margin;
+            }
+            
+            yPos = addSectionHeading("FEATURED PROJECTS", yPos);
+            
+            // Use a more compact format for projects to prevent overflow
+            resumeData.projects.forEach((proj, index) => {
+                // Limit description length to prevent overflow
+                const shortDesc = proj.description.length > 60 
+                    ? proj.description.substring(0, 60) + '...' 
+                    : proj.description;
+                
+                pdf.setFontSize(9);
+                pdf.setFont("helvetica", "bold");
+                
+                // Project name with date on same line
+                pdf.text(proj.name, margin, yPos);
+                
+                const dateWidth = pdf.getStringUnitWidth(proj.date) * 8 / pdf.internal.scaleFactor;
+                pdf.setFontSize(8);
+                pdf.setFont("helvetica", "normal");
+                pdf.text(proj.date, pdfWidth - margin - dateWidth, yPos);
+                yPos += 3;
+                
+                // Add link
+                pdf.link(margin, yPos - 3, pdfWidth/4, 3, { url: proj.url });
+                
+                // Description and technologies combined in a compact format
+                pdf.setFontSize(8);
+                const projText = `${shortDesc} (${proj.technologies})`;
+                yPos += addWrappedText(projText, margin, yPos, contentWidth, 8);
+                yPos += 4; // Less space between projects
             });
-            pdfContent.appendChild(project);
             
-            // Awards section
-            const award = document.createElement('div');
-            award.style.marginBottom = '20px';
-            award.innerHTML = `
-                <h2 style="font-size: 16px; border-bottom: 1px solid #000; padding-bottom: 5px; margin-bottom: 10px; font-weight: bold;">AWARDS</h2>
-            `;
+            // Check for page break before awards
+            if (yPos > pdfHeight - 30) {
+                pdf.addPage();
+                yPos = margin;
+            }
             
-            // Add each award item
+            // Awards section - brief mention
+            yPos = addSectionHeading("AWARDS", yPos);
+            
             resumeData.awards.forEach(award => {
-                const awardItem = document.createElement('div');
-                awardItem.style.marginBottom = '15px';
-                awardItem.innerHTML = `
-                    <div style="display: flex; justify-content: space-between; margin-bottom: 5px;">
-                        <div>
-                            <h3 style="font-size: 14px; font-weight: bold; margin: 0;">${award.title}</h3>
-                            <p style="margin: 0; font-weight: bold;">${award.issuer}</p>
-                        </div>
-                        <p style="margin: 0;">${award.date}</p>
-                    </div>
-                    <p style="margin-top: 5px;">${award.description}</p>
-                `;
-                award.appendChild(awardItem);
-            });
-            pdfContent.appendChild(award);
-            
-            // Languages and Interests section
-            const languageInterest = document.createElement('div');
-            languageInterest.style.marginBottom = '20px';
-            languageInterest.innerHTML = `
-                <h2 style="font-size: 16px; border-bottom: 1px solid #000; padding-bottom: 5px; margin-bottom: 10px; font-weight: bold;">LANGUAGES AND INTERESTS</h2>
-            `;
-            
-            // Add language items
-            const languageContainer = document.createElement('div');
-            languageContainer.style.marginBottom = '15px';
-            languageContainer.innerHTML = `
-                <h3 style="font-size: 14px; font-weight: bold; margin: 0;">Languages</h3>
-            `;
-            languageInterest.appendChild(languageContainer);
-            
-            resumeData.languages.forEach(language => {
-                const languageItem = document.createElement('div');
-                languageItem.className = 'border-l-4 border-primary-500 dark:border-primary-400 pl-4 py-1';
-                languageItem.innerHTML = `
-                    <div style="display: flex; justify-content: space-between; margin-bottom: 5px;">
-                        <div>
-                            <h4 style="font-size: 12px; font-weight: bold; margin: 0;">${language.name}</h4>
-                            <p style="margin: 0; font-weight: bold;">${language.level}</p>
-                        </div>
-                    </div>
-                `;
-                languageContainer.appendChild(languageItem);
-            });
-            
-            // Add interest items
-            const interestContainer = document.createElement('div');
-            interestContainer.className = 'border-l-4 border-primary-500 dark:border-primary-400 pl-4 py-1';
-            interestContainer.innerHTML = `
-                <h3 style="font-size: 14px; font-weight: bold; margin: 0;">Interests</h3>
-            `;
-            languageInterest.appendChild(interestContainer);
-            
-            resumeData.interests.forEach(interest => {
-                const interestItem = document.createElement('div');
-                interestItem.className = 'border-l-4 border-primary-500 dark:border-primary-400 pl-4 py-1';
-                interestItem.innerHTML = `
-                    <div style="display: flex; justify-content: space-between; margin-bottom: 5px;">
-                        <div>
-                            <h4 style="font-size: 12px; font-weight: bold; margin: 0;">${interest}</h4>
-                        </div>
-                    </div>
-                `;
-                interestContainer.appendChild(interestItem);
-            });
-            
-            pdfContent.appendChild(languageInterest);
-            
-            // Add the PDF content to the document temporarily
-            document.body.appendChild(pdfContent);
-            pdfContent.style.position = 'absolute';
-            pdfContent.style.left = '-9999px';
-            
-            // Use html2canvas and jsPDF to generate the PDF
-            html2canvas(pdfContent, {scale: 2}).then(canvas => {
-                // Remove the temporary element
-                document.body.removeChild(pdfContent);
+                pdf.setFontSize(9);
+                pdf.setFont("helvetica", "bold");
+                pdf.text(award.title, margin, yPos);
                 
-                const imgData = canvas.toDataURL('image/png');
-                const pdf = new jspdf.jsPDF({
-                    orientation: 'portrait',
-                    unit: 'px',
-                    format: 'a4'
-                });
+                const dateWidth = pdf.getStringUnitWidth(award.date) * 8 / pdf.internal.scaleFactor;
+                pdf.setFontSize(8);
+                pdf.setFont("helvetica", "normal");
+                pdf.text(award.date, pdfWidth - margin - dateWidth, yPos);
+                yPos += 3;
                 
-                const pdfWidth = pdf.internal.pageSize.getWidth();
-                const pdfHeight = pdf.internal.pageSize.getHeight();
-                const ratio = canvas.width / canvas.height;
-                const canvasWidth = pdfWidth;
-                const canvasHeight = canvasWidth / ratio;
+                // Combine issuer and short description
+                const shortDesc = award.description.length > 80 
+                    ? award.description.substring(0, 80) + '...' 
+                    : award.description;
                 
-                pdf.addImage(imgData, 'PNG', 0, 0, canvasWidth, canvasHeight);
-                pdf.save('Himanshu_Jangid_Resume.pdf');
+                const awardText = `${award.issuer} - ${shortDesc}`;
+                yPos += addWrappedText(awardText, margin, yPos, contentWidth, 8) + 3;
             });
+            
+            // Languages and Interests section - compressed format
+            if (yPos > pdfHeight - 20) {
+                pdf.addPage();
+                yPos = margin;
+            }
+            
+            yPos = addSectionHeading("ADDITIONAL INFORMATION", yPos);
+            
+            // Combine languages and interests into single section
+            pdf.setFontSize(8.5);
+            
+            // Languages on one line
+            const langText = `Languages: ${resumeData.languages.map(l => `${l.name} (${l.level})`).join(', ')}`;
+            yPos += addWrappedText(langText, margin, yPos, contentWidth, 8.5);
+            
+            // Interests on one line
+            yPos += 3;
+            const interestsText = `Interests: ${resumeData.interests.join(', ')}`;
+            yPos += addWrappedText(interestsText, margin, yPos, contentWidth, 8.5);
+            
+            // Save the PDF and remove the loading indicator
+            pdf.save('Himanshu_Jangid_Resume.pdf');
+            document.body.removeChild(loadingIndicator);
         }
     </script>
 </body>
