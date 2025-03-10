@@ -3,10 +3,10 @@
 <head>
     @@include('./partials/head.html', {
         "title": "Coding Statistics - Himanshu Jangid",
-        "description": "View detailed statistics about my coding habits, language preferences, and development activities.",
-        "keywords": "coding statistics, programming languages, development metrics, Himanshu Jangid",
+        "description": "View detailed statistics about my GitHub activity, contributions, and coding patterns.",
+        "keywords": "coding statistics, GitHub metrics, development activity, Himanshu Jangid",
         "ogtitle": "Coding Statistics - Himanshu Jangid",
-        "ogdescription": "View detailed statistics about my coding habits, language preferences, and development activities.",
+        "ogdescription": "View detailed statistics about my GitHub activity, contributions, and coding patterns.",
         "ogurl": "https://himanshujangid.com/charts",
         "customstyles": ""
     })
@@ -25,56 +25,17 @@
         <!-- Header Section -->
         <section class="max-w-4xl mx-auto mt-10 mb-12">
             <div class="clean-card text-center" data-aos="fade-up">
-                <h1 class="text-3xl font-bold mb-4 gradient-text">My Coding Statistics</h1>
-                <p class="text-light-300 mb-2">A visual representation of my development activities, language preferences, and coding habits.</p>
-                <p class="text-light-400 text-sm">Data sourced from <a href="https://wakatime.com" target="_blank" rel="noopener noreferrer" class="text-link">WakaTime</a> and GitHub</p>
+                <h1 class="text-3xl font-bold mb-4 gradient-text">GitHub Activity</h1>
+                <p class="text-light-300 mb-2">A visual representation of my GitHub activity, contributions, and coding patterns.</p>
+                <p class="text-light-400 text-sm">All data is sourced directly from <a href="https://github.com/himanshurajora" target="_blank" rel="noopener noreferrer" class="text-link">GitHub's public APIs</a></p>
             </div>
         </section>
 
-        <!-- Charts Grid -->
-        <div class="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-5xl mx-auto mb-12">
-            <!-- Languages Chart -->
-            <div class="clean-card" data-aos="fade-up">
-                <h2 class="text-xl font-bold mb-4 text-light-100">Programming Languages</h2>
-                <p class="text-light-300 mb-4">Distribution of languages used in my projects over the past year</p>
-                <div class="chart-container">
-                    <canvas id="languagesChart"></canvas>
-                </div>
-            </div>
-
-            <!-- Coding Time Chart -->
-            <div class="clean-card" data-aos="fade-up">
-                <h2 class="text-xl font-bold mb-4 text-light-100">Coding Activity</h2>
-                <p class="text-light-300 mb-4">Hours spent coding per month in the past year</p>
-                <div class="chart-container">
-                    <canvas id="codingTimeChart"></canvas>
-                </div>
-            </div>
-
-            <!-- Frameworks/Libraries Chart -->
-            <div class="clean-card" data-aos="fade-up">
-                <h2 class="text-xl font-bold mb-4 text-light-100">Frameworks & Libraries</h2>
-                <p class="text-light-300 mb-4">Technologies I use most frequently</p>
-                <div class="chart-container">
-                    <canvas id="frameworksChart"></canvas>
-                </div>
-            </div>
-
-            <!-- Project Contributions Chart -->
-            <div class="clean-card" data-aos="fade-up">
-                <h2 class="text-xl font-bold mb-4 text-light-100">Project Contributions</h2>
-                <p class="text-light-300 mb-4">Commits and contributions by project</p>
-                <div class="chart-container">
-                    <canvas id="contributionsChart"></canvas>
-                </div>
-            </div>
-        </div>
-
-        <!-- GitHub Activity Section -->
+        <!-- GitHub Contribution Graph -->
         <section class="max-w-4xl mx-auto mb-12">
             <div class="clean-card" data-aos="fade-up">
-                <h2 class="text-xl font-bold mb-4 text-light-100">GitHub Activity</h2>
-                <p class="text-light-300 mb-4">My contribution activity over time</p>
+                <h2 class="text-xl font-bold mb-4 text-light-100">Contribution Activity</h2>
+                <p class="text-light-300 mb-4">My GitHub contribution activity over the past year</p>
                 <div class="mb-6">
                     <div class="overflow-hidden rounded bg-dark-100 p-4">
                         <img src="https://ghchart.rshah.org/3384ff/himanshurajora" alt="Himanshu's GitHub Contribution Chart" class="w-full">
@@ -88,7 +49,56 @@
             </div>
         </section>
 
-        <!-- Frequently Used Tools -->
+        <!-- GitHub Stats Cards -->
+        <section class="max-w-4xl mx-auto mb-12">
+            <div class="clean-card" data-aos="fade-up">
+                <h2 class="text-xl font-bold mb-4 text-light-100">GitHub Stats</h2>
+                <p class="text-light-300 mb-6">Overall statistics for my GitHub profile and repositories</p>
+                
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    <!-- GitHub Stats Card -->
+                    <div class="bg-dark-100 p-4 rounded">
+                        <img src="https://github-readme-stats.vercel.app/api?username=himanshurajora&show_icons=true&theme=dark&hide_border=true&bg_color=1f1f1f&title_color=3384ff&icon_color=3384ff&text_color=e9ecef" alt="Himanshu's GitHub Stats" class="w-full">
+                    </div>
+                    
+                    <!-- Top Languages Card -->
+                    <div class="bg-dark-100 p-4 rounded">
+                        <img src="https://github-readme-stats.vercel.app/api/top-langs/?username=himanshurajora&layout=compact&theme=dark&hide_border=true&bg_color=1f1f1f&title_color=3384ff&text_color=e9ecef" alt="Himanshu's Top Languages" class="w-full">
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- GitHub Streak Stats -->
+        <section class="max-w-4xl mx-auto mb-12">
+            <div class="clean-card" data-aos="fade-up">
+                <h2 class="text-xl font-bold mb-4 text-light-100">Contribution Streak</h2>
+                <p class="text-light-300 mb-4">My current and longest contribution streaks on GitHub</p>
+                <div class="bg-dark-100 p-4 rounded">
+                    <img src="https://github-readme-streak-stats.herokuapp.com/?user=himanshurajora&theme=dark&hide_border=true&background=1f1f1f&stroke=3384ff&ring=3384ff&fire=3384ff&currStreakNum=e9ecef&sideNums=e9ecef&currStreakLabel=3384ff&sideLabels=e9ecef&dates=e9ecef" alt="Himanshu's GitHub Streak Stats" class="w-full">
+                </div>
+            </div>
+        </section>
+
+        <!-- Pinned Repositories -->
+        <section class="max-w-4xl mx-auto mb-12">
+            <div class="clean-card" data-aos="fade-up">
+                <h2 class="text-xl font-bold mb-4 text-light-100">Featured Projects</h2>
+                <p class="text-light-300 mb-6">Highlighted repositories from my GitHub profile</p>
+                
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    <div id="repo-cards-container" class="grid grid-cols-1 gap-6 col-span-2">
+                        <!-- Repository cards will be loaded here via JavaScript -->
+                        <div class="text-center p-8">
+                            <div class="inline-block animate-spin rounded-full h-8 w-8 border-t-2 border-b-2 border-primary-300"></div>
+                            <p class="mt-4 text-light-300">Loading repositories...</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Development Environment -->
         <section class="max-w-4xl mx-auto mb-12">
             <div class="clean-card" data-aos="fade-up">
                 <h2 class="text-xl font-bold mb-4 text-light-100">Development Environment</h2>
@@ -147,185 +157,95 @@
     @@include('./partials/footer.html')
     @@include('./partials/scripts.html')
 
-    <!-- Chart.js -->
-    <script src="https://cdn.jsdelivr.net/npm/chart.js@3.7.1/dist/chart.min.js"></script>
+    <!-- GitHub Repository Loader Script -->
     <script>
-        // Wait for DOM to load
         document.addEventListener('DOMContentLoaded', function() {
-            // Set chart defaults for better appearance in dark mode
-            Chart.defaults.font.family = "'Inter', 'Segoe UI', system-ui, sans-serif";
-            Chart.defaults.color = '#e9ecef';
-            Chart.defaults.plugins.legend.labels.usePointStyle = true;
-            Chart.defaults.plugins.tooltip.padding = 10;
-            Chart.defaults.scale.grid.color = 'rgba(255, 255, 255, 0.05)';
-
-            // Languages Chart
-            const languagesCtx = document.getElementById('languagesChart').getContext('2d');
-            const languagesChart = new Chart(languagesCtx, {
-                type: 'doughnut',
-                data: {
-                    labels: ['TypeScript', 'JavaScript', 'HTML/CSS', 'Rust', 'Python', 'Other'],
-                    datasets: [{
-                        data: [40, 25, 15, 10, 5, 5],
-                        backgroundColor: [
-                            '#3384ff', // TypeScript blue
-                            '#f7df1e', // JavaScript yellow
-                            '#e44d26', // HTML orange
-                            '#ff4c29', // Rust orange
-                            '#3776ab', // Python blue
-                            '#8957e5'  // Purple for others
-                        ],
-                        borderWidth: 2,
-                        borderColor: '#1f1f1f'
-                    }]
-                },
-                options: {
-                    responsive: true,
-                    maintainAspectRatio: false,
-                    plugins: {
-                        legend: {
-                            position: 'bottom',
-                            labels: {
-                                padding: 20,
-                                boxWidth: 12,
-                                color: '#e9ecef'
-                            }
-                        }
+            // Function to fetch pinned repositories
+            async function fetchPinnedRepos() {
+                try {
+                    // GitHub username
+                    const username = 'himanshurajora';
+                    // Fetch repos
+                    const response = await fetch(`https://api.github.com/users/${username}/repos?sort=updated&per_page=6`);
+                    
+                    if (!response.ok) {
+                        throw new Error('Failed to fetch repositories');
                     }
+                    
+                    const repos = await response.json();
+                    
+                    // Get container
+                    const container = document.getElementById('repo-cards-container');
+                    // Clear loading indicator
+                    container.innerHTML = '';
+                    
+                    // Display top 6 repositories
+                    repos.slice(0, 6).forEach(repo => {
+                        const card = document.createElement('div');
+                        card.className = 'bg-dark-100 p-5 rounded border border-dark-200 hover:border-primary-600 transition-all duration-300';
+                        
+                        // Create repo name with link
+                        const repoName = document.createElement('h3');
+                        repoName.className = 'text-lg font-bold mb-2 text-primary-300';
+                        const repoLink = document.createElement('a');
+                        repoLink.href = repo.html_url;
+                        repoLink.target = '_blank';
+                        repoLink.rel = 'noopener noreferrer';
+                        repoLink.textContent = repo.name;
+                        repoName.appendChild(repoLink);
+                        
+                        // Create description
+                        const description = document.createElement('p');
+                        description.className = 'text-light-300 text-sm mb-4';
+                        description.textContent = repo.description || 'No description available';
+                        
+                        // Create stats container
+                        const stats = document.createElement('div');
+                        stats.className = 'flex items-center space-x-4 text-sm text-light-400';
+                        
+                        // Add stars
+                        const stars = document.createElement('div');
+                        stars.className = 'flex items-center';
+                        stars.innerHTML = `<i class="fas fa-star mr-1 text-yellow-400"></i> ${repo.stargazers_count}`;
+                        
+                        // Add forks
+                        const forks = document.createElement('div');
+                        forks.className = 'flex items-center';
+                        forks.innerHTML = `<i class="fas fa-code-branch mr-1"></i> ${repo.forks_count}`;
+                        
+                        // Add language if available
+                        let language = null;
+                        if (repo.language) {
+                            language = document.createElement('div');
+                            language.className = 'flex items-center';
+                            language.innerHTML = `<i class="fas fa-circle mr-1 text-xs text-primary-400"></i> ${repo.language}`;
+                        }
+                        
+                        // Append all elements
+                        stats.appendChild(stars);
+                        stats.appendChild(forks);
+                        if (language) stats.appendChild(language);
+                        
+                        card.appendChild(repoName);
+                        card.appendChild(description);
+                        card.appendChild(stats);
+                        
+                        container.appendChild(card);
+                    });
+                    
+                } catch (error) {
+                    console.error('Error fetching repositories:', error);
+                    const container = document.getElementById('repo-cards-container');
+                    container.innerHTML = `
+                        <div class="col-span-2 text-center p-8">
+                            <p class="text-light-300">Failed to load repositories. Please try again later.</p>
+                        </div>
+                    `;
                 }
-            });
-
-            // Coding Time Chart
-            const codingTimeCtx = document.getElementById('codingTimeChart').getContext('2d');
-            const codingTimeChart = new Chart(codingTimeCtx, {
-                type: 'bar',
-                data: {
-                    labels: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'],
-                    datasets: [{
-                        label: 'Hours',
-                        data: [75, 90, 110, 95, 120, 135, 140, 130, 115, 125, 100, 95],
-                        backgroundColor: '#3384ff',
-                        borderRadius: 4
-                    }]
-                },
-                options: {
-                    responsive: true,
-                    maintainAspectRatio: false,
-                    plugins: {
-                        legend: {
-                            display: false
-                        }
-                    },
-                    scales: {
-                        y: {
-                            beginAtZero: true,
-                            grid: {
-                                color: 'rgba(255, 255, 255, 0.05)'
-                            },
-                            ticks: {
-                                color: '#e9ecef'
-                            }
-                        },
-                        x: {
-                            grid: {
-                                display: false
-                            },
-                            ticks: {
-                                color: '#e9ecef'
-                            }
-                        }
-                    }
-                }
-            });
-
-            // Frameworks Chart
-            const frameworksCtx = document.getElementById('frameworksChart').getContext('2d');
-            const frameworksChart = new Chart(frameworksCtx, {
-                type: 'polarArea',
-                data: {
-                    labels: ['React', 'Node.js', 'Express', 'Next.js', 'NestJS', 'Tailwind CSS'],
-                    datasets: [{
-                        data: [90, 80, 70, 75, 65, 85],
-                        backgroundColor: [
-                            'rgba(97, 218, 251, 0.7)',  // React blue
-                            'rgba(104, 160, 99, 0.7)',  // Node green
-                            'rgba(255, 255, 255, 0.7)', // Express white
-                            'rgba(0, 0, 0, 0.7)',       // Next.js black
-                            'rgba(236, 72, 153, 0.7)',  // NestJS pink
-                            'rgba(14, 165, 233, 0.7)'   // Tailwind sky blue
-                        ],
-                        borderWidth: 1
-                    }]
-                },
-                options: {
-                    responsive: true,
-                    maintainAspectRatio: false,
-                    plugins: {
-                        legend: {
-                            position: 'bottom',
-                            labels: {
-                                padding: 20,
-                                boxWidth: 12,
-                                color: '#e9ecef'
-                            }
-                        }
-                    },
-                    scales: {
-                        r: {
-                            ticks: {
-                                display: false
-                            },
-                            grid: {
-                                color: 'rgba(255, 255, 255, 0.05)'
-                            }
-                        }
-                    }
-                }
-            });
-
-            // Contributions Chart
-            const contributionsCtx = document.getElementById('contributionsChart').getContext('2d');
-            const contributionsChart = new Chart(contributionsCtx, {
-                type: 'bar',
-                data: {
-                    labels: ['Personal', 'Work', 'Open Source', 'Learning', 'Documentation'],
-                    datasets: [{
-                        label: 'Commits',
-                        data: [350, 520, 120, 180, 90],
-                        backgroundColor: '#8957e5',
-                        borderRadius: 4
-                    }]
-                },
-                options: {
-                    indexAxis: 'y',
-                    responsive: true,
-                    maintainAspectRatio: false,
-                    plugins: {
-                        legend: {
-                            display: false
-                        }
-                    },
-                    scales: {
-                        x: {
-                            beginAtZero: true,
-                            grid: {
-                                color: 'rgba(255, 255, 255, 0.05)'
-                            },
-                            ticks: {
-                                color: '#e9ecef'
-                            }
-                        },
-                        y: {
-                            grid: {
-                                display: false
-                            },
-                            ticks: {
-                                color: '#e9ecef'
-                            }
-                        }
-                    }
-                }
-            });
+            }
+            
+            // Call the function to fetch and display repositories
+            fetchPinnedRepos();
         });
     </script>
 </body>
