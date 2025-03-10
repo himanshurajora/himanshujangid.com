@@ -1,312 +1,962 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    @@include('./partials/head.html', {
-        "title": "Himanshu Jangid - Software Engineer & Web Developer",
-        "description": "Portfolio of Himanshu Jangid, a diligent web developer and software engineer with over 2 years of experience in React, NodeJS, TypeScript and more.",
-        "keywords": "Himanshu Jangid, Web Developer, Software Engineer, React, NodeJS, TypeScript, JavaScript, Rust, Full Stack Developer",
-        "ogtitle": "Himanshu Jangid - Software Engineer & Web Developer",
-        "ogdescription": "Portfolio of Himanshu Jangid, a diligent web developer and software engineer with over 2 years of experience in React, NodeJS, TypeScript and more.",
-        "ogurl": "https://himanshujangid.com",
-        "customstyles": ""
-    })
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Himanshu Jangid | Software Engineer</title>
+    <meta name="description" content="Professional resume of Himanshu Jangid, Software Engineer with expertise in React, TypeScript, Node.js and more.">
+    <meta name="keywords" content="Himanshu Jangid, Software Engineer, Web Developer, Resume, React, TypeScript, Node.js">
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="/assets/images/me-2.jpg">
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        primary: {
+                            50: '#e6f0ff',
+                            100: '#cce0ff',
+                            200: '#99c1ff',
+                            300: '#66a3ff',
+                            400: '#3384ff',
+                            500: '#0066ff',
+                            600: '#0052cc',
+                            700: '#003d99',
+                            800: '#002966',
+                            900: '#001433',
+                        },
+                        dark: {
+                            100: '#2d2d2d',
+                            200: '#252525',
+                            300: '#1f1f1f',
+                            900: '#121212',
+                        },
+                        light: {
+                            100: '#f8f9fa',
+                            200: '#e9ecef',
+                            300: '#dee2e6',
+                            400: '#ced4da',
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'system-ui', 'sans-serif'],
+                        serif: ['Merriweather', 'Georgia', 'serif'],
+                        mono: ['Fira Code', 'monospace'],
+                    }
+                },
+            },
+        }
+    </script>
+    
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Merriweather:wght@300;400;700&family=Fira+Code:wght@400;500;600&display=swap" rel="stylesheet">
+    
+    <!-- FontAwesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    
+    <!-- jsPDF for resume generation -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+    
+    <style>
+        /* Base styles */
+        body {
+            font-family: 'Inter', system-ui, -apple-system, sans-serif;
+            line-height: 1.5;
+        }
+        
+        /* Light mode styles */
+        :root {
+            --bg-color: #f8f9fa;
+            --text-color: #1f1f1f;
+            --card-bg: #ffffff;
+            --card-border: #e9ecef;
+            --section-border: #dee2e6;
+            --accent-color: #0066ff;
+            --accent-hover: #0052cc;
+            --muted-color: #6c757d;
+        }
+        
+        /* Dark mode styles */
+        .dark {
+            --bg-color: #121212;
+            --text-color: #e9ecef;
+            --card-bg: #1f1f1f;
+            --card-border: #2d2d2d;
+            --section-border: #252525;
+            --accent-color: #3384ff;
+            --accent-hover: #66a3ff;
+            --muted-color: #adb5bd;
+        }
+        
+        body {
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            transition: background-color 0.3s, color 0.3s;
+        }
+        
+        .resume-card {
+            background-color: var(--card-bg);
+            border: 1px solid var(--card-border);
+            border-radius: 0.5rem;
+            transition: background-color 0.3s, border-color 0.3s;
+        }
+        
+        .section-title {
+            color: var(--accent-color);
+            border-bottom: 2px solid var(--section-border);
+            padding-bottom: 0.25rem;
+            margin-bottom: 1rem;
+            font-weight: 600;
+        }
+        
+        .skill-tag {
+            background-color: var(--card-border);
+            color: var(--text-color);
+            transition: background-color 0.3s, color 0.3s;
+        }
+        
+        /* Print specific styles */
+        @media print {
+            .no-print {
+                display: none !important;
+            }
+        }
+    </style>
 </head>
-<body class="bg-dark-900 text-light-200 min-h-screen flex flex-col overflow-x-hidden">
-    @@include('./partials/nav.html', {
-        "homeActive": "text-light-100",
-        "chartsActive": "text-light-300"
-    })
+<body>
+    <!-- Resume data -->
+    <script>
+        // Resume data in JSON format for easy updating and PDF generation
+        const resumeData = {
+            personal: {
+                name: "Himanshu Jangid",
+                title: "Software Engineer",
+                email: "himanshujhar@gmail.com",
+                phone: "+91 6376048898",
+                location: "Jaipur, Rajasthan",
+                photo: "/assets/images/me-2-full.jpg",
+                summary: "Full Stack Maestro | Architecting End-to-End Solutions for Digital Excellence | Bridging Frontend Elegance with Backend Resilience. Seasoned full-stack software engineer, actively committed to advancing my skill set. My dedication to ongoing learning involves both acquiring new skills and refining existing ones, reflecting a genuine passion for understanding the intricacies of various technologies."
+            },
+            experience: [
+                {
+                    title: "Full Stack Software Engineer - Mean & Mern",
+                    company: "Wisflux Private Limited",
+                    location: "Jaipur, Rajasthan",
+                    period: "April 2022 - Present",
+                    description: "I developed software for Bosch's pump manufacturing, with a focus on VE pumps and integration with Programmable Logic Controllers (PLCs) for real-time data exchange. I also led an industrial project aimed at efficiently monitoring machinery and workspaces in manufacturing, prioritizing performance optimization. Additionally, I actively participated in the development of Demand Side Platform (DSP) and Supply Side Platform (SSP) software tailored for Digital Out-Of-Home (DOOH) screens, implementing a micro-services architecture and leveraging various desktop and web technologies for advertising purposes.",
+                    url: "https://wisflux.com"
+                },
+                {
+                    title: "Frontend Engineer - Intern",
+                    company: "Bazarside",
+                    location: "Remote",
+                    period: "Jan 2022 - Feb 2022",
+                    description: "Worked as a frontend engineer with technologies such as HTML, CSS, Bootstrap, and integrated frontend systems with Django backend."
+                },
+                {
+                    title: "Web Developer - Intern",
+                    company: "Tribal Connect",
+                    location: "Jaipur, Rajasthan",
+                    period: "Oct 2021 - July 2022",
+                    description: "I employed PHP, JavaScript, HTML5, and CSS to develop a robust organizational website, covering both user-facing and administrative functionalities. Leading a team of five, I completed the project ahead of schedule, addressing previous deficiencies and ensuring timely delivery through adept use of technology.",
+                    url: "https://tribalconnect.org.in"
+                },
+                {
+                    title: "Web Development Intern",
+                    company: "LetsGrowMore",
+                    location: "Remote",
+                    period: "Sept 2021 - Oct 2022",
+                    description: "Developed a responsive web application using React.js and Firebase. Implemented real-time data synchronization, user authentication, and cloud-based storage. Contributed to the design and functionality, showcasing proficiency in React components and Firebase services. Successfully delivered a modern and efficient application in a fast-paced environment."
+                }
+            ],
+            education: [
+                {
+                    degree: "Bachelor of Technology",
+                    field: "Computer Science",
+                    institution: "Anand International College of Engineering",
+                    location: "Jaipur, Rajasthan",
+                    period: "August 2019 - July 2023",
+                    grade: "9",
+                    url: "https://anandice.ac.in"
+                }
+            ],
+            skills: {
+                main: [
+                    { name: "TypeScript", level: 95, icon: "fab fa-typescript", color: "#3178c6", description: "types, compiled" },
+                    { name: "Angular", level: 90, icon: "fab fa-angular", color: "#dd0031", description: "modular architecture, Typescript" },
+                    { name: "React", level: 90, icon: "fab fa-react", color: "#61dafb", description: "declarative, nonopinionated" },
+                    { name: "Node.js", level: 85, icon: "fab fa-node-js", color: "#68a063", description: "v8, javascript, runtime" },
+                    { name: "NextJS", level: 85, icon: "fab fa-react", color: "#000000", description: "ssr, ssg, react" },
+                    { name: "NestJS", level: 85, icon: "fas fa-server", color: "#E0234E", description: "progressive, typescript" }
+                ],
+                other: [
+                    "ExpressJS", "Python", "Rust", "HTML & CSS", "Sass", "Gulp", "Docker", "PostgreSQL", 
+                    "C#", "MySQL", "PHP", "Git", "GitHub", "C and C++", "Electron", "Markdown", 
+                    "Kubernetes", "Google Cloud", "Hostinger", "CPanel", "HTML Canvas", "Bash", 
+                    "Arch Linux", "MongoDB", "Firebase", "PocketBase", "JSON", "Prisma", "Sequelize"
+                ]
+            },
+            languages: [
+                { name: "Hindi", level: "Native" },
+                { name: "English", level: "Second Language" }
+            ],
+            interests: [
+                "Dance", "Music", "Gaming", "Martial Arts"
+            ],
+            awards: [
+                {
+                    title: "Winner of Soft Tech Hack Hackthon",
+                    issuer: "Rajasthan Technical University",
+                    date: "Jan 2021",
+                    description: "I collaborated with a team on an Attendance Management project, successfully navigating all rounds and ultimately securing victory in the Hackathon."
+                }
+            ],
+            certifications: [
+                {
+                    name: "Programming Fundamentals",
+                    issuer: "Duke University",
+                    date: "Feb 2022",
+                    url: "https://coursera.org/share/e34baf1d227d78cadc9b92d41bb43f14"
+                },
+                {
+                    name: "Algorithmic Toolbox",
+                    issuer: "University of California, San Diego - Rady School of Management",
+                    date: "Feb 2022",
+                    url: "https://coursera.org/share/864876a46e401b04a69625b98b8d6efc"
+                },
+                {
+                    name: "Image and Video Processing: From Mars to Hollywood with a Stop at the Hospital",
+                    issuer: "Duke University",
+                    date: "April 2021",
+                    url: "https://coursera.org/share/af0ec1fcdf33b50eaa4c7ceac215eb68"
+                },
+                {
+                    name: "Introduction to Machine Learning",
+                    issuer: "Duke University",
+                    date: "May 2021",
+                    url: "https://coursera.org/share/c96943f66d5944ae73a35d09eefd9f15"
+                },
+                {
+                    name: "Introduction to HTML",
+                    issuer: "Coursera",
+                    date: "June 2020",
+                    url: "https://coursera.org/share/197ea60ee38823d49b3f14457b854636"
+                },
+                {
+                    name: "Python for Data Science",
+                    issuer: "IBM",
+                    date: "April 2021"
+                }
+            ],
+            projects: [
+                {
+                    name: "Looking For Contributors",
+                    description: "Helps open source developers to look for contributors",
+                    date: "Jan 2024",
+                    url: "https://lookingforcontributors.web.app/",
+                    technologies: "react, pocketbase"
+                },
+                {
+                    name: "Sword Engine",
+                    description: "A Simple to use javascript game engine",
+                    date: "Nov 2021",
+                    url: "https://sword-engine.web.app/",
+                    technologies: "javascript, games, computer-graphics"
+                },
+                {
+                    name: "Spark Fly",
+                    description: "Simple 2d multiplayer space war game made in PhaserJS.",
+                    date: "Jan 2022",
+                    url: "https://ggsparkflygame.web.app/",
+                    technologies: "game, phaser, typescript"
+                },
+                {
+                    name: "TyperX",
+                    description: "The Website for Typing Practice With Code",
+                    date: "Jan 2022",
+                    url: "https://typerx.web.app/",
+                    technologies: "react, typescript, typing"
+                },
+                {
+                    name: "Yourls Rest Client",
+                    description: "Rest client for Yours url shortener server",
+                    date: "Dec 2023",
+                    url: "https://www.npmjs.com/package/rest-yourls",
+                    technologies: "npm, package, typescript, rest"
+                },
+                {
+                    name: "ShareMyText",
+                    description: "Share encrypted text anywhere with anyone",
+                    date: "Aug 2021",
+                    url: "https://sharemytext.web.app/",
+                    technologies: "text-share, react, typescript, encryption, firebase"
+                }
+            ],
+            social: [
+                { name: "GitHub", url: "https://github.com/himanshurajora", icon: "fab fa-github", color: "#f5f5f5" },
+                { name: "LinkedIn", url: "https://www.linkedin.com/in/himanshurajora/", icon: "fab fa-linkedin", color: "#0077b5" },
+                { name: "StackOverflow", url: "https://stackoverflow.com/users/15781928/himanshu-jangid", icon: "fab fa-stack-overflow", color: "#f48024" },
+                { name: "Code Grepper", url: "https://www.grepper.com/profile/himanshu-jangid", icon: "fas fa-code", color: "#4caf50" }
+            ]
+        };
+    </script>
 
-    <!-- Subtle Particles Background -->
-    <div id="particles-js" class="fixed top-0 left-0 w-full h-full z-0 opacity-20"></div>
+    <!-- Header with theme toggle and download button -->
+    <header class="sticky top-0 z-50 bg-opacity-95 dark:bg-opacity-95 backdrop-blur-sm border-b border-gray-200 dark:border-dark-200 bg-white dark:bg-dark-300 transition-colors duration-300 no-print">
+        <div class="container mx-auto px-3 py-2 flex justify-between items-center">
+            <h1 class="text-lg font-semibold">
+                <a href="/" class="flex items-center gap-2">
+                    <img src="/assets/images/me-2.jpg" alt="Himanshu Jangid" class="h-8 w-8 rounded-full">
+                    <span>Himanshu Jangid</span>
+                </a>
+            </h1>
+            <div class="flex items-center gap-3">
+                <!-- Theme toggle button -->
+                <button id="theme-toggle" class="p-2 rounded-full hover:bg-gray-100 dark:hover:bg-dark-100 transition-colors">
+                    <i class="fas fa-sun text-yellow-500 dark:hidden"></i>
+                    <i class="fas fa-moon text-blue-300 hidden dark:inline-block"></i>
+                </button>
+                
+                <!-- Download resume button -->
+                <button id="download-resume" class="px-3 py-1.5 bg-primary-600 hover:bg-primary-700 text-white rounded transition-colors">
+                    <i class="fas fa-download mr-1"></i>
+                    <span>Download Resume</span>
+                </button>
+            </div>
+        </div>
+    </header>
 
-    <!-- Main Content -->
-    <main class="flex-grow container mx-auto px-4 sm:px-6 lg:px-8 py-8 relative z-10">
-        <!-- Hero Section -->
-        <section class="relative mt-10 mb-20 max-w-4xl mx-auto">
-            <div class="clean-card" data-aos="fade-up">
-                <div class="flex flex-col md:flex-row items-center gap-8">
-                    <div class="md:w-1/3 flex justify-center">
-                        <div class="parallax-container">
-                            <img src="/assets/images/me-2-full.jpg" alt="Himanshu Jangid" class="rounded-full h-48 w-48 object-cover shadow-sm">
+    <!-- Main content -->
+    <main class="container mx-auto px-4 py-5 max-w-5xl">
+        <!-- Profile section -->
+        <section class="mb-6 resume-card p-5">
+            <div class="flex flex-col md:flex-row items-center md:items-start gap-5">
+                <div class="w-32 h-32 flex-shrink-0 no-print">
+                    <img src="/assets/images/me-2-full.jpg" alt="Himanshu Jangid" class="w-full h-full object-cover rounded-full">
+                </div>
+                <div class="flex-grow text-center md:text-left">
+                    <h1 class="text-3xl font-bold mb-1 text-primary-600 dark:text-primary-400" id="full-name">Himanshu Jangid</h1>
+                    <h2 class="text-xl font-medium mb-3 text-gray-600 dark:text-gray-300" id="job-title">Software Engineer</h2>
+                    
+                    <div class="flex flex-wrap justify-center md:justify-start gap-3 mb-4">
+                        <a href="mailto:himanshujhar@gmail.com" class="flex items-center gap-1.5 text-gray-700 dark:text-gray-300 hover:text-primary-600 dark:hover:text-primary-400">
+                            <i class="fas fa-envelope"></i>
+                            <span>himanshujhar@gmail.com</span>
+                        </a>
+                        <a href="tel:+916376048898" class="flex items-center gap-1.5 text-gray-700 dark:text-gray-300 hover:text-primary-600 dark:hover:text-primary-400">
+                            <i class="fas fa-phone"></i>
+                            <span>+91 6376048898</span>
+                        </a>
+                        <div class="flex items-center gap-1.5 text-gray-700 dark:text-gray-300">
+                            <i class="fas fa-map-marker-alt"></i>
+                            <span>Jaipur, Rajasthan</span>
                         </div>
+                        <a href="https://github.com/himanshurajora" target="_blank" rel="noopener noreferrer" class="flex items-center gap-1.5 text-gray-700 dark:text-gray-300 hover:text-primary-600 dark:hover:text-primary-400">
+                            <i class="fab fa-github"></i>
+                            <span>GitHub</span>
+                        </a>
+                        <a href="https://www.linkedin.com/in/himanshurajora/" target="_blank" rel="noopener noreferrer" class="flex items-center gap-1.5 text-gray-700 dark:text-gray-300 hover:text-primary-600 dark:hover:text-primary-400">
+                            <i class="fab fa-linkedin"></i>
+                            <span>LinkedIn</span>
+                        </a>
                     </div>
-                    <div class="md:w-2/3">
-                        <h1 class="text-4xl font-bold mb-3 gradient-text">
-                            Hi, I'm Himanshu Jangid
-                        </h1>
-                        <p class="text-xl mb-3 font-medium text-light-300">
-                            I'm a <span class="typing-text text-primary-300"></span>
-                        </p>
-                        <p class="text-lg mb-6 leading-relaxed text-light-300">
-                            Experienced software engineer specializing in full-stack web development with a proven track record of delivering scalable solutions. Proficient in React, NodeJS, and TypeScript, with expertise in architectural design, project management, and technical documentation.
-                        </p>
-                        <div class="flex flex-wrap gap-4">
-                            <a href="https://github.com/himanshurajora" target="_blank" rel="noopener noreferrer" class="inline-flex items-center px-4 py-2 bg-dark-100 text-light-100 rounded transition hover:bg-dark-200">
-                                <i class="fab fa-github mr-2"></i> GitHub
-                            </a>
-                            <a href="https://www.linkedin.com/in/himanshurajora/" target="_blank" rel="noopener noreferrer" class="inline-flex items-center px-4 py-2 bg-primary-700 text-light-100 rounded transition hover:bg-primary-600">
-                                <i class="fab fa-linkedin mr-2"></i> LinkedIn
-                            </a>
-                        </div>
-                    </div>
+                    
+                    <p class="text-gray-700 dark:text-gray-300 text-sm" id="summary">
+                        Full Stack Maestro | Architecting End-to-End Solutions for Digital Excellence | Bridging Frontend Elegance with Backend Resilience. Seasoned full-stack software engineer, actively committed to advancing my skill set. My dedication to ongoing learning involves both acquiring new skills and refining existing ones, reflecting a genuine passion for understanding the intricacies of various technologies.
+                    </p>
                 </div>
             </div>
         </section>
-
-        <!-- About Section -->
-        <section class="mb-20 max-w-4xl mx-auto">
-            <h2 class="text-3xl font-bold mb-6 gradient-text">About Me</h2>
-            <div class="clean-card" data-aos="fade-up">
-                <p class="mb-4 text-light-300">
-                    I started my journey in programming with C# and made a lot of Console Applications and Games using Unity Game Engine to learn the basic concepts. Then I started learning HTML, CSS and PHP while I was not aware of JavaScript but indirectly using it. I just had some rough idea about it because I was using JQuery along with PHP. I worked on many projects with PHP, Learned MySQL database, Web hosting, CPanel, Domain Registration, and much more.
-                </p>
-                <p class="mb-4 text-light-300">
-                    Then I finally started using Javascript and I liked it so much that I made it my main programming language that I use daily. I have been working on ReactJS, NodeJS, Angular, NextJS, and many more JavaScript frameworks and platforms. Since then I have been working on many web projects and have been learning new things. I also work with extra skills like React Native, Python, Git, C, Firebase, MongoDB, Computer Graphics, Operating Systems etc.
-                </p>
-            </div>
-        </section>
-
-        <!-- Skills Section -->
-        <section class="mb-20 max-w-4xl mx-auto">
-            <h2 class="text-3xl font-bold mb-6 gradient-text">Technical Skills</h2>
-            <div class="clean-card" data-aos="fade-up">
-                <h3 class="text-xl font-bold mb-4 text-light-100">Main Technologies</h3>
-                <div class="grid grid-cols-2 md:grid-cols-3 gap-6 mb-8">
-                    <div class="flex flex-col items-center text-center p-4">
-                        <div class="text-3xl mb-2 floating"><i class="fab fa-typescript"></i></div>
-                        <h3 class="font-semibold mb-1">TypeScript</h3>
-                        <div class="w-full bg-dark-100 rounded-full h-1.5 mt-1">
-                            <div class="bg-primary-400 h-1.5 rounded-full" style="width: 95%"></div>
-                        </div>
-                        <p class="text-xs mt-2 text-light-300">Very Often</p>
-                    </div>
-                    
-                    <div class="flex flex-col items-center text-center p-4">
-                        <div class="text-3xl mb-2 text-yellow-400 floating"><i class="fab fa-js"></i></div>
-                        <h3 class="font-semibold mb-1">JavaScript</h3>
-                        <div class="w-full bg-dark-100 rounded-full h-1.5 mt-1">
-                            <div class="bg-yellow-400 h-1.5 rounded-full" style="width: 90%"></div>
-                        </div>
-                        <p class="text-xs mt-2 text-light-300">After Compilation</p>
-                    </div>
-                    
-                    <div class="flex flex-col items-center text-center p-4">
-                        <div class="text-3xl mb-2 text-green-500 floating"><i class="fab fa-node-js"></i></div>
-                        <h3 class="font-semibold mb-1">Node.js</h3>
-                        <div class="w-full bg-dark-100 rounded-full h-1.5 mt-1">
-                            <div class="bg-green-500 h-1.5 rounded-full" style="width: 85%"></div>
-                        </div>
-                        <p class="text-xs mt-2 text-light-300">80% of the time</p>
-                    </div>
-                    
-                    <div class="flex flex-col items-center text-center p-4">
-                        <div class="text-3xl mb-2 text-blue-500 floating"><i class="fab fa-react"></i></div>
-                        <h3 class="font-semibold mb-1">React</h3>
-                        <div class="w-full bg-dark-100 rounded-full h-1.5 mt-1">
-                            <div class="bg-blue-500 h-1.5 rounded-full" style="width: 90%"></div>
-                        </div>
-                        <p class="text-xs mt-2 text-light-300">Really like it</p>
-                    </div>
-                    
-                    <div class="flex flex-col items-center text-center p-4">
-                        <div class="text-3xl mb-2 text-red-500 floating"><i class="fab fa-angular"></i></div>
-                        <h3 class="font-semibold mb-1">Angular</h3>
-                        <div class="w-full bg-dark-100 rounded-full h-1.5 mt-1">
-                            <div class="bg-red-500 h-1.5 rounded-full" style="width: 80%"></div>
-                        </div>
-                        <p class="text-xs mt-2 text-light-300">Work with at office</p>
-                    </div>
-                    
-                    <div class="flex flex-col items-center text-center p-4">
-                        <div class="text-3xl mb-2 text-orange-500 floating"><i class="fab fa-rust"></i></div>
-                        <h3 class="font-semibold mb-1">Rust</h3>
-                        <div class="w-full bg-dark-100 rounded-full h-1.5 mt-1">
-                            <div class="bg-orange-500 h-1.5 rounded-full" style="width: 60%"></div>
-                        </div>
-                        <p class="text-xs mt-2 text-light-300">Learning and Making</p>
-                    </div>
-                </div>
-                
-                <h3 class="text-xl font-bold mb-4 text-light-100">All Skills</h3>
-                <div class="flex flex-wrap gap-3 mb-6">
-                    <span class="px-3 py-1 bg-dark-100 text-light-100 rounded-full text-sm">HTML & CSS</span>
-                    <span class="px-3 py-1 bg-dark-100 text-light-100 rounded-full text-sm">Sass</span>
-                    <span class="px-3 py-1 bg-dark-100 text-light-100 rounded-full text-sm">Gulp</span>
-                    <span class="px-3 py-1 bg-dark-100 text-light-100 rounded-full text-sm">Docker</span>
-                    <span class="px-3 py-1 bg-dark-100 text-light-100 rounded-full text-sm">PostgreSQL</span>
-                    <span class="px-3 py-1 bg-dark-100 text-light-100 rounded-full text-sm">C#</span>
-                    <span class="px-3 py-1 bg-dark-100 text-light-100 rounded-full text-sm">MySQL</span>
-                    <span class="px-3 py-1 bg-dark-100 text-light-100 rounded-full text-sm">PHP</span>
-                    <span class="px-3 py-1 bg-dark-100 text-light-100 rounded-full text-sm">Python</span>
-                    <span class="px-3 py-1 bg-dark-100 text-light-100 rounded-full text-sm">Git</span>
-                    <span class="px-3 py-1 bg-dark-100 text-light-100 rounded-full text-sm">GitHub</span>
-                    <span class="px-3 py-1 bg-dark-100 text-light-100 rounded-full text-sm">C and C++</span>
-                    <span class="px-3 py-1 bg-dark-100 text-light-100 rounded-full text-sm">Electron</span>
-                    <span class="px-3 py-1 bg-dark-100 text-light-100 rounded-full text-sm">Markdown</span>
-                    <span class="px-3 py-1 bg-dark-100 text-light-100 rounded-full text-sm">Kubernetes</span>
-                    <span class="px-3 py-1 bg-dark-100 text-light-100 rounded-full text-sm">Google Cloud</span>
-                    <span class="px-3 py-1 bg-dark-100 text-light-100 rounded-full text-sm">Hostinger</span>
-                    <span class="px-3 py-1 bg-dark-100 text-light-100 rounded-full text-sm">CPanel</span>
-                    <span class="px-3 py-1 bg-dark-100 text-light-100 rounded-full text-sm">HTML Canvas</span>
-                    <span class="px-3 py-1 bg-dark-100 text-light-100 rounded-full text-sm">Bash</span>
-                    <span class="px-3 py-1 bg-dark-100 text-light-100 rounded-full text-sm">Arch Linux</span>
-                    <span class="px-3 py-1 bg-dark-100 text-light-100 rounded-full text-sm">MongoDB</span>
-                    <span class="px-3 py-1 bg-dark-100 text-light-100 rounded-full text-sm">Firebase</span>
-                    <span class="px-3 py-1 bg-dark-100 text-light-100 rounded-full text-sm">PocketBase</span>
-                    <span class="px-3 py-1 bg-dark-100 text-light-100 rounded-full text-sm">JSON</span>
-                    <span class="px-3 py-1 bg-dark-100 text-light-100 rounded-full text-sm">NextJs</span>
-                    <span class="px-3 py-1 bg-dark-100 text-light-100 rounded-full text-sm">Prisma</span>
-                    <span class="px-3 py-1 bg-dark-100 text-light-100 rounded-full text-sm">NestJs</span>
-                    <span class="px-3 py-1 bg-dark-100 text-light-100 rounded-full text-sm">Sequelize</span>
-                    <span class="px-3 py-1 bg-dark-100 text-light-100 rounded-full text-sm">Blender</span>
-                    <span class="px-3 py-1 bg-dark-100 text-light-100 rounded-full text-sm">AfterEffects</span>
-                </div>
-                
-                <div class="mt-6 text-center">
-                    <a href="/charts.html" class="text-link inline-flex items-center">
-                        View detailed coding statistics
-                        <svg class="ml-1 w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path>
-                        </svg>
-                    </a>
-                </div>
-            </div>
-        </section>
-
-        <!-- Experience Section -->
-        <section class="mb-20 max-w-4xl mx-auto">
-            <h2 class="text-3xl font-bold mb-6 gradient-text">Professional Experience</h2>
-            <div class="space-y-6">
-                <!-- Experience Item 1 -->
-                <div class="clean-card" data-aos="fade-up">
-                    <div class="flex flex-col md:flex-row gap-4">
-                        <div class="md:w-1/4 flex-shrink-0">
-                            <p class="text-sm text-light-400">April 2022 - Present</p>
-                            <h3 class="text-xl font-bold text-primary-300">Full Stack Web Developer</h3>
-                            <p class="font-medium text-light-300">Wisflux Tech Labs</p>
-                        </div>
-                        <div class="md:w-3/4">
-                            <p class="text-light-300">Working on Technologies like React, NestJs, TypeScript, ChakraUI and solving Real World Problems. Building complex enterprise-level web applications with clean architecture and strong focus on performance.</p>
-                        </div>
-                    </div>
-                </div>
-                
-                <!-- Experience Item 2 -->
-                <div class="clean-card" data-aos="fade-up">
-                    <div class="flex flex-col md:flex-row gap-4">
-                        <div class="md:w-1/4 flex-shrink-0">
-                            <p class="text-sm text-light-400">Sept 2021 - Oct 2021</p>
-                            <h3 class="text-xl font-bold text-primary-300">Web Developer Intern</h3>
-                            <p class="font-medium text-light-300">LetsGrowMore</p>
-                        </div>
-                        <div class="md:w-3/4">
-                            <p class="text-light-300">Developed React JS and PHP web applications for Educational Institutions' administrators. Implemented responsive designs and optimized database interactions.</p>
-                        </div>
-                    </div>
-                </div>
-                
-                <!-- Experience Item 3 -->
-                <div class="clean-card" data-aos="fade-up">
-                    <div class="flex flex-col md:flex-row gap-4">
-                        <div class="md:w-1/4 flex-shrink-0">
-                            <p class="text-sm text-light-400">Aug 2021 - Sept 2021</p>
-                            <h3 class="text-xl font-bold text-primary-300">Web Developer</h3>
-                            <p class="font-medium text-light-300">The Sparks Foundation</p>
-                        </div>
-                        <div class="md:w-3/4">
-                            <p class="text-light-300">Worked on REST APIs using NodeJS and MongoDB. Implemented secure payment integration, banking features, and built robust authentication systems.</p>
-                        </div>
-                    </div>
-                </div>
-                
-                <!-- Experience Item 4 -->
-                <div class="clean-card" data-aos="fade-up">
-                    <div class="flex flex-col md:flex-row gap-4">
-                        <div class="md:w-1/4 flex-shrink-0">
-                            <p class="text-sm text-light-400">June 2021 - Aug 2021</p>
-                            <h3 class="text-xl font-bold text-primary-300">Web Developer</h3>
-                            <p class="font-medium text-light-300">Trible Connect</p>
-                        </div>
-                        <div class="md:w-3/4">
-                            <p class="text-light-300">Worked with a small team as a full stack Web Developer and Project Manager. Designed the UI and deployed the project within the decided timeline. Coordinated with stakeholders to deliver requirements.</p>
-                        </div>
-                    </div>
+        
+        <!-- Skills section -->
+        <section class="mb-6 resume-card p-5">
+            <h2 class="text-xl font-bold mb-4 section-title">Technical Skills</h2>
+            
+            <div class="mb-5">
+                <h3 class="text-lg font-semibold mb-3">Key Technologies</h3>
+                <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4" id="main-skills">
+                    <!-- Main skills will be populated by JavaScript -->
                 </div>
             </div>
             
-            <div class="mt-6" data-aos="fade-up">
-                <p class="text-light-300">This is just about my professional experience that I have certificates of. Apart from these I have worked on a number of personal projects and also participated in many hackathons. You can check some of them on my <a href="https://github.com/himanshurajora" target="_blank" rel="noopener noreferrer" class="text-link">Github</a>.</p>
+            <div>
+                <h3 class="text-lg font-semibold mb-3">Additional Skills</h3>
+                <div class="flex flex-wrap gap-2" id="other-skills">
+                    <!-- Other skills will be populated by JavaScript -->
+                </div>
+            </div>
+        </section>
+        
+        <!-- Experience section -->
+        <section class="mb-6 resume-card p-5">
+            <h2 class="text-xl font-bold mb-4 section-title">Professional Experience</h2>
+            
+            <div class="space-y-5" id="experience-items">
+                <!-- Experience items will be populated by JavaScript -->
+            </div>
+        </section>
+        
+        <!-- Education section -->
+        <section class="mb-6 resume-card p-5">
+            <h2 class="text-xl font-bold mb-4 section-title">Education</h2>
+            
+            <div class="space-y-4" id="education-items">
+                <!-- Education items will be populated by JavaScript -->
+            </div>
+        </section>
+        
+        <!-- Certifications section -->
+        <section class="mb-6 resume-card p-5">
+            <h2 class="text-xl font-bold mb-4 section-title">Certifications</h2>
+            
+            <div class="space-y-3" id="certification-items">
+                <!-- Certifications will be populated by JavaScript -->
+            </div>
+        </section>
+        
+        <!-- Projects section -->
+        <section class="mb-6 resume-card p-5">
+            <h2 class="text-xl font-bold mb-4 section-title">Featured Projects</h2>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-4" id="project-items">
+                <!-- Projects will be populated by JavaScript -->
+            </div>
+        </section>
+        
+        <!-- Awards section -->
+        <section class="mb-6 resume-card p-5">
+            <h2 class="text-xl font-bold mb-4 section-title">Awards</h2>
+            
+            <div class="space-y-4" id="award-items">
+                <!-- Awards will be populated by JavaScript -->
+            </div>
+        </section>
+        
+        <!-- Languages and Interests section -->
+        <section class="mb-6 resume-card p-5">
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                <div>
+                    <h2 class="text-xl font-bold mb-4 section-title">Languages</h2>
+                    <div id="language-items">
+                        <!-- Languages will be populated by JavaScript -->
+                    </div>
+                </div>
                 
-                <div class="mt-4">
-                    <p class="text-light-300">There are a few more portfolios that I have made previously:</p>
-                    <ul class="list-disc pl-5 space-y-1 text-light-300 mt-2">
-                        <li><a href="https://himy.in" target="_blank" rel="noopener noreferrer" class="text-link">https://himy.in</a></li>
-                        <li><a href="https://himanshurajora.vercel.app/" target="_blank" rel="noopener noreferrer" class="text-link">https://himanshurajora.vercel.app/</a></li>
-                        <li><a href="https://himanshurajora.github.io/" target="_blank" rel="noopener noreferrer" class="text-link">https://himanshurajora.github.io/</a></li>
-                    </ul>
+                <div>
+                    <h2 class="text-xl font-bold mb-4 section-title">Interests</h2>
+                    <div class="flex flex-wrap gap-2" id="interest-items">
+                        <!-- Interests will be populated by JavaScript -->
+                    </div>
                 </div>
             </div>
         </section>
-
-        <!-- Connect Section -->
-        <section class="mb-20 max-w-4xl mx-auto">
-            <h2 class="text-3xl font-bold mb-6 gradient-text">Connect with Me</h2>
-            <div class="clean-card" data-aos="fade-up">
-                <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-y-6">
-                    <a href="https://github.com/himanshurajora" target="_blank" rel="noopener noreferrer" class="flex flex-col items-center text-center group">
-                        <div class="text-3xl mb-2 floating"><i class="fab fa-github"></i></div>
-                        <span class="font-medium group-hover:text-primary-300 transition">GitHub</span>
-                    </a>
-                    
-                    <a href="https://www.linkedin.com/in/himanshurajora/" target="_blank" rel="noopener noreferrer" class="flex flex-col items-center text-center group">
-                        <div class="text-3xl text-blue-500 mb-2 floating"><i class="fab fa-linkedin"></i></div>
-                        <span class="font-medium group-hover:text-primary-300 transition">LinkedIn</span>
-                    </a>
-                    
-                    <a href="https://stackoverflow.com/users/15781928/himanshu-jangid" target="_blank" rel="noopener noreferrer" class="flex flex-col items-center text-center group">
-                        <div class="text-3xl text-orange-500 mb-2 floating"><i class="fab fa-stack-overflow"></i></div>
-                        <span class="font-medium group-hover:text-primary-300 transition">StackOverflow</span>
-                    </a>
-                    
-                    <a href="https://www.grepper.com/profile/himanshu-jangid" target="_blank" rel="noopener noreferrer" class="flex flex-col items-center text-center group">
-                        <div class="text-3xl text-green-500 mb-2 floating"><i class="fas fa-code"></i></div>
-                        <span class="font-medium group-hover:text-primary-300 transition">Code Grepper</span>
-                    </a>
-                    
-                    <a href="https://mastodon.social/@himanshurajora" rel="me" target="_blank" class="flex flex-col items-center text-center group">
-                        <div class="text-3xl text-purple-500 mb-2 floating"><i class="fab fa-mastodon"></i></div>
-                        <span class="font-medium group-hover:text-primary-300 transition">Mastodon</span>
-                    </a>
-                    
-                    <a href="https://www.hackerrank.com/himanshurajora" target="_blank" rel="noopener noreferrer" class="flex flex-col items-center text-center group">
-                        <div class="text-3xl text-green-400 mb-2 floating"><i class="fab fa-hackerrank"></i></div>
-                        <span class="font-medium group-hover:text-primary-300 transition">HackerRank</span>
-                    </a>
-                    
-                    <a href="https://www.reddit.com/user/himanshurajora" target="_blank" rel="noopener noreferrer" class="flex flex-col items-center text-center group">
-                        <div class="text-3xl text-red-500 mb-2 floating"><i class="fab fa-reddit"></i></div>
-                        <span class="font-medium group-hover:text-primary-300 transition">Reddit</span>
-                    </a>
-                </div>
+        
+        <!-- Social links -->
+        <section class="mb-6 resume-card p-5 no-print">
+            <h2 class="text-xl font-bold mb-4 section-title">Connect with Me</h2>
+            
+            <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-4" id="social-links">
+                <!-- Social links will be populated by JavaScript -->
             </div>
         </section>
-
-        <!-- Contact Section -->
-        <section class="mb-10 max-w-4xl mx-auto">
-            <div class="clean-card text-center" data-aos="fade-up">
-                <h2 class="text-2xl font-bold mb-4 gradient-text">Let's Work Together</h2>
-                <p class="text-light-300 mb-6">I'm open to discussing new projects, opportunities or partnerships.</p>
-                <a href="mailto:himanshujhar@gmail.com" class="inline-block bg-primary-600 text-white font-medium py-3 px-6 rounded transition hover:bg-primary-500">
-                    <span class="flex items-center">
-                        <i class="far fa-envelope mr-2"></i> Get In Touch
-                    </span>
-                </a>
-            </div>
+        
+        <!-- Contact section -->
+        <section class="resume-card p-5 text-center no-print">
+            <h2 class="text-xl font-bold mb-3 text-primary-600 dark:text-primary-400">Let's Work Together</h2>
+            <p class="mb-4 text-gray-700 dark:text-gray-300">I'm open to discussing new projects, opportunities or partnerships.</p>
+            <a href="mailto:himanshujhar@gmail.com" class="inline-block px-5 py-2 bg-primary-600 hover:bg-primary-700 text-white rounded transition-colors">
+                <i class="fas fa-envelope mr-2"></i>
+                Get In Touch
+            </a>
         </section>
     </main>
+    
+    <!-- Footer -->
+    <footer class="bg-white dark:bg-dark-300 border-t border-gray-200 dark:border-dark-200 py-4 transition-colors duration-300 no-print">
+        <div class="container mx-auto px-4">
+            <div class="text-center">
+                <p class="text-gray-600 dark:text-gray-400 text-sm">&copy; 2023 Himanshu Jangid. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
 
-    @@include('./partials/footer.html')
-    @@include('./partials/scripts.html')
+    <!-- Scripts -->
+    <script>
+        // DOM loaded event
+        document.addEventListener('DOMContentLoaded', function() {
+            // Populate the resume with data
+            populateResume();
+            
+            // Theme toggle functionality
+            const themeToggle = document.getElementById('theme-toggle');
+            
+            // Check for saved theme preference or use system preference
+            if (localStorage.getItem('theme') === 'dark' || 
+                (!localStorage.getItem('theme') && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+                document.documentElement.classList.add('dark');
+            } else {
+                document.documentElement.classList.remove('dark');
+            }
+            
+            // Toggle theme
+            themeToggle.addEventListener('click', function() {
+                if (document.documentElement.classList.contains('dark')) {
+                    document.documentElement.classList.remove('dark');
+                    localStorage.setItem('theme', 'light');
+                } else {
+                    document.documentElement.classList.add('dark');
+                    localStorage.setItem('theme', 'dark');
+                }
+            });
+            
+            // Resume download functionality
+            document.getElementById('download-resume').addEventListener('click', generatePDF);
+        });
+        
+        // Populate the resume with data from the JSON object
+        function populateResume() {
+            // Populate main skills
+            const mainSkillsContainer = document.getElementById('main-skills');
+            resumeData.skills.main.forEach(skill => {
+                const skillEl = document.createElement('div');
+                skillEl.className = 'flex flex-col items-center text-center p-3';
+                
+                // Custom TypeScript icon
+                let iconHtml = '';
+                if (skill.name === "TypeScript") {
+                    iconHtml = `
+                        <div class="text-2xl mb-1 flex items-center justify-center" style="color: ${skill.color}">
+                            <div style="background-color: #3178c6; color: white; width: 24px; height: 24px; display: flex; align-items: center; justify-center; font-weight: bold; font-family: monospace; border-radius: 2px;">
+                                TS
+                            </div>
+                        </div>`;
+                } else {
+                    iconHtml = `<div class="text-2xl mb-1" style="color: ${skill.color}"><i class="${skill.icon}"></i></div>`;
+                }
+                
+                skillEl.innerHTML = `
+                    ${iconHtml}
+                    <h3 class="font-semibold mb-0.5 text-sm">${skill.name}</h3>
+                    <div class="w-full bg-gray-200 dark:bg-dark-100 rounded-full h-1 mt-0.5">
+                        <div class="h-1 rounded-full" style="width: ${skill.level}%; background-color: ${skill.color}"></div>
+                    </div>
+                    <p class="text-xs mt-1 text-gray-600 dark:text-gray-400">${skill.description}</p>
+                `;
+                mainSkillsContainer.appendChild(skillEl);
+            });
+            
+            // Populate other skills
+            const otherSkillsContainer = document.getElementById('other-skills');
+            resumeData.skills.other.forEach(skill => {
+                const skillTag = document.createElement('span');
+                skillTag.className = 'px-3 py-1 skill-tag rounded-full text-sm';
+                skillTag.textContent = skill;
+                otherSkillsContainer.appendChild(skillTag);
+            });
+            
+            // Populate experience items
+            const experienceContainer = document.getElementById('experience-items');
+            resumeData.experience.forEach(exp => {
+                const expItem = document.createElement('div');
+                expItem.className = 'border-l-4 border-primary-500 dark:border-primary-400 pl-3 py-1';
+                expItem.innerHTML = `
+                    <div class="flex flex-col md:flex-row justify-between mb-1">
+                        <div>
+                            <h3 class="text-lg font-bold text-gray-900 dark:text-gray-100">${exp.title}</h3>
+                            <p class="font-medium text-primary-600 dark:text-primary-400">${exp.company}</p>
+                        </div>
+                        <p class="text-gray-600 dark:text-gray-400 mt-0.5 md:mt-0 text-sm">${exp.period}</p>
+                    </div>
+                    <p class="text-gray-700 dark:text-gray-300 text-sm">${exp.description}</p>
+                `;
+                experienceContainer.appendChild(expItem);
+            });
+            
+            // Populate education items
+            const educationContainer = document.getElementById('education-items');
+            resumeData.education.forEach(edu => {
+                const eduItem = document.createElement('div');
+                eduItem.className = 'border-l-4 border-primary-500 dark:border-primary-400 pl-3 py-1';
+                eduItem.innerHTML = `
+                    <div class="flex flex-col md:flex-row justify-between mb-1">
+                        <div>
+                            <h3 class="text-lg font-bold text-gray-900 dark:text-gray-100">${edu.degree} in ${edu.field}</h3>
+                            <p class="font-medium text-primary-600 dark:text-primary-400">${edu.institution}</p>
+                        </div>
+                        <p class="text-gray-600 dark:text-gray-400 mt-0.5 md:mt-0 text-sm">${edu.period}</p>
+                    </div>
+                    <p class="text-gray-700 dark:text-gray-300 text-sm">${edu.location}</p>
+                `;
+                educationContainer.appendChild(eduItem);
+            });
+            
+            // Populate certification items
+            const certificationContainer = document.getElementById('certification-items');
+            resumeData.certifications.forEach(cert => {
+                const certItem = document.createElement('div');
+                certItem.className = 'border-l-4 border-primary-500 dark:border-primary-400 pl-3 py-1';
+                const certUrl = cert.url ? 
+                    `<a href="${cert.url}" target="_blank" rel="noopener noreferrer" class="text-primary-600 dark:text-primary-400 hover:underline text-sm">
+                        <i class="fas fa-certificate mr-1"></i>View Certificate
+                     </a>` : '';
+                certItem.innerHTML = `
+                    <div class="flex flex-col md:flex-row justify-between mb-1">
+                        <div>
+                            <h3 class="text-lg font-bold text-gray-900 dark:text-gray-100">${cert.name}</h3>
+                            <p class="font-medium text-primary-600 dark:text-primary-400">${cert.issuer}</p>
+                        </div>
+                        <p class="text-gray-600 dark:text-gray-400 mt-0.5 md:mt-0 text-sm">${cert.date}</p>
+                    </div>
+                    ${certUrl}
+                `;
+                certificationContainer.appendChild(certItem);
+            });
+            
+            // Populate project items
+            const projectContainer = document.getElementById('project-items');
+            resumeData.projects.forEach(project => {
+                const projectItem = document.createElement('div');
+                projectItem.className = 'border-l-4 border-primary-500 dark:border-primary-400 pl-3 py-1';
+                projectItem.innerHTML = `
+                    <div class="flex flex-col md:flex-row justify-between mb-1">
+                        <div>
+                            <h3 class="text-lg font-bold text-gray-900 dark:text-gray-100">${project.name}</h3>
+                            <p class="font-medium text-primary-600 dark:text-primary-400 text-sm">${project.description}</p>
+                        </div>
+                        <p class="text-gray-600 dark:text-gray-400 mt-0.5 md:mt-0 text-sm">${project.date}</p>
+                    </div>
+                    <div class="flex justify-between items-center">
+                        <p class="text-gray-700 dark:text-gray-300 text-xs">${project.technologies}</p>
+                        <a href="${project.url}" target="_blank" rel="noopener noreferrer" class="text-primary-600 dark:text-primary-400 hover:underline text-sm">
+                            <i class="fas fa-external-link-alt mr-1"></i>View
+                        </a>
+                    </div>
+                `;
+                projectContainer.appendChild(projectItem);
+            });
+            
+            // Populate language items
+            const languageContainer = document.getElementById('language-items');
+            resumeData.languages.forEach(language => {
+                const languageItem = document.createElement('div');
+                languageItem.className = 'border-l-4 border-primary-500 dark:border-primary-400 pl-3 py-1 mb-2';
+                languageItem.innerHTML = `
+                    <div class="flex justify-between items-center">
+                        <h3 class="text-base font-bold text-gray-900 dark:text-gray-100">${language.name}</h3>
+                        <p class="text-sm text-primary-600 dark:text-primary-400">${language.level}</p>
+                    </div>
+                `;
+                languageContainer.appendChild(languageItem);
+            });
+            
+            // Populate interest items
+            const interestContainer = document.getElementById('interest-items');
+            resumeData.interests.forEach(interest => {
+                const interestItem = document.createElement('span');
+                interestItem.className = 'px-2 py-1 skill-tag rounded-full text-xs';
+                interestItem.textContent = interest;
+                interestContainer.appendChild(interestItem);
+            });
+            
+            // Populate social links
+            const socialContainer = document.getElementById('social-links');
+            resumeData.social.forEach(social => {
+                const socialLink = document.createElement('a');
+                socialLink.href = social.url;
+                socialLink.target = '_blank';
+                socialLink.rel = 'noopener noreferrer';
+                socialLink.className = 'flex flex-col items-center text-center group p-2';
+                socialLink.innerHTML = `
+                    <div class="text-2xl mb-1" style="color: ${social.color}"><i class="${social.icon}"></i></div>
+                    <span class="font-medium text-sm group-hover:text-primary-600 dark:group-hover:text-primary-400 transition">${social.name}</span>
+                `;
+                socialContainer.appendChild(socialLink);
+            });
+            
+            // Populate award items
+            const awardContainer = document.getElementById('award-items');
+            resumeData.awards.forEach(award => {
+                const awardItem = document.createElement('div');
+                awardItem.className = 'border-l-4 border-primary-500 dark:border-primary-400 pl-3 py-1';
+                awardItem.innerHTML = `
+                    <div class="flex flex-col md:flex-row justify-between mb-1">
+                        <div>
+                            <h3 class="text-lg font-bold text-gray-900 dark:text-gray-100">${award.title}</h3>
+                            <p class="font-medium text-primary-600 dark:text-primary-400">${award.issuer}</p>
+                        </div>
+                        <p class="text-gray-600 dark:text-gray-400 mt-0.5 md:mt-0 text-sm">${award.date}</p>
+                    </div>
+                    <p class="text-gray-700 dark:text-gray-300 text-sm">${award.description}</p>
+                `;
+                awardContainer.appendChild(awardItem);
+            });
+        }
+        
+        // Generate ATS-friendly PDF resume
+        function generatePDF() {
+            // Create a temporary container for the PDF content
+            const pdfContent = document.createElement('div');
+            pdfContent.className = 'pdf-content';
+            pdfContent.style.width = '8.5in';
+            pdfContent.style.fontSize = '12px';
+            pdfContent.style.fontFamily = 'Arial, sans-serif';
+            pdfContent.style.lineHeight = '1.3';
+            pdfContent.style.color = '#000';
+            pdfContent.style.padding = '0.5in';
+            
+            // Personal information
+            const header = document.createElement('div');
+            header.style.textAlign = 'center';
+            header.style.marginBottom = '20px';
+            header.innerHTML = `
+                <h1 style="font-size: 24px; font-weight: bold; margin-bottom: 8px;">${resumeData.personal.name}</h1>
+                <h2 style="font-size: 18px; margin-bottom: 12px;">${resumeData.personal.title}</h2>
+                <div style="display: flex; justify-content: center; gap: 15px; margin-bottom: 8px;">
+                    <a href="mailto:${resumeData.personal.email}" style="color: #0066ff;">${resumeData.personal.email}</a>
+                    <span>${resumeData.personal.phone}</span>
+                    <span>${resumeData.personal.location}</span>
+                </div>
+                <div style="display: flex; justify-content: center; gap: 15px;">
+                    <a href="https://github.com/himanshurajora" style="color: #0066ff;">GitHub: himanshurajora</a>
+                    <a href="https://www.linkedin.com/in/himanshurajora/" style="color: #0066ff;">LinkedIn: himanshurajora</a>
+                </div>
+            `;
+            pdfContent.appendChild(header);
+            
+            // Summary
+            const summary = document.createElement('div');
+            summary.style.marginBottom = '20px';
+            summary.innerHTML = `
+                <h2 style="font-size: 16px; border-bottom: 1px solid #000; padding-bottom: 5px; margin-bottom: 10px; font-weight: bold;">PROFESSIONAL SUMMARY</h2>
+                <p>${resumeData.personal.summary}</p>
+            `;
+            pdfContent.appendChild(summary);
+            
+            // Skills section
+            const skills = document.createElement('div');
+            skills.style.marginBottom = '20px';
+            skills.innerHTML = `
+                <h2 style="font-size: 16px; border-bottom: 1px solid #000; padding-bottom: 5px; margin-bottom: 10px; font-weight: bold;">SKILLS</h2>
+                <p><strong>Key Technologies:</strong> ${resumeData.skills.main.map(s => s.name).join(', ')}</p>
+                <p><strong>Additional Skills:</strong> ${resumeData.skills.other.join(', ')}</p>
+            `;
+            pdfContent.appendChild(skills);
+            
+            // Experience section
+            const experience = document.createElement('div');
+            experience.style.marginBottom = '20px';
+            experience.innerHTML = `
+                <h2 style="font-size: 16px; border-bottom: 1px solid #000; padding-bottom: 5px; margin-bottom: 10px; font-weight: bold;">PROFESSIONAL EXPERIENCE</h2>
+            `;
+            
+            // Add each experience item
+            resumeData.experience.forEach(exp => {
+                const expItem = document.createElement('div');
+                expItem.style.marginBottom = '15px';
+                expItem.innerHTML = `
+                    <div style="display: flex; justify-content: space-between; margin-bottom: 5px;">
+                        <div>
+                            <h3 style="font-size: 14px; font-weight: bold; margin: 0;">${exp.title}</h3>
+                            <p style="margin: 0; font-weight: bold;">${exp.company}</p>
+                        </div>
+                        <p style="margin: 0;">${exp.period}</p>
+                    </div>
+                    <p style="margin-top: 5px;">${exp.description}</p>
+                `;
+                experience.appendChild(expItem);
+            });
+            pdfContent.appendChild(experience);
+            
+            // Education section
+            const education = document.createElement('div');
+            education.style.marginBottom = '20px';
+            education.innerHTML = `
+                <h2 style="font-size: 16px; border-bottom: 1px solid #000; padding-bottom: 5px; margin-bottom: 10px; font-weight: bold;">EDUCATION</h2>
+            `;
+            
+            // Add each education item
+            resumeData.education.forEach(edu => {
+                const eduItem = document.createElement('div');
+                eduItem.style.marginBottom = '15px';
+                eduItem.innerHTML = `
+                    <div style="display: flex; justify-content: space-between; margin-bottom: 5px;">
+                        <div>
+                            <h3 style="font-size: 14px; font-weight: bold; margin: 0;">${edu.degree} in ${edu.field}</h3>
+                            <p style="margin: 0; font-weight: bold;">${edu.institution}</p>
+                        </div>
+                        <p style="margin: 0;">${edu.period}</p>
+                    </div>
+                    <p style="margin-top: 5px;">${edu.location}</p>
+                `;
+                education.appendChild(eduItem);
+            });
+            pdfContent.appendChild(education);
+            
+            // Certifications section
+            const certification = document.createElement('div');
+            certification.style.marginBottom = '20px';
+            certification.innerHTML = `
+                <h2 style="font-size: 16px; border-bottom: 1px solid #000; padding-bottom: 5px; margin-bottom: 10px; font-weight: bold;">CERTIFICATIONS</h2>
+            `;
+            
+            // Add each certification item
+            resumeData.certifications.forEach(cert => {
+                const certItem = document.createElement('div');
+                certItem.style.marginBottom = '15px';
+                certItem.innerHTML = `
+                    <div style="display: flex; justify-content: space-between; margin-bottom: 5px;">
+                        <div>
+                            <h3 style="font-size: 14px; font-weight: bold; margin: 0;">${cert.name}</h3>
+                            <p style="margin: 0; font-weight: bold;">${cert.issuer}</p>
+                        </div>
+                        <p style="margin: 0;">${cert.date}</p>
+                    </div>
+                    <p style="margin-top: 5px;">${cert.url}</p>
+                `;
+                certification.appendChild(certItem);
+            });
+            pdfContent.appendChild(certification);
+            
+            // Projects section
+            const project = document.createElement('div');
+            project.style.marginBottom = '20px';
+            project.innerHTML = `
+                <h2 style="font-size: 16px; border-bottom: 1px solid #000; padding-bottom: 5px; margin-bottom: 10px; font-weight: bold;">FEATURED PROJECTS</h2>
+            `;
+            
+            // Add each project item
+            resumeData.projects.forEach(proj => {
+                const projItem = document.createElement('div');
+                projItem.style.marginBottom = '15px';
+                projItem.innerHTML = `
+                    <div style="display: flex; justify-content: space-between; margin-bottom: 5px;">
+                        <div>
+                            <h3 style="font-size: 14px; font-weight: bold; margin: 0;">${proj.name}</h3>
+                            <p style="margin: 0; font-weight: bold;">${proj.description}</p>
+                        </div>
+                        <p style="margin: 0;">${proj.date}</p>
+                    </div>
+                    <div class="flex justify-between items-center">
+                        <p style="margin-top: 5px;">${proj.technologies}</p>
+                        <a href="${proj.url}" target="_blank" rel="noopener noreferrer" class="text-primary-600 dark:text-primary-400 hover:underline">
+                            <i class="fas fa-external-link-alt mr-1"></i>View Project
+                        </a>
+                    </div>
+                `;
+                project.appendChild(projItem);
+            });
+            pdfContent.appendChild(project);
+            
+            // Awards section
+            const award = document.createElement('div');
+            award.style.marginBottom = '20px';
+            award.innerHTML = `
+                <h2 style="font-size: 16px; border-bottom: 1px solid #000; padding-bottom: 5px; margin-bottom: 10px; font-weight: bold;">AWARDS</h2>
+            `;
+            
+            // Add each award item
+            resumeData.awards.forEach(award => {
+                const awardItem = document.createElement('div');
+                awardItem.style.marginBottom = '15px';
+                awardItem.innerHTML = `
+                    <div style="display: flex; justify-content: space-between; margin-bottom: 5px;">
+                        <div>
+                            <h3 style="font-size: 14px; font-weight: bold; margin: 0;">${award.title}</h3>
+                            <p style="margin: 0; font-weight: bold;">${award.issuer}</p>
+                        </div>
+                        <p style="margin: 0;">${award.date}</p>
+                    </div>
+                    <p style="margin-top: 5px;">${award.description}</p>
+                `;
+                award.appendChild(awardItem);
+            });
+            pdfContent.appendChild(award);
+            
+            // Languages and Interests section
+            const languageInterest = document.createElement('div');
+            languageInterest.style.marginBottom = '20px';
+            languageInterest.innerHTML = `
+                <h2 style="font-size: 16px; border-bottom: 1px solid #000; padding-bottom: 5px; margin-bottom: 10px; font-weight: bold;">LANGUAGES AND INTERESTS</h2>
+            `;
+            
+            // Add language items
+            const languageContainer = document.createElement('div');
+            languageContainer.style.marginBottom = '15px';
+            languageContainer.innerHTML = `
+                <h3 style="font-size: 14px; font-weight: bold; margin: 0;">Languages</h3>
+            `;
+            languageInterest.appendChild(languageContainer);
+            
+            resumeData.languages.forEach(language => {
+                const languageItem = document.createElement('div');
+                languageItem.className = 'border-l-4 border-primary-500 dark:border-primary-400 pl-4 py-1';
+                languageItem.innerHTML = `
+                    <div style="display: flex; justify-content: space-between; margin-bottom: 5px;">
+                        <div>
+                            <h4 style="font-size: 12px; font-weight: bold; margin: 0;">${language.name}</h4>
+                            <p style="margin: 0; font-weight: bold;">${language.level}</p>
+                        </div>
+                    </div>
+                `;
+                languageContainer.appendChild(languageItem);
+            });
+            
+            // Add interest items
+            const interestContainer = document.createElement('div');
+            interestContainer.className = 'border-l-4 border-primary-500 dark:border-primary-400 pl-4 py-1';
+            interestContainer.innerHTML = `
+                <h3 style="font-size: 14px; font-weight: bold; margin: 0;">Interests</h3>
+            `;
+            languageInterest.appendChild(interestContainer);
+            
+            resumeData.interests.forEach(interest => {
+                const interestItem = document.createElement('div');
+                interestItem.className = 'border-l-4 border-primary-500 dark:border-primary-400 pl-4 py-1';
+                interestItem.innerHTML = `
+                    <div style="display: flex; justify-content: space-between; margin-bottom: 5px;">
+                        <div>
+                            <h4 style="font-size: 12px; font-weight: bold; margin: 0;">${interest}</h4>
+                        </div>
+                    </div>
+                `;
+                interestContainer.appendChild(interestItem);
+            });
+            
+            pdfContent.appendChild(languageInterest);
+            
+            // Add the PDF content to the document temporarily
+            document.body.appendChild(pdfContent);
+            pdfContent.style.position = 'absolute';
+            pdfContent.style.left = '-9999px';
+            
+            // Use html2canvas and jsPDF to generate the PDF
+            html2canvas(pdfContent, {scale: 2}).then(canvas => {
+                // Remove the temporary element
+                document.body.removeChild(pdfContent);
+                
+                const imgData = canvas.toDataURL('image/png');
+                const pdf = new jspdf.jsPDF({
+                    orientation: 'portrait',
+                    unit: 'px',
+                    format: 'a4'
+                });
+                
+                const pdfWidth = pdf.internal.pageSize.getWidth();
+                const pdfHeight = pdf.internal.pageSize.getHeight();
+                const ratio = canvas.width / canvas.height;
+                const canvasWidth = pdfWidth;
+                const canvasHeight = canvasWidth / ratio;
+                
+                pdf.addImage(imgData, 'PNG', 0, 0, canvasWidth, canvasHeight);
+                pdf.save('Himanshu_Jangid_Resume.pdf');
+            });
+        }
+    </script>
 </body>
 </html> 
