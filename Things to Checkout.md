@@ -14,5 +14,11 @@ There are various things and websites that I encounter randomly and want to know
 - [ ] https://elysiajs.com
 - [ ] https://typia.io
 
+
+### Super:
+
+- [ ]  https://explorabl.es/
+- [ ] https://cpu.land/editions/one-pager
+ 
 ---
 Thanks for reading.

@@ -11,8 +11,14 @@
             "id": "daf1d94ae69a2f70",
             "type": "leaf",
             "state": {
-              "type": "empty",
-              "state": {}
+              "type": "markdown",
+              "state": {
+                "file": "Things to Checkout.md",
+                "mode": "source",
+                "source": false
+              },
+              "icon": "lucide-file",
+              "title": "Things to Checkout"
             }
           }
         ]
@@ -35,7 +41,9 @@
               "type": "file-explorer",
               "state": {
                 "sortOrder": "alphabetical"
-              }
+              },
+              "icon": "lucide-folder-closed",
+              "title": "Files"
             }
           },
           {
@@ -50,7 +58,9 @@
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical"
-              }
+              },
+              "icon": "lucide-search",
+              "title": "Search"
             }
           },
           {
@@ -58,7 +68,9 @@
             "type": "leaf",
             "state": {
               "type": "bookmarks",
-              "state": {}
+              "state": {},
+              "icon": "lucide-bookmark",
+              "title": "Bookmarks"
             }
           }
         ]
@@ -81,6 +93,7 @@
             "state": {
               "type": "backlink",
               "state": {
+                "file": "README.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -88,7 +101,9 @@
                 "searchQuery": "",
                 "backlinkCollapsed": false,
                 "unlinkedCollapsed": true
-              }
+              },
+              "icon": "links-coming-in",
+              "title": "Backlinks for README"
             }
           },
           {
@@ -97,9 +112,12 @@
             "state": {
               "type": "outgoing-link",
               "state": {
+                "file": "README.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
-              }
+              },
+              "icon": "links-going-out",
+              "title": "Outgoing links from README"
             }
           },
           {
@@ -110,7 +128,9 @@
               "state": {
                 "sortOrder": "frequency",
                 "useHierarchy": true
-              }
+              },
+              "icon": "lucide-tags",
+              "title": "Tags"
             }
           },
           {
@@ -118,7 +138,11 @@
             "type": "leaf",
             "state": {
               "type": "outline",
-              "state": {}
+              "state": {
+                "file": "README.md"
+              },
+              "icon": "lucide-list",
+              "title": "Outline of README"
             }
           },
           {
@@ -126,7 +150,9 @@
             "type": "leaf",
             "state": {
               "type": "advanced-tables-toolbar",
-              "state": {}
+              "state": {},
+              "icon": "spreadsheet",
+              "title": "Advanced Tables"
             }
           },
           {
@@ -138,7 +164,9 @@
                 "sortOrder": "frequency",
                 "showSearch": false,
                 "searchQuery": ""
-              }
+              },
+              "icon": "lucide-archive",
+              "title": "All properties"
             }
           }
         ],
@@ -158,25 +186,55 @@
       "templates:Insert template": false,
       "command-palette:Open command palette": false,
       "webpage-html-export:Export Vault to HTML": false,
-      "periodic-notes:Open this week": false,
       "table-editor-obsidian:Advanced Tables Toolbar": false,
-      "khoj:Khoj": false
+      "khoj:Khoj": false,
+      "periodic-notes:Open this week": false
     }
   },
-  "active": "daf1d94ae69a2f70",
+  "floating": {
+    "id": "441ce93111d57968",
+    "type": "floating",
+    "children": [
+      {
+        "id": "05092f830e9d9589",
+        "type": "window",
+        "children": [
+          {
+            "id": "10d0c08fa44ff67d",
+            "type": "tabs",
+            "children": [
+              {
+                "id": "5b00166186bc4153",
+                "type": "leaf",
+                "state": {
+                  "type": "markdown",
+                  "state": {
+                    "file": "Things to Checkout.md",
+                    "mode": "preview",
+                    "source": false
+                  },
+                  "icon": "lucide-file",
+                  "title": "Things to Checkout"
+                }
+              }
+            ]
+          }
+        ],
+        "direction": "vertical",
+        "x": 317,
+        "y": 338,
+        "width": 802,
+        "height": 402,
+        "maximize": false,
+        "zoom": 0
+      }
+    ]
+  },
+  "active": "5b00166186bc4153",
   "lastOpenFiles": [
-    "Charts.md",
-    "legal/return-and-refund-policy.md",
-    "legal/terms-and-conditions.md",
-    "README.md",
-    "assets/images/me-2-full.jpg",
-    "legal/privacy-policy.md",
-    "blogs/Tmux for productivity.md",
-    "blogs/The Hundred Things Principle.md",
-    "blogs/README.md",
-    "blogs/Markdown editor in react.md",
-    "blogs/Continuous Aggregation In Time Scale.md",
     "index.md",
+    "Charts.md",
+    "snippets/Yield Keyword JavaScript - With Real life use-cases.md",
     "snippets/README.md",
     "snippets/Preserve CWD in Gnome Terminal.md",
     "snippets/Multi Generic type in typescript.md",
@@ -192,10 +250,21 @@
     "progess/week-wise/README.md",
     "progess/week-wise/2023-W31.md",
     "progess/week-wise/2023-W29.md",
+    "progess/week-wise/2023-W28.md",
+    "neosanatan/README.md",
+    "legal/terms-and-conditions.md",
+    "legal/return-and-refund-policy.md",
+    "legal/privacy-policy.md",
+    "blogs/Tmux for productivity.md",
+    "blogs/The Hundred Things Principle.md",
+    "blogs/README.md",
+    "dist",
+    "docs/assets/images/logo.png",
+    "assets/images/logo.png",
+    "assets/images/me-2-full.jpg",
     "assets/images/me.jpg",
     "assets/images/me-2.jpg",
     "assets/images/logo-sm.png",
-    "assets/images/logo.png",
     "docs/projects/readme.html",
     "docs/projects/projects-kanban.html",
     "docs/projects/looking-for-contributors.html",
@@ -204,12 +273,10 @@
     "docs/neosanatan/readme.html",
     "docs/neosanatan",
     "docs/assets/images/logo-sm.png",
-    "docs/assets/images/logo.png",
     "assets/snippets/shapes.png",
     "projects",
     "neosanatan",
     "legal",
-    "assets/snippets",
     "docs/assets/images/me.jpg"
   ]
 }
