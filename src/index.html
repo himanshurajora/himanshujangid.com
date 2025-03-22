@@ -117,6 +117,7 @@
             --accent-color: #1F7D53; /* Main brand green */
             --accent-hover: #255F38; /* Darker green */
             --muted-color: #6c757d;
+            --link-color: #1F7D53; /* Consistent link color */
         }
         
         /* Dark mode styles */
@@ -129,6 +130,7 @@
             --accent-color: #33995A; /* Lighter green for dark mode */
             --accent-hover: #66B282; /* Even lighter green for hover in dark mode */
             --muted-color: #adb5bd;
+            --link-color: #33995A; /* Consistent link color for dark mode */
         }
         
         body {
@@ -148,7 +150,7 @@
             color: var(--accent-color);
             border-bottom: 2px solid var(--section-border);
             padding-bottom: 0.25rem;
-            margin-bottom: 1rem;
+            margin-bottom: 1.5rem; /* Increased from 1rem to 1.5rem for more space */
             font-weight: 600;
         }
         
@@ -156,6 +158,16 @@
             background-color: var(--card-border);
             color: var(--text-color);
             transition: background-color 0.3s, color 0.3s;
+        }
+        
+        a {
+            color: var(--link-color);
+            transition: color 0.2s;
+        }
+        
+        a:hover {
+            color: var(--accent-hover);
+            text-decoration: underline;
         }
         
         /* Print specific styles */
@@ -256,6 +268,24 @@
             ],
             certifications: [
                 {
+                    name: "IBM Data Visualization Course",
+                    issuer: "IBM",
+                    date: "April 2021",
+                    url: "https://skills.yourlearning.ibm.com/certificate/share/8152f93002ewogICJsZWFybmVyQ05VTSIgOiAiMTU4NTM5UkVHIiwKICAib2JqZWN0SWQiIDogIlNOLUNPVVJTRS1WMTpDT0dOSVRJVkVDTEFTUytEVjAxMDFFTitWMiIsCiAgIm9iamVjdFR5cGUiIDogIkFDVElWSVRZIgp9f912c91e31-10"
+                },
+                {
+                    name: "Applied Data Science with Python",
+                    issuer: "IBM",
+                    date: "May 2021",
+                    url: "https://skills.yourlearning.ibm.com/certificate/share/c95d351427ewogICJvYmplY3RJZCIgOiAiUExBTi1CNkNCRUZDQTJCRkQiLAogICJsZWFybmVyQ05VTSIgOiAiMTU4NTM5UkVHIiwKICAib2JqZWN0VHlwZSIgOiAiQUNUSVZJVFkiCn0cfd9f2934e-10"
+                },
+                {
+                    name: "Big Data Fundamentals",
+                    issuer: "IBM",
+                    date: "June 2021",
+                    url: "https://skills.yourlearning.ibm.com/certificate/share/d28b437009ewogICJvYmplY3RUeXBlIiA6ICJBQ1RJVklUWSIsCiAgImxlYXJuZXJDTlVNIiA6ICIxNTg1MzlSRUciLAogICJvYmplY3RJZCIgOiAiU04tQ09VUlNFLVYxOkNPR05JVElWRUNMQVNTK0JEMDEwMUVOK1YyIgp99278973449-10"
+                },
+                {
                     name: "Programming Fundamentals",
                     issuer: "Duke University",
                     date: "Feb 2022",
@@ -284,11 +314,6 @@
                     issuer: "Coursera",
                     date: "June 2020",
                     url: "https://coursera.org/share/197ea60ee38823d49b3f14457b854636"
-                },
-                {
-                    name: "Python for Data Science",
-                    issuer: "IBM",
-                    date: "April 2021"
                 }
             ],
             projects: [
@@ -413,7 +438,7 @@
                         </a>
                     </div>
                     
-                    <p class="text-gray-700 dark:text-gray-300 text-sm" id="summary">
+                    <p class="text-gray-700 dark:text-gray-300 text-sm">
                         Full Stack Maestro | Architecting End-to-End Solutions for Digital Excellence | Bridging Frontend Elegance with Backend Resilience. Seasoned full-stack software engineer, actively committed to advancing my skill set. My dedication to ongoing learning involves both acquiring new skills and refining existing ones, reflecting a genuine passion for understanding the intricacies of various technologies.
                     </p>
                 </div>
@@ -612,10 +637,10 @@
                 const expItem = document.createElement('div');
                 expItem.className = 'border-l-4 border-primary-500 dark:border-primary-400 pl-3 py-1';
                 expItem.innerHTML = `
-                    <div class="flex flex-col md:flex-row justify-between mb-1">
+                    <div class="flex flex-col md:flex-row justify-between mb-2">
                         <div>
                             <h3 class="text-lg font-bold text-gray-900 dark:text-gray-100">${exp.title}</h3>
-                            <p class="font-medium text-primary-600 dark:text-primary-400">${exp.company}</p>
+                            <p class="font-medium text-primary-600 dark:text-primary-400 mb-2">${exp.company}</p>
                         </div>
                         <p class="text-gray-600 dark:text-gray-400 mt-0.5 md:mt-0 text-sm">${exp.period}</p>
                     </div>
@@ -813,7 +838,7 @@
                 pdf.text(title.toUpperCase(), margin, y);
                 pdf.line(margin, y + 1, pdfWidth - margin, y + 1);
                 
-                return y + 4; // reduced spacing for tighter content
+                return y + 7; // increased spacing after section titles (was 4)
             }
             
             // Add centered header with personal info - ATS optimized
@@ -842,16 +867,34 @@
             
             // Center the contact info
             pdf.text(contactInfo, (pdfWidth - contactWidth) / 2, yPos);
-            yPos += 3;
+            yPos += 5; // Increased spacing after contact info (was 3)
             
-            // Links row - combined for space efficiency
-            const linksInfo = "GitHub & LinkedIn: himanshurajora";
-            const linksWidth = pdf.getStringUnitWidth(linksInfo) * 8 / pdf.internal.scaleFactor;
-            pdf.text(linksInfo, (pdfWidth - linksWidth) / 2, yPos);
+            // Display GitHub and LinkedIn separately
+            const linkColor = [31, 125, 83]; // #1F7D53 in RGB - Brand green color for links
+            pdf.setTextColor(linkColor[0], linkColor[1], linkColor[2]); // Use brand color for links
             
-            // Now add the actual links as invisible clickable areas
-            pdf.link((pdfWidth - linksWidth) / 2, yPos - 3, linksWidth/2, 3, { url: "https://github.com/himanshurajora" });
-            pdf.link((pdfWidth - linksWidth) / 2 + linksWidth/2, yPos - 3, linksWidth/2, 3, { url: "https://www.linkedin.com/in/himanshurajora/" });
+            // Calculate width for both links to center them together
+            const githubText = "GitHub";
+            const linkedinText = "LinkedIn";
+            const githubWidth = pdf.getStringUnitWidth(githubText) * 8 / pdf.internal.scaleFactor;
+            const linkedinWidth = pdf.getStringUnitWidth(linkedinText) * 8 / pdf.internal.scaleFactor;
+            const spacing = 2; // Space between the two links
+            const totalLinksWidth = githubWidth + linkedinWidth + spacing;
+            
+            // Position both links centered
+            const githubX = (pdfWidth - totalLinksWidth) / 2;
+            const linkedinX = githubX + githubWidth + spacing;
+            
+            // Add the GitHub link
+            pdf.text(githubText, githubX, yPos);
+            pdf.link(githubX, yPos - 3, githubWidth, 3, { url: "https://github.com/himanshurajora" });
+            
+            // Add the LinkedIn link
+            pdf.text(linkedinText, linkedinX, yPos);
+            pdf.link(linkedinX, yPos - 3, linkedinWidth, 3, { url: "https://www.linkedin.com/in/himanshurajora/" });
+            
+            // Reset text color to black
+            pdf.setTextColor(0);
             
             yPos += 6;
             
@@ -889,11 +932,11 @@
                 pdf.setFontSize(8.5);
                 pdf.setFont("helvetica", "normal");
                 pdf.text(exp.period, pdfWidth - margin - dateWidth, yPos);
-                yPos += 3;
+                yPos += 5; // Increased from 3 to add more space after company/title
                 
                 // Description - keep concise for ATS
                 pdf.setFont("helvetica", "normal");
-                yPos += addWrappedText(exp.description, margin, yPos, contentWidth, 8) + 5;
+                yPos += addWrappedText(exp.description, margin, yPos, contentWidth, 8) + 7; // Increased from 5 to add more space between entries
             });
             
             // Education section
@@ -913,11 +956,11 @@
                 // Institution and location on one line for space efficiency
                 pdf.setFontSize(8.5);
                 pdf.text(`${edu.institution}, ${edu.location}`, margin, yPos);
-                yPos += 5;
+                yPos += 7; // Increased from 5 for better spacing
             });
             
             // Check if we need a new page
-            if (yPos > pdfHeight - 60) {
+            if (yPos > pdfHeight - 60) { // Increased safety margin
                 pdf.addPage();
                 yPos = margin;
             }
@@ -927,13 +970,26 @@
             
             // Use a more compact format for certifications
             resumeData.certifications.forEach((cert, index) => {
-                // Limited to first 4 certifications for space
-                if (index < 4) {
+                // Check if we need to add a page break before this certification
+                if (yPos > pdfHeight - 15) {
+                    pdf.addPage();
+                    yPos = margin;
+                }
+                
+                // Limited to first 6 certifications for space (increased from 5)
+                if (index < 6) {
                     pdf.setFontSize(8.5);
                     
                     // Create a single line for each certification
                     const certText = `${cert.name} (${cert.issuer}) - ${cert.date}`;
+                    
+                    // Use our brand color for certifications (they're effectively links)
+                    if (cert.url) {
+                        pdf.setTextColor(linkColor[0], linkColor[1], linkColor[2]);
+                    }
+                    
                     yPos += addWrappedText(certText, margin, yPos, contentWidth, 8.5);
+                    pdf.setTextColor(0); // Reset to black
                     
                     // Add invisible link if URL exists
                     if (cert.url) {
@@ -948,7 +1004,7 @@
             yPos += 2; // Small extra space after certifications
             
             // Projects section - condensed for better fit
-            if (yPos > pdfHeight - 40) {
+            if (yPos > pdfHeight - 60) { // Increased minimum space required before starting projects (was 40)
                 pdf.addPage();
                 yPos = margin;
             }
@@ -957,16 +1013,27 @@
             
             // Use a more compact format for projects to prevent overflow
             resumeData.projects.forEach((proj, index) => {
+                // Check if we need a new page before adding this project
+                // Calculate approximate height needed for this project (title + description + spacing)
+                const estimatedHeight = 15; // Conservative estimate for a project entry
+                
+                if (yPos + estimatedHeight > pdfHeight - 20) {
+                    pdf.addPage();
+                    yPos = margin;
+                }
+                
                 // Limit description length to prevent overflow
-                const shortDesc = proj.description.length > 60 
-                    ? proj.description.substring(0, 60) + '...' 
+                const shortDesc = proj.description.length > 50  // Reduced from 60 to 50 for better fit
+                    ? proj.description.substring(0, 50) + '...' 
                     : proj.description;
                 
                 pdf.setFontSize(9);
                 pdf.setFont("helvetica", "bold");
                 
                 // Project name with date on same line
+                pdf.setTextColor(linkColor[0], linkColor[1], linkColor[2]); // Use brand color for project name (it's a link)
                 pdf.text(proj.name, margin, yPos);
+                pdf.setTextColor(0); // Reset to black
                 
                 const dateWidth = pdf.getStringUnitWidth(proj.date) * 8 / pdf.internal.scaleFactor;
                 pdf.setFontSize(8);
@@ -985,15 +1052,22 @@
             });
             
             // Check for page break before awards
-            if (yPos > pdfHeight - 30) {
+            if (yPos > pdfHeight - 50) { // Increased from 30 for better safety margin
                 pdf.addPage();
                 yPos = margin;
             }
             
-            // Awards section - brief mention
             yPos = addSectionHeading("AWARDS", yPos);
             
             resumeData.awards.forEach(award => {
+                // Check if we need a new page before adding this award
+                const estimatedHeight = 12; // Conservative estimate for an award entry
+                
+                if (yPos + estimatedHeight > pdfHeight - 15) {
+                    pdf.addPage();
+                    yPos = margin;
+                }
+                
                 pdf.setFontSize(9);
                 pdf.setFont("helvetica", "bold");
                 pdf.text(award.title, margin, yPos);
@@ -1005,8 +1079,8 @@
                 yPos += 3;
                 
                 // Combine issuer and short description
-                const shortDesc = award.description.length > 80 
-                    ? award.description.substring(0, 80) + '...' 
+                const shortDesc = award.description.length > 70 // Reduced from 80 to 70 
+                    ? award.description.substring(0, 70) + '...' 
                     : award.description;
                 
                 const awardText = `${award.issuer} - ${shortDesc}`;
@@ -1014,7 +1088,7 @@
             });
             
             // Languages and Interests section - compressed format
-            if (yPos > pdfHeight - 20) {
+            if (yPos > pdfHeight - 30) { // Increased from 20 for better safety margin
                 pdf.addPage();
                 yPos = margin;
             }
@@ -1023,6 +1097,15 @@
             
             // Combine languages and interests into single section
             pdf.setFontSize(8.5);
+            
+            // Check available space for additional info
+            const additionalInfoHeight = 15; // Estimate needed space
+            if (yPos + additionalInfoHeight > pdfHeight - 10) {
+                pdf.addPage();
+                yPos = margin;
+                // Re-add the section heading on the new page
+                yPos = addSectionHeading("ADDITIONAL INFORMATION", yPos);
+            }
             
             // Languages on one line
             const langText = `Languages: ${resumeData.languages.map(l => `${l.name} (${l.level})`).join(', ')}`;

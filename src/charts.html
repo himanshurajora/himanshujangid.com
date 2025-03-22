@@ -154,7 +154,7 @@
             color: var(--accent-color);
             border-bottom: 2px solid var(--section-border);
             padding-bottom: 0.25rem;
-            margin-bottom: 1rem;
+            margin-bottom: 1.5rem;
             font-weight: 600;
         }
         
@@ -173,6 +173,17 @@
         }
         
         .text-link:hover {
+            color: var(--accent-hover);
+            text-decoration: underline;
+        }
+        
+        /* General link styling */
+        a:not(.text-link) {
+            color: var(--accent-color);
+            transition: color 0.2s;
+        }
+        
+        a:not(.text-link):hover {
             color: var(--accent-hover);
             text-decoration: underline;
         }
