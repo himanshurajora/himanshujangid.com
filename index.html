@@ -1,0 +1,742 @@
+<!doctype html>
+<html lang="en" class="scroll-smooth">
+
+<head>
+  <meta charset="UTF-8" />
+  <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <!-- SEO -->
+  <title>Himanshu Jangid | Full Stack Software Engineer</title>
+  <meta name="description"
+    content="Himanshu Jangid is a Full Stack Software Engineer specializing in scalable end-to-end solutions, industrial systems, and developer tools. Expert in MEAN/MERN, microservices, and performance optimization." />
+  <link rel="canonical" href="https://himanshujangid.com" />
+  <meta name="keywords"
+    content="Himanshu Jangid, Full Stack Engineer, Software Engineer, Web Developer, MERN Stack, MEAN Stack, Rust, TypeScript, Industrial Systems" />
+  <meta name="author" content="Himanshu Jangid" />
+
+  <!-- Open Graph / Facebook -->
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://himanshujangid.com/" />
+  <meta property="og:title" content="Himanshu Jangid | Full Stack Software Engineer" />
+  <meta property="og:description"
+    content="Crafting scalable end-to-end solutions. Blending frontend finesse with backend strength." />
+  <meta property="og:image" content="https://himanshujangid.com/assets/images/me-2-full.jpg" />
+
+  <!-- Twitter -->
+  <meta property="twitter:card" content="summary_large_image" />
+  <meta property="twitter:url" content="https://himanshujangid.com/" />
+  <meta property="twitter:title" content="Himanshu Jangid | Full Stack Software Engineer" />
+  <meta property="twitter:description"
+    content="Crafting scalable end-to-end solutions. Blending frontend finesse with backend strength." />
+  <meta property="twitter:image" content="https://himanshujangid.com/assets/images/me-2-full.jpg" />
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&family=Space+Grotesk:wght@400;500;600;700&display=swap"
+    rel="stylesheet">
+
+  <!-- JSON-LD Schema -->
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Person",
+      "name": "Himanshu Jangid",
+      "jobTitle": "Full Stack Software Engineer",
+      "url": "https://himanshujangid.com",
+      "sameAs": [
+        "https://github.com/himanshurajora",
+        "https://www.linkedin.com/in/himanshujangid", 
+        "https://instagram.com/himy.in",
+        "https://x.com/himyjangid",
+        "https://www.getprog.ai/profile/50817974"
+      ],
+      "alumniOf": [
+        {
+          "@type": "CollegeOrUniversity",
+          "name": "Dortmund University of Applied Sciences"
+        },
+        {
+          "@type": "CollegeOrUniversity",
+          "name": "Anand International College of Engineering"
+        }
+      ],
+      "knowsAbout": ["Full Stack Development", "MERN Stack", "MEAN Stack", "Microservices", "Industrial Systems", "Rust", "TypeScript"]
+    }
+    </script>
+</head>
+
+<body class="bg-background text-text-primary font-body antialiased selection:bg-accent-violet selection:text-white">
+
+  <!-- Navigation -->
+  <nav class="fixed top-0 w-full z-50 bg-background/80 backdrop-blur-md border-b border-border">
+    <div class="max-w-container mx-auto px-6 h-16 flex items-center justify-between">
+      <a href="#hero" class="font-heading font-bold text-xl tracking-tight hover:text-accent-violet transition-colors">
+        HJ<span class="text-accent-cyan">.</span>
+      </a>
+
+      <div class="hidden md:flex items-center gap-8 text-sm font-medium text-text-muted">
+        <a href="#about" class="hover:text-text-primary transition-colors">About</a>
+        <a href="#experience" class="hover:text-text-primary transition-colors">Experience</a>
+        <a href="#skills" class="hover:text-text-primary transition-colors">Skills</a>
+        <a href="#projects" class="hover:text-text-primary transition-colors">Projects</a>
+        <a href="#contact"
+          class="px-4 py-2 rounded-full border border-border hover:border-accent-violet hover:text-accent-violet transition-all">Contact</a>
+      </div>
+
+      <!-- Mobile Menu Button (Simple implementation) -->
+      <button id="mobile-menu-btn" class="md:hidden text-text-primary p-2" aria-label="Toggle menu">
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+          stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <line x1="3" y1="12" x2="21" y2="12"></line>
+          <line x1="3" y1="6" x2="21" y2="6"></line>
+          <line x1="3" y1="18" x2="21" y2="18"></line>
+        </svg>
+      </button>
+    </div>
+
+    <!-- Mobile Menu -->
+    <div id="mobile-menu"
+      class="hidden md:hidden absolute top-16 left-0 w-full bg-surface border-b border-border p-6 flex flex-col gap-4 shadow-xl">
+      <a href="#about" class="text-text-muted hover:text-text-primary">About</a>
+      <a href="#experience" class="text-text-muted hover:text-text-primary">Experience</a>
+      <a href="#skills" class="text-text-muted hover:text-text-primary">Skills</a>
+      <a href="#projects" class="text-text-muted hover:text-text-primary">Projects</a>
+      <a href="#contact" class="text-accent-violet font-medium">Contact</a>
+    </div>
+  </nav>
+
+  <main class="pt-16">
+
+    <!-- Hero Section -->
+    <section id="hero" class="min-h-[90vh] flex items-center justify-center relative overflow-hidden px-6">
+      <!-- Background Elements -->
+      <div class="absolute top-20 right-0 w-96 h-96 bg-accent-violet/10 rounded-full blur-3xl -z-10 animate-float">
+      </div>
+      <div class="absolute bottom-20 left-0 w-72 h-72 bg-accent-cyan/10 rounded-full blur-3xl -z-10 animate-float"
+        style="animation-delay: 2s;"></div>
+
+      <div class="max-w-container w-full grid md:grid-cols-2 gap-12 items-center">
+        <div class="space-y-6 animate-slide-up">
+          <div
+            class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-surface border border-border text-xs font-mono text-accent-cyan">
+            <span class="relative flex h-2 w-2">
+              <span
+                class="animate-ping absolute inline-flex h-full w-full rounded-full bg-accent-cyan opacity-75"></span>
+              <span class="relative inline-flex rounded-full h-2 w-2 bg-accent-cyan"></span>
+            </span>
+            Available for new opportunities
+          </div>
+
+          <h1 class="font-heading font-bold text-5xl md:text-7xl leading-tight">
+            Himanshu <br />
+            <span class="text-transparent bg-clip-text bg-gradient-to-r from-accent-violet to-accent-cyan">Jangid</span>
+          </h1>
+
+          <p class="text-xl text-text-muted max-w-lg leading-relaxed">
+            Full Stack Software Engineer crafting scalable end-to-end solutions. Blending frontend finesse with backend
+            strength to build robust industrial systems and developer tools.
+          </p>
+
+          <div class="flex flex-wrap gap-4 pt-4">
+            <a href="#projects"
+              class="px-6 py-3 bg-accent-violet hover:bg-accent-violet/90 text-white font-medium rounded-lg transition-all shadow-lg shadow-accent-violet/20">
+              View Projects
+            </a>
+            <a href="https://github.com/himanshurajora" target="_blank" rel="noopener noreferrer"
+              class="px-6 py-3 bg-surface border border-border hover:border-text-muted text-text-primary font-medium rounded-lg transition-all flex items-center gap-2">
+              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none"
+                stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path
+                  d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22">
+                </path>
+              </svg>
+              GitHub
+            </a>
+          </div>
+        </div>
+
+        <div class="relative hidden md:block animate-fade-in">
+          <div class="relative w-80 h-80 mx-auto">
+            <div
+              class="absolute inset-0 bg-gradient-to-tr from-accent-violet to-accent-cyan rounded-2xl rotate-6 opacity-20 blur-lg">
+            </div>
+            <img src="/assets/images/me-2-full.jpg" alt="Himanshu Jangid"
+              class="relative w-full h-full object-cover rounded-2xl border border-border shadow-2xl grayscale hover:grayscale-0 transition-all duration-500" />
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="py-20 px-6 bg-surface/30">
+      <div class="max-w-container mx-auto">
+        <div class="grid md:grid-cols-12 gap-12">
+          <div class="md:col-span-4">
+            <h2 class="font-heading font-bold text-3xl md:text-4xl mb-6">About Me</h2>
+            <div class="h-1 w-20 bg-accent-violet rounded-full"></div>
+          </div>
+          <div class="md:col-span-8 space-y-6 text-text-muted text-lg leading-relaxed">
+            <p>
+              I'm a pragmatic engineer who believes in <span class="text-text-primary font-medium">learning by
+                doing</span>. My journey spans from building industrial monitoring systems for Bosch pumps to creating
+              open-source graphics libraries.
+            </p>
+            <p>
+              I specialize in the <span class="text-text-primary font-medium">MEAN and MERN stacks</span>, with a strong
+              focus on microservices architecture and performance optimization. Whether it's integrating PLCs for
+              real-time data exchange or building DOOH advertising platforms, I enjoy solving complex problems with
+              clean, scalable code.
+            </p>
+            <p>
+              Currently pursuing my Master's in Digital Transformation in Dortmund, Germany, I balance my time between
+              academic research and hands-on experimentation with Rust, game engines, and developer tooling.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Experience Section -->
+    <section id="experience" class="py-20 px-6">
+      <div class="max-w-container mx-auto">
+        <h2 class="font-heading font-bold text-3xl md:text-4xl mb-12 text-center">Work Experience</h2>
+
+        <div
+          class="relative space-y-12 before:absolute before:inset-0 before:ml-5 before:-translate-x-px md:before:mx-auto md:before:translate-x-0 before:h-full before:w-0.5 before:bg-gradient-to-b before:from-transparent before:via-border before:to-transparent">
+
+          <!-- Wisflux -->
+          <div
+            class="relative flex items-center justify-between md:justify-normal md:odd:flex-row-reverse group is-active">
+            <div
+              class="flex items-center justify-center w-10 h-10 rounded-full border border-border bg-surface shadow shrink-0 md:order-1 md:group-odd:-translate-x-1/2 md:group-even:translate-x-1/2 z-10">
+              <div class="w-3 h-3 bg-accent-violet rounded-full"></div>
+            </div>
+            <div
+              class="w-[calc(100%-4rem)] md:w-[calc(50%-2.5rem)] p-6 rounded-xl border border-border bg-surface/50 hover:border-accent-violet/30 transition-all">
+              <div class="flex flex-col md:flex-row md:items-center justify-between mb-2 gap-2">
+                <h3 class="font-heading font-bold text-xl text-text-primary">Wisflux Pvt. Ltd.</h3>
+                <span class="text-xs font-mono text-accent-cyan px-2 py-1 rounded bg-accent-cyan/10">Jul 2023 – Sept
+                  2025</span>
+              </div>
+              <p class="text-sm font-medium text-text-muted mb-4">Full Stack Software Engineer (MEAN & MERN)</p>
+              <ul class="list-disc list-inside space-y-2 text-sm text-text-muted marker:text-accent-violet">
+                <li>Developed software for Bosch pump manufacturing (VE pumps)</li>
+                <li>PLC integration for real-time data exchange</li>
+                <li>Industrial monitoring project (performance-focused)</li>
+                <li>DOOH advertising platforms (DSP + SSP)</li>
+                <li>Microservices architecture; mix of desktop + web technologies</li>
+              </ul>
+              <div class="mt-4 pt-4 border-t border-border/50">
+                <p class="text-xs text-text-muted mb-1">Previously: Full Stack Developer Intern (Apr 2022 – Jul 2023)
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Bazarside -->
+          <div class="relative flex items-center justify-between md:justify-normal md:odd:flex-row-reverse group">
+            <div
+              class="flex items-center justify-center w-10 h-10 rounded-full border border-border bg-surface shadow shrink-0 md:order-1 md:group-odd:-translate-x-1/2 md:group-even:translate-x-1/2 z-10">
+              <div class="w-3 h-3 bg-border rounded-full group-hover:bg-accent-cyan transition-colors"></div>
+            </div>
+            <div
+              class="w-[calc(100%-4rem)] md:w-[calc(50%-2.5rem)] p-6 rounded-xl border border-border bg-surface/50 hover:border-border/80 transition-all">
+              <div class="flex flex-col md:flex-row md:items-center justify-between mb-2 gap-2">
+                <h3 class="font-heading font-bold text-lg text-text-primary">Bazarside (Remote)</h3>
+                <span class="text-xs font-mono text-text-muted px-2 py-1 rounded bg-surface border border-border">Jan
+                  2022 – Feb 2022</span>
+              </div>
+              <p class="text-sm font-medium text-text-muted mb-4">Frontend Engineer Intern</p>
+              <ul class="list-disc list-inside space-y-2 text-sm text-text-muted marker:text-accent-cyan">
+                <li>HTML, CSS, Bootstrap</li>
+                <li>Integrated frontend with Django backend</li>
+              </ul>
+            </div>
+          </div>
+
+          <!-- Tribal Connect -->
+          <div class="relative flex items-center justify-between md:justify-normal md:odd:flex-row-reverse group">
+            <div
+              class="flex items-center justify-center w-10 h-10 rounded-full border border-border bg-surface shadow shrink-0 md:order-1 md:group-odd:-translate-x-1/2 md:group-even:translate-x-1/2 z-10">
+              <div class="w-3 h-3 bg-border rounded-full group-hover:bg-accent-cyan transition-colors"></div>
+            </div>
+            <div
+              class="w-[calc(100%-4rem)] md:w-[calc(50%-2.5rem)] p-6 rounded-xl border border-border bg-surface/50 hover:border-border/80 transition-all">
+              <div class="flex flex-col md:flex-row md:items-center justify-between mb-2 gap-2">
+                <h3 class="font-heading font-bold text-lg text-text-primary">Tribal Connect</h3>
+                <span class="text-xs font-mono text-text-muted px-2 py-1 rounded bg-surface border border-border">Oct
+                  2021 – Jan 2022</span>
+              </div>
+              <p class="text-sm font-medium text-text-muted mb-4">Web Developer Intern</p>
+              <ul class="list-disc list-inside space-y-2 text-sm text-text-muted marker:text-accent-cyan">
+                <li>PHP, JavaScript, HTML5, CSS</li>
+                <li>Led a team of five; delivered ahead of schedule</li>
+              </ul>
+            </div>
+          </div>
+
+          <!-- LetsGrowMore -->
+          <div class="relative flex items-center justify-between md:justify-normal md:odd:flex-row-reverse group">
+            <div
+              class="flex items-center justify-center w-10 h-10 rounded-full border border-border bg-surface shadow shrink-0 md:order-1 md:group-odd:-translate-x-1/2 md:group-even:translate-x-1/2 z-10">
+              <div class="w-3 h-3 bg-border rounded-full group-hover:bg-accent-cyan transition-colors"></div>
+            </div>
+            <div
+              class="w-[calc(100%-4rem)] md:w-[calc(50%-2.5rem)] p-6 rounded-xl border border-border bg-surface/50 hover:border-border/80 transition-all">
+              <div class="flex flex-col md:flex-row md:items-center justify-between mb-2 gap-2">
+                <h3 class="font-heading font-bold text-lg text-text-primary">LetsGrowMore</h3>
+                <span class="text-xs font-mono text-text-muted px-2 py-1 rounded bg-surface border border-border">Sep
+                  2021 – Oct 2021</span>
+              </div>
+              <p class="text-sm font-medium text-text-muted mb-4">Web Development Intern</p>
+              <ul class="list-disc list-inside space-y-2 text-sm text-text-muted marker:text-accent-cyan">
+                <li>React.js + Firebase</li>
+                <li>Real-time sync, authentication, cloud storage</li>
+              </ul>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section id="skills" class="py-20 px-6 bg-surface/30">
+      <div class="max-w-container mx-auto">
+        <h2 class="font-heading font-bold text-3xl md:text-4xl mb-12 text-center">Technical Skills</h2>
+
+        <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+          <!-- Languages -->
+          <div class="p-6 rounded-xl border border-border bg-background hover:border-accent-violet/30 transition-all">
+            <h3 class="font-heading font-bold text-xl mb-4 text-accent-violet">Languages</h3>
+            <div class="flex flex-wrap gap-2">
+              <span
+                class="px-3 py-1 rounded-full bg-surface border border-border text-sm text-text-muted">JavaScript</span>
+              <span
+                class="px-3 py-1 rounded-full bg-surface border border-border text-sm text-text-muted">TypeScript</span>
+              <span class="px-3 py-1 rounded-full bg-surface border border-border text-sm text-text-muted">Python</span>
+              <span class="px-3 py-1 rounded-full bg-surface border border-border text-sm text-text-muted">Rust</span>
+              <span class="px-3 py-1 rounded-full bg-surface border border-border text-sm text-text-muted">C/C++</span>
+              <span class="px-3 py-1 rounded-full bg-surface border border-border text-sm text-text-muted">PHP</span>
+              <span class="px-3 py-1 rounded-full bg-surface border border-border text-sm text-text-muted">C#</span>
+            </div>
+          </div>
+
+          <!-- Frontend -->
+          <div class="p-6 rounded-xl border border-border bg-background hover:border-accent-cyan/30 transition-all">
+            <h3 class="font-heading font-bold text-xl mb-4 text-accent-cyan">Frontend</h3>
+            <div class="flex flex-wrap gap-2">
+              <span
+                class="px-3 py-1 rounded-full bg-surface border border-border text-sm text-text-muted">HTML5/CSS3</span>
+              <span
+                class="px-3 py-1 rounded-full bg-surface border border-border text-sm text-text-muted">Tailwind</span>
+              <span class="px-3 py-1 rounded-full bg-surface border border-border text-sm text-text-muted">Canvas
+                API</span>
+              <span class="px-3 py-1 rounded-full bg-surface border border-border text-sm text-text-muted">React</span>
+              <span
+                class="px-3 py-1 rounded-full bg-surface border border-border text-sm text-text-muted">Angular</span>
+            </div>
+          </div>
+
+          <!-- Backend -->
+          <div class="p-6 rounded-xl border border-border bg-background hover:border-accent-violet/30 transition-all">
+            <h3 class="font-heading font-bold text-xl mb-4 text-accent-violet">Backend</h3>
+            <div class="flex flex-wrap gap-2">
+              <span
+                class="px-3 py-1 rounded-full bg-surface border border-border text-sm text-text-muted">Node.js</span>
+              <span
+                class="px-3 py-1 rounded-full bg-surface border border-border text-sm text-text-muted">ExpressJS</span>
+              <span
+                class="px-3 py-1 rounded-full bg-surface border border-border text-sm text-text-muted">PostgreSQL</span>
+              <span class="px-3 py-1 rounded-full bg-surface border border-border text-sm text-text-muted">MySQL</span>
+              <span
+                class="px-3 py-1 rounded-full bg-surface border border-border text-sm text-text-muted">MongoDB</span>
+            </div>
+          </div>
+
+          <!-- Cloud/DevOps -->
+          <div class="p-6 rounded-xl border border-border bg-background hover:border-accent-cyan/30 transition-all">
+            <h3 class="font-heading font-bold text-xl mb-4 text-accent-cyan">Cloud & DevOps</h3>
+            <div class="flex flex-wrap gap-2">
+              <span class="px-3 py-1 rounded-full bg-surface border border-border text-sm text-text-muted">Docker</span>
+              <span
+                class="px-3 py-1 rounded-full bg-surface border border-border text-sm text-text-muted">Kubernetes</span>
+              <span class="px-3 py-1 rounded-full bg-surface border border-border text-sm text-text-muted">Google
+                Cloud</span>
+              <span class="px-3 py-1 rounded-full bg-surface border border-border text-sm text-text-muted">Linux
+                (Arch)</span>
+              <span
+                class="px-3 py-1 rounded-full bg-surface border border-border text-sm text-text-muted">Git/GitHub</span>
+            </div>
+          </div>
+
+          <!-- Tooling -->
+          <div class="p-6 rounded-xl border border-border bg-background hover:border-accent-violet/30 transition-all">
+            <h3 class="font-heading font-bold text-xl mb-4 text-accent-violet">Tooling & Others</h3>
+            <div class="flex flex-wrap gap-2">
+              <span
+                class="px-3 py-1 rounded-full bg-surface border border-border text-sm text-text-muted">Electron</span>
+              <span class="px-3 py-1 rounded-full bg-surface border border-border text-sm text-text-muted">Prisma</span>
+              <span
+                class="px-3 py-1 rounded-full bg-surface border border-border text-sm text-text-muted">Sequelize</span>
+              <span
+                class="px-3 py-1 rounded-full bg-surface border border-border text-sm text-text-muted">PocketBase</span>
+              <span
+                class="px-3 py-1 rounded-full bg-surface border border-border text-sm text-text-muted">Firebase</span>
+              <span class="px-3 py-1 rounded-full bg-surface border border-border text-sm text-text-muted">Bash</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section id="projects" class="py-20 px-6">
+      <div class="max-w-container mx-auto">
+        <h2 class="font-heading font-bold text-3xl md:text-4xl mb-12 text-center">Featured Projects</h2>
+
+        <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+
+          <!-- Minipoint -->
+          <div
+            class="group p-6 rounded-xl border border-border bg-surface/50 hover:bg-surface hover:border-accent-violet/50 transition-all flex flex-col h-full">
+            <div class="flex justify-between items-start mb-4">
+              <h3
+                class="font-heading font-bold text-xl text-text-primary group-hover:text-accent-violet transition-colors">
+                Minipoint</h3>
+              <a href="https://github.com/himanshurajora" target="_blank"
+                class="text-text-muted hover:text-text-primary"><svg xmlns="http://www.w3.org/2000/svg" width="20"
+                  height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                  stroke-linecap="round" stroke-linejoin="round">
+                  <path
+                    d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22">
+                  </path>
+                </svg></a>
+            </div>
+            <p class="text-text-muted text-sm mb-4 flex-grow">Open-source graphics library for beginners: drawing,
+              input, tools, debugging, simulations.</p>
+            <div class="flex flex-wrap gap-2 mt-auto">
+              <span class="text-xs font-mono text-accent-cyan bg-accent-cyan/10 px-2 py-1 rounded">Graphics</span>
+              <span class="text-xs font-mono text-accent-cyan bg-accent-cyan/10 px-2 py-1 rounded">Library</span>
+            </div>
+          </div>
+
+          <!-- Process Killer TUI -->
+          <div
+            class="group p-6 rounded-xl border border-border bg-surface/50 hover:bg-surface hover:border-accent-violet/50 transition-all flex flex-col h-full">
+            <div class="flex justify-between items-start mb-4">
+              <h3
+                class="font-heading font-bold text-xl text-text-primary group-hover:text-accent-violet transition-colors">
+                Process Killer TUI</h3>
+              <a href="https://github.com/himanshurajora" target="_blank"
+                class="text-text-muted hover:text-text-primary"><svg xmlns="http://www.w3.org/2000/svg" width="20"
+                  height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                  stroke-linecap="round" stroke-linejoin="round">
+                  <path
+                    d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22">
+                  </path>
+                </svg></a>
+            </div>
+            <p class="text-text-muted text-sm mb-4 flex-grow">Rust terminal UI for managing and terminating system
+              processes efficiently.</p>
+            <div class="flex flex-wrap gap-2 mt-auto">
+              <span class="text-xs font-mono text-accent-cyan bg-accent-cyan/10 px-2 py-1 rounded">Rust</span>
+              <span class="text-xs font-mono text-accent-cyan bg-accent-cyan/10 px-2 py-1 rounded">TUI</span>
+            </div>
+          </div>
+
+          <!-- PocketBase to Types -->
+          <div
+            class="group p-6 rounded-xl border border-border bg-surface/50 hover:bg-surface hover:border-accent-violet/50 transition-all flex flex-col h-full">
+            <div class="flex justify-between items-start mb-4">
+              <h3
+                class="font-heading font-bold text-xl text-text-primary group-hover:text-accent-violet transition-colors">
+                PocketBase Types</h3>
+              <a href="https://github.com/himanshurajora" target="_blank"
+                class="text-text-muted hover:text-text-primary"><svg xmlns="http://www.w3.org/2000/svg" width="20"
+                  height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                  stroke-linecap="round" stroke-linejoin="round">
+                  <path
+                    d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22">
+                  </path>
+                </svg></a>
+            </div>
+            <p class="text-text-muted text-sm mb-4 flex-grow">NPM package that generates TypeScript types from
+              PocketBase schemas automatically.</p>
+            <div class="flex flex-wrap gap-2 mt-auto">
+              <span class="text-xs font-mono text-accent-cyan bg-accent-cyan/10 px-2 py-1 rounded">NPM</span>
+              <span class="text-xs font-mono text-accent-cyan bg-accent-cyan/10 px-2 py-1 rounded">TypeScript</span>
+            </div>
+          </div>
+
+          <!-- Sword Engine -->
+          <div
+            class="group p-6 rounded-xl border border-border bg-surface/50 hover:bg-surface hover:border-accent-violet/50 transition-all flex flex-col h-full">
+            <div class="flex justify-between items-start mb-4">
+              <h3
+                class="font-heading font-bold text-xl text-text-primary group-hover:text-accent-violet transition-colors">
+                Sword Engine</h3>
+              <a href="https://github.com/himanshurajora" target="_blank"
+                class="text-text-muted hover:text-text-primary"><svg xmlns="http://www.w3.org/2000/svg" width="20"
+                  height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                  stroke-linecap="round" stroke-linejoin="round">
+                  <path
+                    d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22">
+                  </path>
+                </svg></a>
+            </div>
+            <p class="text-text-muted text-sm mb-4 flex-grow">Lightweight JS engine for 2D HTML canvas; vectors,
+              particles, collisions.</p>
+            <div class="flex flex-wrap gap-2 mt-auto">
+              <span class="text-xs font-mono text-accent-cyan bg-accent-cyan/10 px-2 py-1 rounded">Game Dev</span>
+              <span class="text-xs font-mono text-accent-cyan bg-accent-cyan/10 px-2 py-1 rounded">Canvas</span>
+            </div>
+          </div>
+
+          <!-- TyperX -->
+          <div
+            class="group p-6 rounded-xl border border-border bg-surface/50 hover:bg-surface hover:border-accent-violet/50 transition-all flex flex-col h-full">
+            <div class="flex justify-between items-start mb-4">
+              <h3
+                class="font-heading font-bold text-xl text-text-primary group-hover:text-accent-violet transition-colors">
+                TyperX</h3>
+              <a href="https://github.com/himanshurajora" target="_blank"
+                class="text-text-muted hover:text-text-primary"><svg xmlns="http://www.w3.org/2000/svg" width="20"
+                  height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                  stroke-linecap="round" stroke-linejoin="round">
+                  <path
+                    d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22">
+                  </path>
+                </svg></a>
+            </div>
+            <p class="text-text-muted text-sm mb-4 flex-grow">React + TypeScript typing practice website focused on
+              programming languages.</p>
+            <div class="flex flex-wrap gap-2 mt-auto">
+              <span class="text-xs font-mono text-accent-cyan bg-accent-cyan/10 px-2 py-1 rounded">React</span>
+              <span class="text-xs font-mono text-accent-cyan bg-accent-cyan/10 px-2 py-1 rounded">TypeScript</span>
+            </div>
+          </div>
+
+          <!-- ShareMyText -->
+          <div
+            class="group p-6 rounded-xl border border-border bg-surface/50 hover:bg-surface hover:border-accent-violet/50 transition-all flex flex-col h-full">
+            <div class="flex justify-between items-start mb-4">
+              <h3
+                class="font-heading font-bold text-xl text-text-primary group-hover:text-accent-violet transition-colors">
+                ShareMyText</h3>
+              <a href="https://github.com/himanshurajora" target="_blank"
+                class="text-text-muted hover:text-text-primary"><svg xmlns="http://www.w3.org/2000/svg" width="20"
+                  height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                  stroke-linecap="round" stroke-linejoin="round">
+                  <path
+                    d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22">
+                  </path>
+                </svg></a>
+            </div>
+            <p class="text-text-muted text-sm mb-4 flex-grow">End-to-end encrypted text sharing; React + TypeScript +
+              Firebase.</p>
+            <div class="flex flex-wrap gap-2 mt-auto">
+              <span class="text-xs font-mono text-accent-cyan bg-accent-cyan/10 px-2 py-1 rounded">Security</span>
+              <span class="text-xs font-mono text-accent-cyan bg-accent-cyan/10 px-2 py-1 rounded">Firebase</span>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- Open Source & Stats Section -->
+    <section id="opensource" class="py-20 px-6 bg-surface/30">
+      <div class="max-w-container mx-auto">
+        <h2 class="font-heading font-bold text-3xl md:text-4xl mb-12 text-center">Open Source & Stats</h2>
+
+        <div class="grid md:grid-cols-2 gap-12">
+          <!-- GitHub Stats -->
+          <div id="github-stats" class="space-y-6">
+            <h3 class="font-heading font-bold text-xl text-text-primary">GitHub Activity</h3>
+            <div class="p-6 rounded-xl border border-border bg-background">
+              <div id="stats-container" class="flex flex-col gap-4">
+                <!-- Stats will be injected here by JS -->
+                <div class="animate-pulse space-y-4">
+                  <div class="h-4 bg-surface rounded w-3/4"></div>
+                  <div class="h-4 bg-surface rounded w-1/2"></div>
+                  <div class="h-32 bg-surface rounded w-full"></div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Pinned Repos -->
+          <div class="space-y-6">
+            <h3 class="font-heading font-bold text-xl text-text-primary">Latest Repositories</h3>
+            <div id="repos-container" class="space-y-4">
+              <!-- Repos will be injected here by JS -->
+              <div class="animate-pulse space-y-4">
+                <div class="h-24 bg-background rounded-lg border border-border"></div>
+                <div class="h-24 bg-background rounded-lg border border-border"></div>
+                <div class="h-24 bg-background rounded-lg border border-border"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- GetProg Section -->
+    <section id="getprog" class="py-20 px-6">
+      <div class="max-w-container mx-auto">
+        <div
+          class="p-8 md:p-12 rounded-2xl bg-gradient-to-br from-surface to-background border border-border relative overflow-hidden">
+          <div class="absolute top-0 right-0 w-64 h-64 bg-accent-violet/10 rounded-full blur-3xl -z-10"></div>
+
+          <div class="flex flex-col md:flex-row items-center justify-between gap-8">
+            <div class="space-y-4 max-w-2xl">
+              <h2 class="font-heading font-bold text-3xl text-text-primary">Connect on GetProg</h2>
+              <p class="text-text-muted text-lg">
+                I'm active on GetProg, collaborating with other developers and sharing insights on system design and
+                engineering. Check out my profile for more technical discussions.
+              </p>
+            </div>
+            <a href="https://www.getprog.ai/profile/50817974" target="_blank"
+              class="px-8 py-4 bg-accent-cyan/10 hover:bg-accent-cyan/20 text-accent-cyan border border-accent-cyan/50 font-bold rounded-lg transition-all whitespace-nowrap">
+              View Profile
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Education & Certifications -->
+    <section id="certifications" class="py-20 px-6 bg-surface/30">
+      <div class="max-w-container mx-auto">
+        <div class="grid md:grid-cols-2 gap-12">
+
+          <!-- Education -->
+          <div>
+            <h2 class="font-heading font-bold text-2xl mb-8 flex items-center gap-3">
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                class="text-accent-violet">
+                <path d="M22 10v6M2 10l10-5 10 5-10 5z" />
+                <path d="M6 12v5c3 3 9 3 12 0v-5" />
+              </svg>
+              Education
+            </h2>
+            <div class="space-y-8">
+              <div class="relative pl-6 border-l-2 border-border">
+                <div class="absolute -left-[5px] top-0 w-2.5 h-2.5 rounded-full bg-accent-violet"></div>
+                <h3 class="font-bold text-lg text-text-primary">Master’s in Digital Transformation</h3>
+                <p class="text-sm text-accent-cyan mb-1">Fachhochschule Dortmund, Germany</p>
+                <p class="text-xs text-text-muted">Sept 2025 – Present</p>
+              </div>
+              <div class="relative pl-6 border-l-2 border-border">
+                <div class="absolute -left-[5px] top-0 w-2.5 h-2.5 rounded-full bg-border"></div>
+                <h3 class="font-bold text-lg text-text-primary">B.Tech Computer Science Engineering</h3>
+                <p class="text-sm text-accent-cyan mb-1">Anand International College of Engineering</p>
+                <p class="text-xs text-text-muted">Aug 2019 – Jul 2023 • CGPA: 8.79/10</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Certifications -->
+          <div>
+            <h2 class="font-heading font-bold text-2xl mb-8 flex items-center gap-3">
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                class="text-accent-cyan">
+                <path d="M12 15l-2 5l9-9l-9 9l2-5" />
+              </svg>
+              Certifications
+            </h2>
+            <div class="grid gap-4">
+              <div class="p-4 rounded-lg border border-border bg-background hover:border-accent-cyan/30 transition-all">
+                <h3 class="font-medium text-text-primary">Algorithmic Toolbox</h3>
+                <p class="text-xs text-text-muted">UC San Diego (Coursera) • Feb 2022</p>
+              </div>
+              <div class="p-4 rounded-lg border border-border bg-background hover:border-accent-cyan/30 transition-all">
+                <h3 class="font-medium text-text-primary">Introduction to Machine Learning</h3>
+                <p class="text-xs text-text-muted">Duke University (Coursera) • May 2021</p>
+              </div>
+              <div class="p-4 rounded-lg border border-border bg-background hover:border-accent-cyan/30 transition-all">
+                <h3 class="font-medium text-text-primary">Python for Data Science</h3>
+                <p class="text-xs text-text-muted">IBM • Apr 2021</p>
+              </div>
+              <div class="p-4 rounded-lg border border-border bg-background hover:border-accent-cyan/30 transition-all">
+                <h3 class="font-medium text-text-primary">Winner — Soft Tech Hack Hackathon</h3>
+                <p class="text-xs text-text-muted">Rajasthan Technical University • Jan 2021</p>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="py-20 px-6">
+      <div class="max-w-container mx-auto text-center">
+        <h2 class="font-heading font-bold text-3xl md:text-4xl mb-6">Let's Build Something Great</h2>
+        <p class="text-text-muted text-lg max-w-2xl mx-auto mb-12">
+          I'm always open to discussing new projects, creative ideas, or opportunities to be part of your visions.
+        </p>
+
+        <div class="flex flex-col items-center gap-8">
+          <a href="mailto:himanshujhar@gmail.com"
+            class="text-2xl md:text-4xl font-bold text-accent-violet hover:text-accent-cyan transition-colors break-all">
+            himanshujhar@gmail.com
+          </a>
+
+          <div class="flex gap-6 mt-4">
+            <a href="https://github.com/himanshurajora" target="_blank" aria-label="GitHub"
+              class="p-3 rounded-full bg-surface border border-border hover:border-accent-violet hover:text-accent-violet transition-all">
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path
+                  d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22">
+                </path>
+              </svg>
+            </a>
+            <a href="#" target="_blank" aria-label="LinkedIn"
+              class="p-3 rounded-full bg-surface border border-border hover:border-accent-violet hover:text-accent-violet transition-all">
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path>
+                <rect x="2" y="9" width="4" height="12"></rect>
+                <circle cx="4" cy="4" r="2"></circle>
+              </svg>
+            </a>
+            <a href="https://x.com/himyjangid" target="_blank" aria-label="X (Twitter)"
+              class="p-3 rounded-full bg-surface border border-border hover:border-accent-violet hover:text-accent-violet transition-all">
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M4 4l11.733 16h4.267l-11.733 -16z" />
+                <path d="M4 20l6.768 -6.768m2.46 -2.46l6.772 -6.772" />
+              </svg>
+            </a>
+            <a href="https://instagram.com/himy.in" target="_blank" aria-label="Instagram"
+              class="p-3 rounded-full bg-surface border border-border hover:border-accent-violet hover:text-accent-violet transition-all">
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect>
+                <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path>
+                <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line>
+              </svg>
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="py-8 border-t border-border bg-surface text-center text-sm text-text-muted">
+    <p>&copy; 2025 Himanshu Jangid. All rights reserved.</p>
+    <p class="mt-2 text-xs opacity-50">Designed & Built with Vite + Tailwind</p>
+  </footer>
+
+  <script type="module" src="/src/main.js"></script>
+</body>
+
+</html>

@@ -1,129 +1,78 @@
-# Himanshu Jangid - Personal Portfolio Website
+# Himanshu Jangid - Personal Portfolio
 
-This is the personal portfolio website of Himanshu Jangid, showcasing professional experience, skills, projects, and GitHub activity statistics.
+A premium, single-page personal portfolio for Himanshu Jangid, built with performance and scalability in mind.
 
-## Project Overview
+## Tech Stack
 
-The website consists of two main pages:
-- A professional resume/portfolio page (`index.html`)
-- A GitHub statistics visualization page (`charts.html`)
-
-Both pages feature responsive design with dark/light mode toggle functionality.
-
-## Technology Stack
-
-- **Frontend**: HTML5, CSS3, JavaScript (ES6+)
-- **CSS Framework**: Tailwind CSS for utility-first styling
-- **Build Tool**: Gulp.js for task automation
-- **External Libraries**:
-  - jsPDF & html2canvas for PDF resume generation
-  - particles.js for background effects
-  - FontAwesome for icons
-  - Google Fonts for typography
-
-## Project Structure
-
-The website is built using a simple yet effective structure:
-
-```
-himanshujangid.com/
-├── src/                  # Source files
-│   ├── index.html        # Main resume/portfolio page
-│   └── charts.html       # GitHub statistics page
-├── assets/               # Static assets
-│   └── images/           # Image files
-├── dist/                 # Generated output (build folder)
-├── gulpfile.js           # Gulp build configuration
-├── package.json          # Project dependencies
-└── README.md             # Project documentation
-```
+- **Build Tool:** Vite
+- **Styling:** Tailwind CSS + PostCSS
+- **Logic:** Vanilla JavaScript (ES Modules)
+- **Icons:** SVG (Feather Icons style)
+- **Fonts:** Space Grotesk (Headings), Inter (Body), JetBrains Mono (Code)
 
 ## Features
 
-- **Responsive Design**: Fully responsive layout that works on all devices
-- **Theme Toggle**: Dynamic light/dark mode with system preference detection
-- **Dynamic Content**: JavaScript-populated content from structured data
-- **GitHub Integration**: 
-  - Live GitHub repository display
-  - Contribution activity graphs
-  - Language statistics
-  - GitHub trophies and achievements
-- **Resume Features**:
-  - ATS-friendly PDF generation
-  - Interactive skill visualization
-  - Structured education and experience sections
-- **Performance Optimized**:
-  - Minified HTML, CSS, and JavaScript
-  - Optimized image loading
-  - Efficient DOM rendering
-- **SEO Optimized**:
-  - Structured data (JSON-LD)
-  - Proper meta tags
-  - Semantic HTML structure
-  - Automatically generated sitemap
+- **Single Page Architecture:** Smooth scrolling navigation with active section indicators.
+- **GitHub Integration:** Fetches public repositories and generates stats (language distribution, total stars) using the GitHub REST API. Includes local caching to handle rate limits.
+- **Responsive Design:** Mobile-first approach with a custom mobile menu.
+- **SEO Optimized:** Meta tags, OpenGraph, Twitter Cards, and JSON-LD Schema for "Himanshu Jangid".
+- **Privacy Focused:** No phone numbers or sensitive personal data exposed.
 
-## Development
+## Getting Started
 
 ### Prerequisites
 
-- Node.js (v14 or higher)
-- npm (comes with Node.js)
+- Node.js (v16+ recommended)
+- npm
 
-### Setup
+### Installation
 
-1. Clone the repository
+1. Clone the repository:
+   ```bash
+   git clone <repo-url>
+   cd himanshujangid.com
+   ```
+
 2. Install dependencies:
+   ```bash
+   npm install
+   ```
+
+### Development
+
+Start the development server:
 
 ```bash
-npm install
+npm run dev
 ```
 
-### Development Workflow
+Visit `http://localhost:5173` (or the port shown in the terminal).
 
-Start the development server with live reload:
+### Build
+
+Build the project for production:
 
 ```bash
-npx gulp watch
+npm run build
 ```
 
-This will start a local server at http://localhost:3000 that refreshes when you make changes.
+The output will be in the `dist` directory.
 
-### Building for Production
+### Preview
 
-Build the site for production:
+Preview the production build locally:
 
 ```bash
-npx gulp build
+npm run preview
 ```
-
-The output will be in the `dist/` directory, ready for deployment.
-
-## Gulp Tasks
-
-The project uses Gulp for automating various development tasks:
-
-- `html`: Process HTML files with partials and minification
-- `css`: Minify CSS files
-- `js`: Minify JavaScript files
-- `assets`: Copy assets to dist folder
-- `generateSitemap`: Create sitemap.xml for SEO
-- `copyFiles`: Copy configuration files like robots.txt
-- `build`: Run all production build tasks
-- `watch`: Start development server with live reload
-
-## Key Files
-
-- `index.html`: Main portfolio and resume page with dynamic content generation
-- `charts.html`: GitHub statistics visualization with API integration
-- `gulpfile.js`: Build configuration and task automation
 
 ## Deployment
 
-The website is designed to be deployed to any static hosting service. Simply:
+This project is a static site and can be deployed to any static hosting provider (Vercel, Netlify, GitHub Pages, Hostinger, etc.).
 
-1. Run `npx gulp build`
-2. Copy the contents of the `dist/` directory to your web server or hosting service
+1. Run `npm run build`.
+2. Upload the contents of the `dist` folder to your hosting provider's public directory (e.g., `public_html` or root).
 
-## License
+## Privacy & Compliance
 
-This project is licensed under the ISC License. 
+**Confirmed:** No phone number exists anywhere in this website (including metadata, schema, code comments, or output).
